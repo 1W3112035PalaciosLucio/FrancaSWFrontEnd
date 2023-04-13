@@ -4,6 +4,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { JwtModule } from '@auth0/angular-jwt';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -72,7 +74,8 @@ import { ListadoProveedorComponent } from './Paginas/LadoAdmin/Proveedores/lista
     ReactiveFormsModule,
     HttpClientModule,
     JwtModule,
-    NgxSpinnerModule.forRoot({ type: 'ball-atom' })
+    NgxSpinnerModule.forRoot({ type: 'ball-atom' }),
+    BrowserAnimationsModule 
 
   ],
   providers: [LoginService, ProductosService],
