@@ -1,1 +1,127 @@
 /* You can add global styles to this file, and also import other style files */
+.BackgroundAzul {
+    background-color: #162B4E;
+}
+
+.TextWhite {
+    color: #fff
+}
+
+.TextAzul {
+    color: #162B4E;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+.fLight {
+    font-weight: 200;
+}
+
+.btnAzul {
+    background-color: #162B4E;
+    color: #fff;
+    border-color: #162B4E
+}
+
+.btnAzul:hover {
+    background-color: #5192FF;
+    color: #fff;
+    border-color: #5192FF
+}
+
+input.ng-touched.ng-dirty.ng-invalid {
+    border-color: #dc3545;
+    box-shadow: 0px 0px 1.5px 0px #dc3545;
+
+}
+
+select.ng-touched.ng-dirty.ng-invalid {
+    border-color: #dc3545;
+    box-shadow: 0px 0px 1.5px 0px #dc3545;
+
+}
+
+input.ng-valid {
+    border-color: #198754;
+    box-shadow: 0px 0px 1.5px 0px #198754;
+}
+
+select.ng-valid {
+    border-color: #198754;
+    box-shadow: 0px 0px 1.5px 0px #198754;
+}
+
+.ff {
+    background-color: #1d3763;
+}
+
+.mtt {
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.icono {
+    color: #ffffff;
+    font-size: 25px;
+}
+
+.icono:hover {
+
+    color: #5192FF;
+}
+
+.btnCeleste {
+    background-color: #457ddd;
+    color: #fff;
+    border-color: #457ddd
+}
+
+.btnCeleste:hover {
+    background-color: #5192FF;
+    color: #fff;
+    border-color: #5192FF
+}
+
+.invalidColor {
+    color: #dc3545
+}
+
+.rojo {
+    color: #dc3545
+}
+
+.rojo:hover {
+    color: #dc3545
+}
+
+.iconoLista {
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.iconoLista:hover {
+
+    color: #5192FF;
+}
+
+.iconoListaD {
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.iconoListaD:hover {
+
+    color: #dc3545;
+}
+
+.iconoListaA {
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.iconoListaA:hover {
+
+    color: #198754;
+}

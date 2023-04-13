@@ -1,0 +1,46 @@
+<div class="container TextWhite rounded-2 ff mtt">
+  <h1 class="text-center py-2">Productos</h1>
+  <hr />
+  <label class="mb-2" for="">Buscar</label>
+  <div class="row py-2 mtc-5 mb-2" style="text-align: center">
+    <div class="col-8 col-sm-8 col-md-8 col-lg-8">
+      <input type="text" class="form-control inputColor" [(ngModel)]="filtro" (keyup)="filtrarTabla()" />
+    </div>
+    <div class="col-4 col-sm-4 col-md-4 col-lg-4 text-center">
+      <button class="btn btnCeleste" (click)="agregar()">Nuevo</button>
+    </div>
+  </div>
+  <hr />
+  <div class="table-responsive">
+    <table class="table table-responsive mtc-5 TextWhite">
+      <thead class="table mtc-5 table-sm TextWhite">
+        <tr>
+          <th scope="col">Código</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Color</th>
+          <th scope="col">Diseño</th>
+          <th scope="col">Medida</th>
+          <th scope="col">Tipo</th>
+          <th scope="col">Precio</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let prodc of listado">
+          <td>{{ prodc.codigo }}</td>
+          <td>{{ prodc.nombre }}</td>
+          <td>{{ prodc.colorProducto}}</td>
+          <td>{{ prodc.disenioProducto}}</td>
+          <td>{{ prodc.medidaProducto}}</td>
+          <td>{{ prodc.tipoProducto}}</td>
+          <td>${{ prodc.precioBocha }}</td>
+          <td>
+            <i type="button" class="fa-solid fa-pencil me-3 iconoLista" (click)="Modificar(prodc.idProducto)"></i>
+            <i type="button" class="fa-solid fa-ban iconoListaD" *ngIf="prodc.activo" (click)="Desactivar(prodc.codigo)"></i>
+            <i type="button" class="fa-solid fa-check iconoListaA" *ngIf="!prodc.activo" (click)="Activar(prodc.codigo)"></i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

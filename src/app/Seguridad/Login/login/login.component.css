@@ -1,0 +1,24 @@
+.flechaAzul {
+    color: #4880e1;
+}
+.flechaAzul:hover {
+    color: #5192FF;
+}
+.bordeAzul{
+    box-shadow: 0px 0px 1.5px 0px #162B4E;
+}
+.letraBold{
+    font-weight: 700;
+}
+
+.btnAzul {
+    background-color: #4880e1;
+    color: #fff;
+    border-color: #4880e1
+}
+
+.btnAzul:hover {
+    background-color: #5192FF;
+    color: #fff;
+    border-color: #5192FF
+}

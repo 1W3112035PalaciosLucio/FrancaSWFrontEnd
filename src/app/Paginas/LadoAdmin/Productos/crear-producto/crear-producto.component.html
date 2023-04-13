@@ -1,0 +1,134 @@
+<div class="container TextWhite mtt ff shadow-lg rounded-2">
+    <form #f="ngForm" (ngSubmit)="registrarProducto(f)" class="container">
+        <h1 class="text-center py-3">Registrar Producto</h1>
+        <hr />
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-3">
+                <div class="form-group">
+                    <label for="">Código</label>
+                    <input type="text" class="form-control" [(ngModel)]="producto.codigo" #codigo="ngModel"
+                        name="codigo" required placeholder="Ingrese el codigo" pattern="[0-9]*" />
+                    <div *ngIf="codigo.invalid && (codigo.dirty || codigo.touched)">
+                        <small class="text-danger">Por favor ingrese un código válido</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-3">
+                <div class="form-group">
+                    <label for="">Nombre</label>
+                    <input type="text" class="form-control" [(ngModel)]="producto.nombre" #nombre="ngModel"
+                        name="nombre" required placeholder="Ingrese el nombre" pattern="[a-zA-Z\s]+" />
+                    <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+                        <small class="text-danger">Por favor ingrese un nombre válido (solo letras y espacios)</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-3">
+                <div class="form-group">
+                    <label for="tipo">Tipo de Producto</label>
+                    <select name="tipo" id="tipo" class="form-select" [(ngModel)]="producto.idTipoProducto"
+                        #idTipoProducto="ngModel" required aria-label="Seleccione el tipo de producto"
+                        [ngClass]="{'ng-invalid': idTipoProducto.invalid && idTipoProducto.touched && !flag}">
+                        <option value="null" selected disabled>Seleccione el tipo de producto</option>
+                        <option value="{{tipoP.idTipoProducto}}" *ngFor="let tipoP of tipo">
+                            {{tipoP.descripcion}}
+                        </option>
+                    </select>
+                    <div *ngIf="idTipoProducto.invalid && idTipoProducto.touched && !flag" class="text-danger">
+                        Debe seleccionar un tipo de producto.
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-3">
+                <div class="form-group">
+                    <label for="">Diseño de Producto</label>
+                    <select name="disenio" id="disenio" class="form-select" [(ngModel)]="producto.idDisenioProducto"
+                        #idDisenioProducto="ngModel" required aria-label="Seleccione el diseño de producto"
+                        [ngClass]="{'ng-invalid': idDisenioProducto.invalid && idDisenioProducto.touched && !flag}">
+                        <option value="null" selected disabled>Seleccione el tipo de diseño</option>
+                        <option value="{{disenioP.idDisenio}}" *ngFor="let disenioP of disenio">
+                            {{disenioP.descripcion}}
+                        </option>
+                    </select>
+                    <div *ngIf="idDisenioProducto.invalid && idDisenioProducto.touched && !flag" class="text-danger">
+                        Debe seleccionar un diseño.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-3">
+                <div class="form-group">
+                    <label for="">Color de Producto</label>
+                    <select name="color" id="color" class="form-select" [(ngModel)]="producto.idColorProducto"
+                        #idColorProducto="ngModel" required aria-label="Seleccione el color de producto"
+                        [ngClass]="{'ng-invalid': idColorProducto.invalid && idColorProducto.touched && !flag}">
+                        <option value="null" selected disabled>Seleccione el color del producto</option>
+                        <option value="{{colorP.idColorProducto}}" *ngFor="let colorP of color">
+                            {{colorP.descripcion}}
+                        </option>
+                    </select>
+                    <div *ngIf="idColorProducto.invalid && idColorProducto.touched && !flag" class="text-danger">
+                        Debe seleccionar un color.
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-3">
+                <div class="form-group">
+                    <label for="">Medida de Producto</label>
+                    <select name="medida" id="medida" class="form-select" [(ngModel)]="producto.idMedidaProducto"
+                        #idMedidaProducto="ngModel" required aria-label="Seleccione la medida"
+                        [ngClass]="{'ng-invalid': idMedidaProducto.invalid && idMedidaProducto.touched && !flag}">
+                        <option value="null" selected disabled>Seleccione la medida del producto</option>
+                        <option value="{{medidaP.idMedidaProducto}}" *ngFor="let medidaP of medida">
+                            {{medidaP.descripcion}}
+                        </option>
+                    </select>
+                    <div *ngIf="idMedidaProducto.invalid && idMedidaProducto.touched && !flag" class="text-danger">
+                        Debe seleccionar una medida.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-3">
+                <div class="form-group">
+                    <label for="">Precio de Producto</label>
+                    <select name="precio" id="precio" class="form-select" [(ngModel)]="producto.idPreciosBocha"
+                        #idPreciosBocha="ngModel" required aria-label="Seleccione el precio"
+                        [ngClass]="{'ng-invalid': idPreciosBocha.invalid && idPreciosBocha.touched && !flag}">
+                        <option value="null" selected disabled>Seleccione el tipo de producto</option>
+                        <option value="{{precioP.idPreciosBocha}}" *ngFor="let precioP of precio">
+                            {{precioP.precio}}
+                        </option>
+                    </select>
+                    <div *ngIf="idPreciosBocha.invalid && idPreciosBocha.touched && !flag" class="text-danger">
+                        Debe seleccionar una precio.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row py-4">
+            <div class="col-6 col-sm-6 col-md-3 col-lg-3 text-center mt-2">
+                <div class="">
+                    <button class="btn btn-success" type="submit" id="">Agregar</button>
+                </div>
+            </div>
+            <div class="col-6 col-sm-6 col-md-3 col-lg-3 text-center mt-2">
+                <div class="">
+                    <button class="btn btn-danger" (click)="Limpiar(this.f)">Cancelar</button>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 text-center mt-3">
+                <i class="fa-solid fa-arrow-left icono" (click)="volver()"></i>
+            </div>
+        </div>
+
+    </form>
+</div>

@@ -1,0 +1,11 @@
+.btnCeleste{
+    background-color: #5192FF;
+    color: #fff;
+    border-color: #5192FF
+}
+
+.btnCeleste:hover{
+    background-color: #467cda;
+    color: #fff;
+    border-color: #467cda
+}

@@ -1,0 +1,23 @@
+.icono {
+    color: #ffffff;
+    font-size: 26px;
+}
+.icono:hover{
+    color: #5192FF;
+}
+
+.letra{
+    color: #ffffff;
+    zoom: 79%;
+}
+.letra:hover{
+    color: #5192FF;
+}
+
+.letra1{
+    color: #ffffff;
+    font-weight: bold;
+}
+.letra1:hover{
+    color: #5192FF;
+}

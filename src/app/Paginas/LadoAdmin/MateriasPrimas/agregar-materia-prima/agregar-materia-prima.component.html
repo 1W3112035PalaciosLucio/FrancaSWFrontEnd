@@ -1,0 +1,46 @@
+<div class="container TextWhite mtt ff shadow-lg rounded-2">
+    <form #f="ngForm" (ngSubmit)="registrarMateriaPrima(f)" class="container">
+        <h1 class="text-center py-3">Registrar Materia Prima</h1>
+        <hr />
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-3">
+                <div class="form-group">
+                    <label for="codigo">Código</label>
+                    <input type="text" class="form-control" [(ngModel)]="materiaPrima.codigo" #codigo="ngModel"
+                        name="codigo" required placeholder="Ingrese el codigo" pattern="[0-9]*" />
+                    <div *ngIf="codigo.invalid && (codigo.dirty || codigo.touched)">
+                        <small class="text-danger">Por favor ingrese un código válido</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-3">
+                <div class="form-group">
+                    <label for="descripcion">Descripcion</label>
+                    <input type="text" class="form-control" [(ngModel)]="materiaPrima.descripcion"
+                        #descripcion="ngModel" name="descripcion" required pattern="[a-zA-Z\s]+"
+                        placeholder="Introduzca la descripción" />
+                    <div *ngIf="descripcion.invalid && (descripcion.dirty || descripcion.touched)">
+                        <small class="text-danger">Por favor ingrese una descripcion válida (solo letras y
+                            espacios)</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row py-4">
+            <div class="col-6 col-sm-6 col-md-3 col-lg-3 text-center mt-2">
+                <div class="">
+                    <button class="btn btn-success" type="submit" id="">Agregar</button>
+                </div>
+            </div>
+            <div class="col-6 col-sm-6 col-md-3 col-lg-3 text-center mt-2">
+                <div class="">
+                    <button class="btn btn-danger" (click)="Limpiar(this.f)">Cancelar</button>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 text-center mt-3">
+                <i class="fa-solid fa-arrow-left icono" (click)="volver()"></i>
+            </div>
+        </div>
+    </form>
+</div>
