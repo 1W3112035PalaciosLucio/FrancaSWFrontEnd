@@ -51,7 +51,7 @@ export class ModificarProductoComponent implements OnInit {
         next: (resultado: any) => {
           Swal.fire({
             icon: 'success',
-            title: 'El producto se ha actualizado correctamente',
+            text: 'El producto se ha actualizado correctamente',
             confirmButtonColor: '#162B4E'
           }).then(() => {
             this.router.navigateByUrl("admin/listadoProducto");

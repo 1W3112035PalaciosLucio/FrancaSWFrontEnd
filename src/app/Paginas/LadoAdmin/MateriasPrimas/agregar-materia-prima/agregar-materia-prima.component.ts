@@ -31,7 +31,7 @@ export class AgregarMateriaPrimaComponent implements OnInit {
         next: (resultado: any) => {
           Swal.fire({
             icon: 'success',
-            title: resultado.message,
+            text: resultado.message,
             confirmButtonColor: '#162B4E'
           }), this.materiaPrima = {} as MateriaPrima, f.resetForm(); this.spinner.hide();
         }, error: (e: any) => { alert(e.error); console.log(e); }

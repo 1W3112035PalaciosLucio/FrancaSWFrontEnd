@@ -35,7 +35,7 @@ export class CrearProductoComponent implements OnInit {
 
   constructor(private servicio: ProductosService, private formBuilder: FormBuilder,
     private spinner: NgxSpinnerService, private router: Router) {
-    // this.iniciarForm();
+
   }
 
   iniciarForm() {
@@ -155,7 +155,7 @@ export class CrearProductoComponent implements OnInit {
         next: (resultado: any) => {
           Swal.fire({
             icon: 'success',
-            title: resultado.message,
+            text: resultado.message,
             confirmButtonColor: '#162B4E',
           });
           this.producto = { ...this.producto, codigo: resultado.codigo };

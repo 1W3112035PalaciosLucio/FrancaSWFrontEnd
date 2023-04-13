@@ -4,24 +4,25 @@
   <label class="mb-2" for="">Buscar</label>
   <div class="row py-2 mtc-5 mb-2" style="text-align: center">
     <div class="col-8 col-sm-8 col-md-8 col-lg-8">
-      <input type="text" class="form-control inputColor" [(ngModel)]="filtro" (keyup)="filtrarTabla()" />
+      <input type="text" class="form-control inputColor" [(ngModel)]="filtro" (keyup)="filtrarTabla()"
+        matTooltip="Filtrar" />
     </div>
     <div class="col-4 col-sm-4 col-md-4 col-lg-4 text-center">
-      <button class="btn btnCeleste" (click)="agregar()">Nuevo</button>
+      <button class="btn btnCeleste" (click)="agregar()" matTooltip="Nuevo producto">Nuevo</button>
     </div>
   </div>
   <hr />
   <div class="table-responsive">
-    <table class="table table-responsive mtc-5 TextWhite">
+    <table class="table table-responsive mtc-5 TextWhite" matSort (matSortChange)="sortData($event)">
       <thead class="table mtc-5 table-sm TextWhite">
         <tr>
-          <th scope="col">Código</th>
-          <th scope="col">Nombre</th>
-          <th scope="col">Color</th>
-          <th scope="col">Diseño</th>
-          <th scope="col">Medida</th>
-          <th scope="col">Tipo</th>
-          <th scope="col">Precio</th>
+          <th mat-sort-header="codigo" scope="col">Código</th>
+          <th mat-sort-header="nombre" scope="col">Nombre</th>
+          <th mat-sort-header="colorProducto" scope="col">Color</th>
+          <th mat-sort-header="disenioProducto" scope="col">Diseño</th>
+          <th mat-sort-header="medidaProducto" scope="col">Medida</th>
+          <th mat-sort-header="tipoProducto" scope="col">Tipo</th>
+          <th mat-sort-header="precioBocha" scope="col">Precio</th>
           <th scope="col"></th>
         </tr>
       </thead>
@@ -35,9 +36,12 @@
           <td>{{ prodc.tipoProducto}}</td>
           <td>${{ prodc.precioBocha }}</td>
           <td>
-            <i type="button" class="fa-solid fa-pencil me-3 iconoLista" (click)="Modificar(prodc.idProducto)"></i>
-            <i type="button" class="fa-solid fa-ban iconoListaD" *ngIf="prodc.activo" (click)="Desactivar(prodc.codigo)"></i>
-            <i type="button" class="fa-solid fa-check iconoListaA" *ngIf="!prodc.activo" (click)="Activar(prodc.codigo)"></i>
+            <i type="button" class="fa-solid fa-pencil me-3 iconoLista" (click)="Modificar(prodc.idProducto)"
+              matTooltip="Modificar producto"></i>
+            <i type="button" class="fa-solid fa-ban iconoListaD" *ngIf="prodc.activo" (click)="Desactivar(prodc.codigo)"
+              matTooltip="Desactivar producto"></i>
+            <i type="button" class="fa-solid fa-check iconoListaA" *ngIf="!prodc.activo" (click)="Activar(prodc.codigo)"
+              matTooltip="Activar producto"></i>
           </td>
         </tr>
       </tbody>

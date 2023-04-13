@@ -18,7 +18,7 @@ export interface Producto {
     color: Color;
     precio: Precio;
     disenio: Disenio;
-    activo:boolean;
+    activo: boolean;
 }
 
 export interface DtoProducto {
@@ -30,10 +30,11 @@ export interface DtoProducto {
     idPreciosBocha?: number;
     idDisenioProducto?: number;
     nombre: string;
-    tipo?: Tipo;
-    medida?: Medida;
-    color?: Color;
-    precio?: Precio;
-    disenio?: Disenio;
-    activo:boolean;
+    tipo: Tipo;
+    medida: Medida;
+    color: Color;
+    precio: Precio;
+    disenio: Disenio;
+    activo: boolean;
+   
 }

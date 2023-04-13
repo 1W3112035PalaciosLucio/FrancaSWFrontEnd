@@ -40,12 +40,22 @@ export class ModificarMateriaPrimaComponent implements OnInit {
         next: (resultado: any) => {
           Swal.fire({
             icon: 'success',
-            title: 'Se actualizo la materia prima correctamente',
+            text: 'Se actualizo la materia prima correctamente',
             confirmButtonColor: '#162B4E'
             
           }), this.router.navigateByUrl("admin/listadoMateriaPrima")
         },
         error: (e: any) => { console.log(e.error) }
+      })
+    }
+    else
+    {
+      Swal.fire({
+        icon: 'warning',
+        title: 'El formulario es invalido',
+        text: 'Por favor complete el formulario correctamente',
+        confirmButtonColor: '#162B4E'
+        
       })
     }
   }

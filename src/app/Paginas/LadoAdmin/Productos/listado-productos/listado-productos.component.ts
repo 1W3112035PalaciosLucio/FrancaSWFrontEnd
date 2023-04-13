@@ -12,6 +12,8 @@ import { Tipo } from 'src/app/Models/Producto/TipoP';
 import { ProductosService } from 'src/app/Services/Productos/productos.service';
 import Swal from 'sweetalert2';
 import { FormsModule } from '@angular/forms';
+import { Sort } from '@angular/material/sort';
+import { PageEvent } from '@angular/material/paginator';
 
 
 @Component({
@@ -29,12 +31,14 @@ export class ListadoProductosComponent implements OnInit {
   ) { }
 
   productos: DtoProducto[] = [];
+
   nombre!: string;
   colores: Color[] = [];
   listado: DtoLista[] = [];
 
   filtro: string = '';
 
+  
   ngOnInit(): void {
     this.cargarProductos();
   }
@@ -50,6 +54,7 @@ export class ListadoProductosComponent implements OnInit {
     this.SetData(this.productos);
     this.nombre = '';
   }
+
 
   cargarProductos() {
     this.spinner.show();
@@ -174,4 +179,38 @@ export class ListadoProductosComponent implements OnInit {
     })
   }
 
+
+  sortData(sort: Sort) {
+    const data = this.listado.slice();
+    if (!sort.active || sort.direction === '') {
+      this.listado = data;
+      return;
+    }
+
+    this.listado = data.sort((a, b) => {
+      const isAsc = sort.direction === 'asc';
+      switch (sort.active) {
+        case 'codigo':
+          return compare(a.codigo, b.codigo, isAsc);
+        case 'nombre':
+          return compare(a.nombre, b.nombre, isAsc);
+        case 'colorProducto':
+          return compare(a.colorProducto, b.colorProducto, isAsc);
+        case 'disenioProducto':
+          return compare(a.disenioProducto, b.disenioProducto, isAsc);
+        case 'medidaProducto':
+          return compare(a.medidaProducto, b.medidaProducto, isAsc);
+        case 'tipoProducto':
+          return compare(a.tipoProducto, b.tipoProducto, isAsc);
+        case 'precioBocha':
+          return compare(a.precioBocha, b.precioBocha, isAsc);
+        default:
+          return 0;
+      }
+    });
+  }
+
+}
+function compare(a: number | string, b: number | string, isAsc: boolean) {
+  return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
 }

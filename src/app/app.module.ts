@@ -5,6 +5,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { JwtModule } from '@auth0/angular-jwt';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSortModule } from '@angular/material/sort';
+import {MatPaginatorModule} from '@angular/material/paginator';
+
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -62,10 +66,10 @@ import { ListadoProveedorComponent } from './Paginas/LadoAdmin/Proveedores/lista
     ListadoMateriaPrimaComponent,
     CrearProveedorComponent,
     ModificarProveedorComponent,
-    ListadoProveedorComponent,
-    
-   
-    
+    ListadoProveedorComponent
+
+
+
   ],
   imports: [
     BrowserModule,
@@ -75,7 +79,10 @@ import { ListadoProveedorComponent } from './Paginas/LadoAdmin/Proveedores/lista
     HttpClientModule,
     JwtModule,
     NgxSpinnerModule.forRoot({ type: 'ball-atom' }),
-    BrowserAnimationsModule 
+    BrowserAnimationsModule,
+    MatTooltipModule,
+    MatSortModule,
+    MatPaginatorModule
 
   ],
   providers: [LoginService, ProductosService],

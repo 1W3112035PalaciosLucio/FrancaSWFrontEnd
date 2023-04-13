@@ -4,31 +4,31 @@
     <label class="mb-2" for="">Buscar</label>
     <div class="row py-2 mtc-5 mb-2" style="text-align: center;">
         <div class="col-8 col-sm-8 col-md-8 col-lg-8 ">
-            <input type="text" class="form-control inputColor" [(ngModel)]="filtro" (keyup)="filtrarTabla()" />
+            <input type="text" class="form-control inputColor" [(ngModel)]="filtro" (keyup)="filtrarTabla()"
+                matTooltip="Filtrar" />
         </div>
         <div class="col-4 col-sm-4 col-md-4 col-lg-4 text-center">
-            <button class="btn btnCeleste" (click)="agregar()">Nuevo</button>
+            <button class="btn btnCeleste" (click)="agregar()" matTooltip="Nueva materia prima">Nuevo</button>
         </div>
     </div>
     <hr />
 
     <div class="table-responsive">
-        <table class="table  table-responsive mtc-5 TextWhite">
+        <table class="table  table-responsive mtc-5 TextWhite" matSort (matSortChange)="sortData($event)">
             <thead class="table  mtc-5 table-sm TextWhite">
                 <tr>
-                    <th scope="col">Código</th>
-                    <th scope="col">Descripcion</th>
-
+                    <th mat-sort-header="codigo" scope="col">Código</th>
+                    <th mat-sort-header="descripcion" scope="col">Descripcion</th>
                     <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let mat of materiaPrima">
-                    <td>{{mat.codigo}}</td>
-                    <td>{{mat.descripcion}}</td>
+                <tr *ngFor="let materia of materiaPrima">
+                    <td>{{materia.codigo}}</td>
+                    <td>{{materia.descripcion}}</td>
                     <td>
-                        <i type="button" class="fa-solid fa-pencil me-3 iconoLista" (click)="Modificar(mat.codigo)"
-                            tippy="Editar producto"></i>
+                        <i type="button" class="fa-solid fa-pencil me-3 iconoLista " (click)="Modificar(materia.codigo)"
+                            matTooltip="Modificar materia prima"></i>
                     </td>
                 </tr>
             </tbody>
