@@ -9,7 +9,7 @@ import { LoginService } from 'src/app/Services/login.service';
 export class BarraNavegacionComponent implements OnInit {
 
   constructor(private loginService: LoginService) { }
-
+  public isNavbarCollapsed = true;
   ngOnInit(): void {
   }
 
@@ -20,5 +20,12 @@ export class BarraNavegacionComponent implements OnInit {
   userHasRole(roles: string[]): boolean {
     return this.loginService.checkUseHasRole(roles);
   }
+
+  closeNavbar() {
+    if (!this.isNavbarCollapsed) {
+      this.isNavbarCollapsed = true;
+    }
+  }
+
 
 }

@@ -2,33 +2,40 @@
     <div class="container-fluid py-2">
         <a class="navbar-brand TextWhite letra1" href="#">Franca</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
-            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation"
+            (click)="isNavbarCollapsed = !isNavbarCollapsed">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse fLight" id="navbarText">
+        <div class="collapse navbar-collapse fLight" [ngClass]="{ 'show': !isNavbarCollapsed }" id="navbarText">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                 <!--Vista general-->
                 <li class="nav-item">
-                    <a class="nav-link active letra" href="#" routerLink="cliente/inicioCliente">INICIO</a>
+                    <a class="nav-link active letra" href="#" routerLink="cliente/inicioCliente"
+                        (click)="isNavbarCollapsed = true">INICIO</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active letra" href="#" routerLink="/cliente/catalogoCliente">CATÁLOGO</a>
+                    <a class="nav-link active letra" href="#" routerLink="/cliente/catalogoCliente"
+                        (click)="isNavbarCollapsed = true">CATÁLOGO</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active letra" href="#" routerLink="/cliente/contacto">CONTACTO</a>
+                    <a class="nav-link active letra" href="#" routerLink="/cliente/contacto"
+                        (click)="isNavbarCollapsed = true">CONTACTO</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active letra" href="#" routerLink="/cliente/ubicacion">UBICACIÓN</a>
+                    <a class="nav-link active letra" href="#" routerLink="/cliente/ubicacion"
+                        (click)="isNavbarCollapsed = true">UBICACIÓN</a>
                 </li>
 
                 <!-- Administrador -->
 
                 <li class="nav-item" *ngIf="this.userHasRole(['Adm'])">
-                    <a class="nav-link active letra" href="#" routerLink="/admin/inicioAdmin">INICIO ADMIN</a>
+                    <a class="nav-link active letra" href="#" routerLink="/admin/inicioAdmin"
+                        (click)="isNavbarCollapsed = true">INICIO ADMIN</a>
                 </li>
                 <li class="nav-item" *ngIf="this.userHasRole(['Adm'])">
-                    <a class="nav-link active letra" href="#" routerLink="/admin/ordenProduccion">ORDENES DE
+                    <a class="nav-link active letra" href="#" routerLink="/admin/ordenProduccion"
+                        (click)="isNavbarCollapsed = true">ORDENES DE
                         PRODUCCIÓN</a>
                 </li>
                 <li class="nav-item dropdown" *ngIf="this.userHasRole(['Adm'])">
@@ -37,35 +44,42 @@
                         STOCK
                     </a>
                     <ul class="dropdown-menu BackgroundAzul">
-                        <li><a class="dropdown-item letra" href="#" routerLink="/admin/stockProducto">PRODUCTOS</a></li>
-                        <li><a class="dropdown-item letra" href="#" routerLink="/admin/stockMateriaPrima">MATERIAS
+                        <li><a class="dropdown-item letra" href="#" routerLink="/admin/stockProducto"
+                                (click)="isNavbarCollapsed = true">PRODUCTOS</a></li>
+                        <li><a class="dropdown-item letra" href="#" routerLink="/admin/stockMateriaPrima"
+                                (click)="isNavbarCollapsed = true">MATERIAS
                                 PRIMAS</a>
                         </li>
                     </ul>
                 </li>
                 <li class="nav-item" *ngIf="this.userHasRole(['Adm'])">
-                    <a class="nav-link active letra" href="#" routerLink="/admin/listadoProducto">PRODUCTOS</a>
+                    <a class="nav-link active letra" href="#" routerLink="/admin/listadoProducto"
+                        (click)="isNavbarCollapsed = true">PRODUCTOS</a>
                 </li>
                 <li class="nav-item" *ngIf="this.userHasRole(['Adm'])">
-                    <a class="nav-link active letra" href="#" routerLink="/admin/listadoMateriaPrima">MATERIAS
+                    <a class="nav-link active letra" href="#" routerLink="/admin/listadoMateriaPrima"
+                        (click)="isNavbarCollapsed = true">MATERIAS
                         PRIMAS</a>
                 </li>
                 <li class="nav-item" *ngIf="this.userHasRole(['Adm'])">
-                    <a class="nav-link active letra" href="#" routerLink="/admin/catalogoAdmin">CATÁLOGO</a>
+                    <a class="nav-link active letra" href="#" routerLink="/admin/catalogoAdmin"
+                        (click)="isNavbarCollapsed = true">CATÁLOGO</a>
                 </li>
                 <li class="nav-item" *ngIf="this.userHasRole(['Adm'])">
-                    <a class="nav-link active letra" href="#" routerLink="/admin/listadoProveedor">PROVEEDORES</a>
+                    <a class="nav-link active letra" href="#" routerLink="/admin/listadoProveedor"
+                        (click)="isNavbarCollapsed = true">PROVEEDORES</a>
                 </li>
                 <li class="nav-item" *ngIf="this.userHasRole(['Adm'])">
-                    <a class="nav-link active letra" href="#" routerLink="/admin/clientesAdmin">CLIENTES</a>
+                    <a class="nav-link active letra" href="#" routerLink="/admin/clientesAdmin"
+                        (click)="isNavbarCollapsed = true">CLIENTES</a>
                 </li>
             </ul>
 
             <ul class="navbar-nav mb-2 mb-lg-0 me-5 dropdown-menu-start" *ngIf="!this.userHasRole(['Adm'])">
-                <li class="nav-item dropdown fuente fixed-end" >
+                <li class="nav-item dropdown fuente fixed-end">
                     <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        <i class="fa-solid fa-user icono"  routerLink="/seguridad/login"></i>
+                        aria-expanded="false" (click)="isNavbarCollapsed = true">
+                        <i class="fa-solid fa-user icono" routerLink="/seguridad/login"></i>
                     </a>
                 </li>
             </ul>
@@ -78,8 +92,8 @@
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end  BackgroundAzul" data-bs-popper="static">
                         <li><a class="nav-link active  BackgroundAzul ms-3" aria-current="page" routerLink=""
-                                (click)="logout()"><span class="rojo">Logout </span><i
-                                    class="fa-solid fa-arrow-right-from-bracket rojo"></i></a></li>
+                                (click)="logout()" (click)="isNavbarCollapsed = true"><span class="rojo">Logout
+                                </span><i class="fa-solid fa-arrow-right-from-bracket rojo"></i></a></li>
                     </ul>
                 </li>
             </ul>

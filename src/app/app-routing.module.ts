@@ -45,7 +45,7 @@ const routes: Routes = [
   { path: 'admin/listadoMateriaPrima', component: ListadoMateriaPrimaComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
   { path: 'admin/listadoProveedor', component: ListadoProveedorComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
   { path: 'admin/agregarProveedor', component: CrearProveedorComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
-  { path: 'admin/modificarProveedor', component: ModificarProveedorComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } }
+  { path: 'admin/modificarProveedor/:id', component: ModificarProveedorComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } }
 
 ];
 

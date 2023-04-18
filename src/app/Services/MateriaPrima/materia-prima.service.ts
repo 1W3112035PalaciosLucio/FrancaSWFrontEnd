@@ -10,6 +10,7 @@ import { environment } from 'src/environments/environment';
 export class MateriaPrimaService {
 
   headers = new HttpHeaders({
+    "Authorization": `Bearer ${localStorage.getItem("token")}`,
     "Content-Type": "application/json"
   })
 

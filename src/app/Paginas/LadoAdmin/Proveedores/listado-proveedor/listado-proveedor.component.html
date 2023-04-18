@@ -1,1 +1,83 @@
-<p>listado-proveedor works!</p>
+<div class="container TextWhite rounded-2 ff mtt">
+  <h1 class="text-center py-2">PROVEEDORES</h1>
+  <hr />
+  <label class="mb-2" for="">BUSCAR</label>
+  <div class="row py-2 mtc-5 mb-2" style="text-align: center">
+    <div class="col-8 col-sm-8 col-md-8 col-lg-8">
+      <input type="text" class="form-control inputColor" [(ngModel)]="filtro" (keyup)="filtrarTabla()"
+        matTooltip="Filtrar" />
+    </div>
+    <div class="col-4 col-sm-4 col-md-4 col-lg-4 text-center">
+      <button class="btn btnCeleste" (click)="agregar()" matTooltip="Nuevo proveedor">NUEVO</button>
+    </div>
+  </div>
+  <hr />
+  <div class="table-responsive">
+    <table class="table table-responsive mtc-5 TextWhite" matSort (matSortChange)="sortData($event)">
+      <thead class="table mtc-5 table-sm TextWhite">
+        <tr>
+          <th mat-sort-header="nombre" scope="col">NOMBRE</th>
+          <th mat-sort-header="apellido" scope="col">APELLIDO</th>
+          <th mat-sort-header="telefono" scope="col">TELÉFONO</th>
+          <th mat-sort-header="provincia" scope="col">PROVINCIA</th>
+          <th mat-sort-header="localidad" scope="col">LOCALIDAD</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let prov of listado">
+          <td>{{ prov.nombre }}</td>
+          <td>{{ prov.apellido }}</td>
+          <td>{{ prov.telefono}}</td>
+          <td>{{ prov.provincia}}</td>
+          <td>{{ prov.localidad}}</td>
+          <td>
+            <i type="button" class="fa-solid fa-pencil me-3 iconoLista" (click)="Modificar(prov.idProveedor)"
+              matTooltip="Modificar proveedor"></i>
+            <button data-bs-toggle="modal" class="fa-solid fa-circle-info iconoLista fondo" data-bs-target="#myModal"
+              data-bs-whatever="@mdo" #abrirModal (click)="abrirModall($event,prov.idProveedor)"
+              matTooltip="Detalle de Materia Prima"></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<!-- MODAL -->
+<div class="modal fade" tabindex="-1" role="dialog" id="myModal">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">DETALLE DE PRECIOS DE LAS MATERIAS PRIMAS</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+          #cerrarModal></button>
+      </div>
+      <div class="modal-body">
+        <div class="table-responsive">
+          <table class="table table-responsive mtc-5 ">
+            <thead class="table mtc-5 table-sm ">
+              <tr>
+                <th scope="col">PROVEEDOR</th>
+                <th scope="col">C. MATERIA PRIMA</th>
+                <th scope="col">DESCRIPCION</th>
+                <th scope="col">FECHA DESDE</th>
+                <th scope="col">FECHA HASTA</th>
+                <th scope="col">PRECIO</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let prov of lista">
+                <td>{{ prov.nombre}} {{prov.apellido}}</td>
+                <td>{{ prov.codigo }}</td>
+                <td>{{ prov.materiaPrima }}</td>
+                <td>{{ prov.fechaDesde | date: 'dd/MM/yyyy'}}</td>
+                <td>{{ prov.fechaHasta | date: 'dd/MM/yyyy'}}</td>
+                <td>${{ prov.precio}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

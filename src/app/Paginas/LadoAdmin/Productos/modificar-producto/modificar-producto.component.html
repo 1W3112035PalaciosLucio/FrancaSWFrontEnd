@@ -1,11 +1,11 @@
 <div class="container TextWhite mtt ff shadow-lg rounded-2">
     <form #f="ngForm" (ngSubmit)="actualizarProducto(f)" class="container">
-        <h1 class="text-center py-3">Registrar Producto</h1>
+        <h1 class="text-center py-3">MODIFICAR PRODUCTO</h1>
         <hr />
         <div class="row">
             <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-3">
                 <div class="form-group">
-                    <label for="">Código</label>
+                    <label for="">CÓDIGO</label>
                     <input type="text" class="form-control" [(ngModel)]="producto.codigo" #codigo="ngModel"
                         name="codigo" required placeholder="Ingrese el codigo" pattern="[0-9]*" />
                     <div *ngIf="codigo.invalid && (codigo.dirty || codigo.touched)">
@@ -15,7 +15,7 @@
             </div>
             <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-3">
                 <div class="form-group">
-                    <label for="">Nombre</label>
+                    <label for="">NOMBRE</label>
                     <input type="text" class="form-control" [(ngModel)]="producto.nombre" #nombre="ngModel"
                         name="nombre" required placeholder="Ingrese el nombre" pattern="[a-zA-Z\s]+" />
                     <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
@@ -28,7 +28,7 @@
         <div class="row">
             <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-3">
                 <div class="form-group">
-                    <label for="tipo">Tipo de Producto</label>
+                    <label for="tipo">TIPO DE PRODUCTO</label>
                     <select name="tipo" id="tipo" class="form-select" [(ngModel)]="producto.idTipoProducto"
                         #idTipoProducto="ngModel" required aria-label="Seleccione el tipo de producto"
                         [ngClass]="{'ng-invalid': idTipoProducto.invalid && idTipoProducto.touched && !flag}">
@@ -44,7 +44,7 @@
             </div>
             <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-3">
                 <div class="form-group">
-                    <label for="">Diseño de Producto</label>
+                    <label for="">DISEÑO DE PRODUCTO</label>
                     <select name="disenio" id="disenio" class="form-select" [(ngModel)]="producto.idDisenioProducto"
                         #idDisenioProducto="ngModel" required aria-label="Seleccione el diseño de producto"
                         [ngClass]="{'ng-invalid': idDisenioProducto.invalid && idDisenioProducto.touched && !flag}">
@@ -63,7 +63,7 @@
         <div class="row">
             <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-3">
                 <div class="form-group">
-                    <label for="">Color de Producto</label>
+                    <label for="">COLOR DE PRODUCTO</label>
                     <select name="color" id="color" class="form-select" [(ngModel)]="producto.idColorProducto"
                         #idColorProducto="ngModel" required aria-label="Seleccione el color de producto"
                         [ngClass]="{'ng-invalid': idColorProducto.invalid && idColorProducto.touched && !flag}">
@@ -79,7 +79,7 @@
             </div>
             <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-3">
                 <div class="form-group">
-                    <label for="">Medida de Producto</label>
+                    <label for="">MEDIDA DE PRODUCTO</label>
                     <select name="medida" id="medida" class="form-select" [(ngModel)]="producto.idMedidaProducto"
                         #idMedidaProducto="ngModel" required aria-label="Seleccione la medida"
                         [ngClass]="{'ng-invalid': idMedidaProducto.invalid && idMedidaProducto.touched && !flag}">
@@ -98,7 +98,7 @@
         <div class="row">
             <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-3">
                 <div class="form-group">
-                    <label for="">Precio de Producto</label>
+                    <label for="">PRECIO DE PRODUCTO</label>
                     <select name="precio" id="precio" class="form-select" [(ngModel)]="producto.idPreciosBocha"
                         #idPreciosBocha="ngModel" required aria-label="Seleccione el precio"
                         [ngClass]="{'ng-invalid': idPreciosBocha.invalid && idPreciosBocha.touched && !flag}">
@@ -118,7 +118,7 @@
             <div class="col-md-6 col-lg-6 text-center mt-2"></div>
             <div class="col-6 col-sm-6 col-md-3 col-lg-3 text-center mt-2">
                 <div class="">
-                    <button class="btn btn-success" type="submit" id=""  matTooltip="Modificar producto">Modificar</button>
+                    <button class="btn btn-success" type="submit" id=""  matTooltip="Modificar producto">MODIFICAR</button>
                 </div>
             </div>
             <div class="col-6 col-sm-6 col-md-3 col-lg-3 text-center ">

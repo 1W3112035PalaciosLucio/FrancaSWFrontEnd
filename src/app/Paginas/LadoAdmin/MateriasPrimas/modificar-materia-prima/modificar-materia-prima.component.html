@@ -1,11 +1,11 @@
 <div class="container TextWhite mtt ff shadow-lg rounded-2">
     <form #f="ngForm" (ngSubmit)="actualizarMateriaPrima(f)" class="container">
-        <h1 class="text-center py-3">Modificar Materia Prima</h1>
+        <h1 class="text-center py-3">MODIFICAR MATERIA PRIMA</h1>
         <hr />
         <div class="row">
             <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-3">
                 <div class="form-group">
-                    <label for="codigo">Código</label>
+                    <label for="codigo">CÓDIGO</label>
                     <input type="text" class="form-control" [(ngModel)]="materiaPrima.codigo" #codigo="ngModel"
                         name="codigo" required disabled="" />
                         <small *ngIf="codigo.touched && codigo.invalid" class="invalidColor">
@@ -15,7 +15,7 @@
             </div>
             <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-3">
                 <div class="form-group">
-                    <label for="descripcion">Descripcion</label>
+                    <label for="descripcion">DESCRIPCIÓN</label>
                     <input type="text" class="form-control" [(ngModel)]="materiaPrima.descripcion"
                         #descripcion="ngModel" name="descripcion" required  />
                         <small *ngIf="descripcion.touched && descripcion.invalid" class="invalidColor">
@@ -29,7 +29,7 @@
             <div class="col-md-6 col-lg-6 text-center mt-2"></div>
             <div class="col-6 col-sm-6 col-md-3 col-lg-3 text-center mt-2">
                 <div class="">
-                    <button class="btn btn-success" type="submit" id="" matTooltip="Modificar materia prima">Modificar</button>
+                    <button class="btn btn-success" type="submit" id="" matTooltip="Modificar materia prima">MODIFICAR</button>
                 </div>
             </div>
             <div class="col-6 col-sm-6 col-md-3 col-lg-3 text-center ">
