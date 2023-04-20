@@ -26,6 +26,7 @@ export class ProveedoresService {
   getLocalidadesByProvincia(id: number): Observable<any> {
     return this.http.get(this.urlBase + "LocalidadProvincia/" + id + "/localidades", { headers: this.headers });
   }
+
   GetLocalidadesByProvincia(idProvincia: number): Observable<any> {
     const url = `${this.urlBase}LocalidadProvincia/${idProvincia}/localidades`;
     return this.http.get(url, { headers: this.headers });
@@ -45,6 +46,10 @@ export class ProveedoresService {
 
   PutPreciosMateriasPrimasProveedore(preMatPrProv: DTOPrecioMateriaPrimaProveedor): Observable<any> {
     return this.http.put(this.urlBase + "PrecioMatPrimaProv/PutPreciosMateriasPrimasProveedores", preMatPrProv, { headers: this.headers });
+  }
+
+  PostPreciosMateriasPrimasProveedore(preMatPrProv: DTOPrecioMateriaPrimaProveedor): Observable<any> {
+    return this.http.post(this.urlBase + "PrecioMatPrimaProv/PostMatPrimaProv", preMatPrProv, { headers: this.headers });
   }
 
   PostProveedor(p: Proveedor): Observable<any> {
@@ -70,11 +75,40 @@ export class ProveedoresService {
   GetProveedorByIdd(id: number): Observable<any> {
     return this.http.get(this.urlBase + "Proveedor/GetProveedorByIdd/" + id, { headers: this.headers });
   }
+
   GetLocalidades(): Observable<any> {
     return this.http.get(this.urlBase + "LocalidadProvincia/GetLocalidades/", { headers: this.headers });
   }
 
   PutProveedor(proveedor: DTOProveedor): Observable<any> {
     return this.http.put(this.urlBase + "Proveedor/PutProveedor", proveedor, { headers: this.headers });
+  }
+
+  PutPreciosMateriasPrimasProveedores(proveedor: PrecioMateriaPrimaProveedor): Observable<any> {
+    return this.http.put(this.urlBase + "PrecioMatPrimaProv/PutPreciosMateriasPrimasProveedores", proveedor, { headers: this.headers });
+  }
+
+  DesactivarProveedor(id: number): Observable<any> {
+    return this.http.delete(this.urlBase + "Proveedor/DesactivarProveedor/" + id, { headers: this.headers });
+  }
+
+  ActivarProveedor(id: number): Observable<any> {
+    return this.http.put(this.urlBase + "Proveedor/ActivarProveedor/" + id, { headers: this.headers });
+  }
+
+  GetMateriaPrima(): Observable<any> {
+    return this.http.get(this.urlBase + "MateriaPrima/GetMateriaPrima", { headers: this.headers });
+  }
+
+  GetMateriaPrimaById(id: number): Observable<any> {
+    return this.http.get(this.urlBase + "MateriaPrima/GetMateriaPrimaById/" + id, { headers: this.headers });
+  }
+
+  GetListaMatPrimaProvById(id: number): Observable<any> {
+    return this.http.get(this.urlBase + "PrecioMatPrimaProv/GetListaPrecioMatPrimaProvById/" + id, { headers: this.headers });
+  }
+
+  GetListaCompleta(): Observable<any> {
+    return this.http.get(this.urlBase + "PrecioMatPrimaProv/GetListadoPreciosMatPrimaCompleto", { headers: this.headers });
   }
 }

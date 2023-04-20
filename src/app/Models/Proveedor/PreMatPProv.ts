@@ -25,6 +25,6 @@ export class DTOPrecioMateriaPrimaProveedor {
     precio: number;
     fechaVigenciaDesde: Date;
     fechaVigenciaHasta: Date;
-    proveedor:Proveedor;
-    materiaPrima:MateriaPrima;
+    proveedor: Proveedor;
+    materiaPrima: MateriaPrima;
 }

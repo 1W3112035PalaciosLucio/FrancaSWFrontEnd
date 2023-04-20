@@ -1,22 +1,23 @@
-import { Localidad } from "./Localidad";
-import { Provincia } from "./Provincia";
+import { Localidad } from "../Proveedor/Localidad";
+import { Provincia } from "../Proveedor/Provincia";
 
-export interface Proveedor {
-    idProveedor: number;
+export class Cliente {
+    idCliente: number;
     nombre: string;
     apellido: string;
     telefono: number;
+    direccion: string;
     idLocalidad: number;
 }
 
-export interface DTOProveedor {
-    idProveedor: number;
+export class DtoCliente {
+    idCliente: number;
     nombre: string;
     apellido: string;
     telefono: number;
+    direccion: string;
     idLocalidad: number;
     idProvincia:number;
     localidad: Localidad;
     provincia:Provincia;
-    activo:boolean;
 }

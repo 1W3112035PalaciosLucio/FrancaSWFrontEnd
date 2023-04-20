@@ -1,9 +1,9 @@
 export class DtoLista {
-    idProveedor: number;
+    idCliente: number;
     nombre: string;
     apellido: string;
     telefono: number;
+    direccion: string;
     localidad: string;
     provincia: string;
-    activo:boolean;
 }

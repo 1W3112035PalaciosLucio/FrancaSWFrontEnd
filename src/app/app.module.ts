@@ -24,7 +24,6 @@ import { OrdenesDeProduccionComponent } from './Paginas/LadoAdmin/ordenes-de-pro
 import { StockProductosComponent } from './Paginas/LadoAdmin/stock-productos/stock-productos.component';
 import { StockMateriaPrimaComponent } from './Paginas/LadoAdmin/stock-materia-prima/stock-materia-prima.component';
 import { CatalogoAdminComponent } from './Paginas/LadoAdmin/catalogo-admin/catalogo-admin.component';
-import { ClientesComponent } from './Paginas/LadoAdmin/clientes/clientes.component';
 import { LoginService } from './Services/login.service';
 import { DetalleCatalogoComponent } from './Paginas/LadoCliente/detalle-catalogo/detalle-catalogo.component';
 import { CrearProductoComponent } from './Paginas/LadoAdmin/Productos/crear-producto/crear-producto.component';
@@ -37,6 +36,11 @@ import { ProductosService } from './Services/Productos/productos.service';
 import { CrearProveedorComponent } from './Paginas/LadoAdmin/Proveedores/crear-proveedor/crear-proveedor.component';
 import { ModificarProveedorComponent } from './Paginas/LadoAdmin/Proveedores/modificar-proveedor/modificar-proveedor.component';
 import { ListadoProveedorComponent } from './Paginas/LadoAdmin/Proveedores/listado-proveedor/listado-proveedor.component';
+import { CrearPrecioComponent } from './Paginas/LadoAdmin/Proveedores/ProvMatPrima/crear-precio/crear-precio.component';
+import { ModificarPrecioComponent } from './Paginas/LadoAdmin/Proveedores/ProvMatPrima/modificar-precio/modificar-precio.component';
+import { CrearClienteComponent } from './Paginas/LadoAdmin/Clientes/crear-cliente/crear-cliente.component';
+import { ModificarClienteComponent } from './Paginas/LadoAdmin/Clientes/modificar-cliente/modificar-cliente.component';
+import { ListadoClientesComponent } from './Paginas/LadoAdmin/Clientes/listado-clientes/listado-clientes.component';
 
 
 
@@ -56,7 +60,6 @@ import { ListadoProveedorComponent } from './Paginas/LadoAdmin/Proveedores/lista
     StockProductosComponent,
     StockMateriaPrimaComponent,
     CatalogoAdminComponent,
-    ClientesComponent,
     DetalleCatalogoComponent,
     CrearProductoComponent,
     ModificarProductoComponent,
@@ -66,7 +69,12 @@ import { ListadoProveedorComponent } from './Paginas/LadoAdmin/Proveedores/lista
     ListadoMateriaPrimaComponent,
     CrearProveedorComponent,
     ModificarProveedorComponent,
-    ListadoProveedorComponent
+    ListadoProveedorComponent,
+    CrearPrecioComponent,
+    ModificarPrecioComponent,
+    CrearClienteComponent,
+    ModificarClienteComponent,
+    ListadoClientesComponent
 
 
 
@@ -83,6 +91,7 @@ import { ListadoProveedorComponent } from './Paginas/LadoAdmin/Proveedores/lista
     MatTooltipModule,
     MatSortModule,
     MatPaginatorModule
+
 
   ],
   providers: [LoginService, ProductosService],

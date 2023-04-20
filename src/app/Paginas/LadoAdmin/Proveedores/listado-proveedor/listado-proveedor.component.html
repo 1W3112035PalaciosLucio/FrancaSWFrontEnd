@@ -21,7 +21,8 @@
           <th mat-sort-header="telefono" scope="col">TELÉFONO</th>
           <th mat-sort-header="provincia" scope="col">PROVINCIA</th>
           <th mat-sort-header="localidad" scope="col">LOCALIDAD</th>
-          <th scope="col"></th>
+          <th scope="col">MATERIA PRIMA</th>
+          <th scope="col">PROVEEDOR</th>
         </tr>
       </thead>
       <tbody>
@@ -31,12 +32,24 @@
           <td>{{ prov.telefono}}</td>
           <td>{{ prov.provincia}}</td>
           <td>{{ prov.localidad}}</td>
-          <td>
+          <td class="text-center">
+            <button data-bs-toggle="modal" class="fa-solid fa-circle-info iconoLista fondo me-3" data-bs-target="#myModal"
+              data-bs-whatever="@mdo" #abrirModal (click)="cargarMpPrProv(prov.idProveedor)"
+              matTooltip="Detalle de Materia Prima"></button>
+
+            <i type="button" class="fa-solid fa-plus me-4 iconoLista" (click)="CrearPrecio(prov.idProveedor)"
+              matTooltip="Agregar precio a la materia prima"></i>
+          </td>
+          <td class="text-center">
             <i type="button" class="fa-solid fa-pencil me-3 iconoLista" (click)="Modificar(prov.idProveedor)"
               matTooltip="Modificar proveedor"></i>
-            <button data-bs-toggle="modal" class="fa-solid fa-circle-info iconoLista fondo" data-bs-target="#myModal"
-              data-bs-whatever="@mdo" #abrirModal (click)="abrirModall($event,prov.idProveedor)"
-              matTooltip="Detalle de Materia Prima"></button>
+
+            <!-- <i type="button" class="fa-solid fa-pen-to-square me-3 iconoLista"
+              (click)="ModificarPrecio(prov.idProveedor)" matTooltip="Modificar precio a la materia prima"></i> -->
+            <i type="button" class="fa-solid fa-ban iconoListaD me-3" *ngIf="prov.activo"
+              (click)="Desactivar(prov.idProveedor)" matTooltip="Desactivar proveedor"></i>
+            <i type="button" class="fa-solid fa-check iconoListaA me-3" *ngIf="!prov.activo"
+              (click)="Activar(prov.idProveedor)" matTooltip="Activar proveedor"></i>
           </td>
         </tr>
       </tbody>
@@ -44,13 +57,12 @@
   </div>
 </div>
 <!-- MODAL -->
-<div class="modal fade" tabindex="-1" role="dialog" id="myModal">
+<div class="modal fade" tabindex="-1" role="dialog" id="myModal" *ngIf="estadoRespuesta !== 400">
   <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title">DETALLE DE PRECIOS DE LAS MATERIAS PRIMAS</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
-          #cerrarModal></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" #cerrarModal></button>
       </div>
       <div class="modal-body">
         <div class="table-responsive">

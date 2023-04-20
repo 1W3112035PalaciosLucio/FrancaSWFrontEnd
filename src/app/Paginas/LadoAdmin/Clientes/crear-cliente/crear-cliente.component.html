@@ -1,0 +1,105 @@
+<div class="container TextWhite mtt ff shadow-lg rounded-2">
+    <form #f="ngForm" (ngSubmit)="registrarCliente(f)" class="container">
+        <h1 class="text-center py-3">REGISTRAR CLIENTE</h1>
+        <hr />
+        <div class="row">
+
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-3">
+                <div class="form-group">
+                    <label for="">NOMBRE</label>
+                    <input type="text" class="form-control" [(ngModel)]="cliente.nombre" #nombre="ngModel" name="nombre"
+                        required placeholder="Ingrese el nombre" pattern="[a-zA-Z\s]+" />
+                    <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+                        <small class="text-danger">Por favor ingrese un nombre válido (solo letras y espacios)</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-3">
+                <div class="form-group">
+                    <label for="">APELLIDO</label>
+                    <input type="text" class="form-control" [(ngModel)]="cliente.apellido" #apellido="ngModel"
+                        name="apellido" required placeholder="Ingrese el apellido" pattern="[a-zA-Z\s]+" />
+                    <div *ngIf="apellido.invalid && (apellido.dirty || apellido.touched)">
+                        <small class="text-danger">Por favor ingrese un apellido válido</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-3">
+                <div class="form-group">
+                    <label for="">TELÉFONO</label>
+                    <input type="text" class="form-control" [(ngModel)]="cliente.telefono" #telefono="ngModel"
+                        name="telefono" required placeholder="Ingrese el telefono" pattern="[0-9]*" />
+                    <div *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)">
+                        <small class="text-danger">Por favor ingrese un telefono válido</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-3">
+                <div class="form-group">
+                    <label for="">DIRECCIÓN</label>
+                    <input type="text" class="form-control" [(ngModel)]="cliente.direccion" #direccion="ngModel"
+                        name="direccion" required placeholder="Ingrese el dirección" />
+                    <div *ngIf="direccion.invalid && (direccion.dirty || direccion.touched)">
+                        <small class="text-danger">Por favor ingrese una dirección válida</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-3">
+                <div class="form-group">
+                    <label for="">PROVINCIA</label>
+                    <select name="idProvincia" id="idProvincia" class="form-select" [(ngModel)]="cliente.idProvincia"
+                        #idProvincia="ngModel" required aria-label="Seleccione la provincia"
+                        [ngClass]="{'ng-invalid': idProvincia.invalid && idProvincia.touched && !flag}"
+                        (change)="actualizarLocalidades()">
+                        <option value="null" selected disabled>Seleccione la provincia</option>
+                        <option value="{{provinciaP.idProvincia}}" *ngFor="let provinciaP of provincia">
+                            {{provinciaP.descripcion}}
+                        </option>
+                    </select>
+                    <div *ngIf="idProvincia.invalid && idProvincia.touched && !flag" class="text-danger">
+                        Debe seleccionar una provincia.
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-3">
+                <div class="form-group">
+                    <label for="">LOCALIDAD</label>
+                    <select name="localidad" id="localidad" class="form-select" [(ngModel)]="cliente.idLocalidad"
+                        #idLocalidad="ngModel" required aria-label="Seleccione la localidad"
+                        [ngClass]="{'ng-invalid': idLocalidad.invalid && idLocalidad.touched && !flag}">
+                        <option value="null" selected disabled>Seleccione la localidad</option>
+                        <option value="{{localidadP.idLocalidad}}" *ngFor="let localidadP of localidad">
+                            {{localidadP.descripcion}}
+                        </option>
+                    </select>
+                    <div *ngIf="idLocalidad.invalid && idLocalidad.touched && !flag" class="text-danger">
+                        Debe seleccionar una localidad.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row py-4">
+            <div class="col-6 col-sm-6 col-md-3 col-lg-3 text-center mt-2">
+                <div class="">
+                    <button class="btn btn-success" type="submit" id="" matTooltip="Agregar cliente">AGREGAR</button>
+                </div>
+            </div>
+            <div class="col-6 col-sm-6 col-md-3 col-lg-3 text-center mt-2">
+                <div class="">
+                    <button class="btn btn-danger" (click)="Limpiar(this.f)" matTooltip="Cancelar">CANCELAR</button>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 text-center mt-3">
+                <i class="fa-solid fa-arrow-left icono" (click)="volver()" matTooltip="Volver al listado"></i>
+            </div>
+        </div>
+    </form>
+</div>

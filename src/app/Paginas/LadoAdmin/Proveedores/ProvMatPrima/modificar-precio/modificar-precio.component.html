@@ -1,0 +1,82 @@
+<div class="container TextWhite mtt ff shadow-lg rounded-2">
+    <form #f="ngForm" (ngSubmit)="cargarPrecio(f)" class="container">
+        <h1 class="text-center py-3">MODIFICAR PRECIO A LA MATERIA PRIMA</h1>
+        <hr />
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-3">
+                <div class="form-group">
+                    <label for="">PROVEEDOR</label>
+                    <input type="text" class="form-control" [(ngModel)]="provPrecio.nombre + ' '+ provPrecio.apellido"
+                        #nombre="ngModel" name="nombre" required disabled="" />
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-3">
+                <div class="form-group">
+                    <label for="">MATERIA PRIMA</label>
+                    <select name="mp" id="mp" class="form-select" [(ngModel)]="provPrecio.idMateriaPrima" #mp="ngModel"
+                        required aria-label="Seleccione la materia prima"
+                        [ngClass]="{'ng-invalid': mp.invalid && mp.touched && !flag}">
+                        <option value="null" selected disabled>Seleccione la materia prima</option>
+                        <option value="{{mp.idMateriaPrima}}" *ngFor="let mp of materiaPrima">
+                            {{mp.descripcion}}
+                        </option>
+                    </select>
+                    <div *ngIf="mp.invalid && mp.touched && !flag" class="text-danger">
+                        Debe seleccionar una materia prima.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-3">
+                    <div class="form-group">
+                        <label for="fechaVigenciaDesde">FECHA DESDE</label>
+                        <input type="date" class="form-control" name="fechaVigenciaDesde"
+                        [(ngModel)]="provPrecio.fechaVigenciaDesde" #fechaVigenciaDesde="ngModel" required/>
+                        <div *ngIf="fechaVigenciaDesde.invalid && (fechaVigenciaDesde.dirty || fechaVigenciaDesde.touched)">
+                            <small class="text-danger">Por favor ingrese una fecha valida</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-3">
+                    <div class="form-group">
+                        <label for="fechaVigenciaHasta">FECHA HASTA</label>
+                        <input type="date" class="form-control" name="fechaVigenciaHasta"
+                        [(ngModel)]="provPrecio.fechaVigenciaHasta" #fechaVigenciaHasta="ngModel" required/>
+                        <div *ngIf="fechaVigenciaHasta.invalid && (fechaVigenciaHasta.dirty || fechaVigenciaHasta.touched)">
+                            <small class="text-danger">Por favor ingrese una fecha valida</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-3">
+                <div class="form-group">
+                    <label for="">PRECIO</label>
+                    <input type="text" class="form-control" [(ngModel)]="provPrecio.precio" #precio="ngModel"
+                        name="precio" required placeholder="Ingrese el precio" pattern="[0-9]*" />
+                    <div *ngIf="precio.invalid && (precio.dirty || precio.touched)">
+                        <small class="text-danger">Por favor ingrese un precio válido</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row py-4">
+            <div class="col-md-6 col-lg-6 text-center mt-2"></div>
+            <div class="col-6 col-sm-6 col-md-3 col-lg-3 text-center mt-2">
+                <div class="">
+                    <button class="btn btn-success" type="submit" id="" matTooltip="Modificar precio">MODIFICAR</button>
+                </div>
+            </div>
+            <div class="col-6 col-sm-6 col-md-3 col-lg-3 text-center ">
+                <div class="col-md-6 col-lg-6 text-center mt-3">
+                    <i class="fa-solid fa-arrow-left icono" (click)="volver()" matTooltip="Volver al listado"></i>
+                </div>
+            </div>
+        </div>
+
+    </form>
+</div>

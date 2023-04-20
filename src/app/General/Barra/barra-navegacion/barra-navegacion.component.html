@@ -53,6 +53,10 @@
                     </ul>
                 </li>
                 <li class="nav-item" *ngIf="this.userHasRole(['Adm'])">
+                    <a class="nav-link active letra" href="#" routerLink="/admin/catalogoAdmin"
+                        (click)="isNavbarCollapsed = true">CATÁLOGO</a>
+                </li>
+                <li class="nav-item" *ngIf="this.userHasRole(['Adm'])">
                     <a class="nav-link active letra" href="#" routerLink="/admin/listadoProducto"
                         (click)="isNavbarCollapsed = true">PRODUCTOS</a>
                 </li>
@@ -62,15 +66,11 @@
                         PRIMAS</a>
                 </li>
                 <li class="nav-item" *ngIf="this.userHasRole(['Adm'])">
-                    <a class="nav-link active letra" href="#" routerLink="/admin/catalogoAdmin"
-                        (click)="isNavbarCollapsed = true">CATÁLOGO</a>
-                </li>
-                <li class="nav-item" *ngIf="this.userHasRole(['Adm'])">
                     <a class="nav-link active letra" href="#" routerLink="/admin/listadoProveedor"
                         (click)="isNavbarCollapsed = true">PROVEEDORES</a>
                 </li>
                 <li class="nav-item" *ngIf="this.userHasRole(['Adm'])">
-                    <a class="nav-link active letra" href="#" routerLink="/admin/clientesAdmin"
+                    <a class="nav-link active letra" href="#" routerLink="/admin/listadoCliente"
                         (click)="isNavbarCollapsed = true">CLIENTES</a>
                 </li>
             </ul>

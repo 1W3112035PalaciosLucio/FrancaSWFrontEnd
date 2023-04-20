@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CatalogoAdminComponent } from './Paginas/LadoAdmin/catalogo-admin/catalogo-admin.component';
-import { ClientesComponent } from './Paginas/LadoAdmin/clientes/clientes.component';
 import { InicioAdministradorComponent } from './Paginas/LadoAdmin/inicio-administrador/inicio-administrador.component';
 import { OrdenesDeProduccionComponent } from './Paginas/LadoAdmin/ordenes-de-produccion/ordenes-de-produccion.component';
 import { StockMateriaPrimaComponent } from './Paginas/LadoAdmin/stock-materia-prima/stock-materia-prima.component';
@@ -22,6 +21,11 @@ import { ListadoProveedorComponent } from './Paginas/LadoAdmin/Proveedores/lista
 import { CrearProveedorComponent } from './Paginas/LadoAdmin/Proveedores/crear-proveedor/crear-proveedor.component';
 import { ModificarProveedorComponent } from './Paginas/LadoAdmin/Proveedores/modificar-proveedor/modificar-proveedor.component';
 import { AuthGuard } from './Seguridad/Guards/auth.guard';
+import { CrearPrecioComponent } from './Paginas/LadoAdmin/Proveedores/ProvMatPrima/crear-precio/crear-precio.component';
+import { ModificarPrecioComponent } from './Paginas/LadoAdmin/Proveedores/ProvMatPrima/modificar-precio/modificar-precio.component';
+import { CrearClienteComponent } from './Paginas/LadoAdmin/Clientes/crear-cliente/crear-cliente.component';
+import { ListadoClientesComponent } from './Paginas/LadoAdmin/Clientes/listado-clientes/listado-clientes.component';
+import { ModificarClienteComponent } from './Paginas/LadoAdmin/Clientes/modificar-cliente/modificar-cliente.component';
 
 const routes: Routes = [
   { path: '', component: InicioClienteComponent },
@@ -36,7 +40,9 @@ const routes: Routes = [
   { path: 'admin/stockMateriaPrima', component: StockMateriaPrimaComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
   { path: 'admin/stockProducto', component: StockProductosComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
   { path: 'admin/catalogoAdmin', component: CatalogoAdminComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
-  { path: 'admin/clientesAdmin', component: ClientesComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
+  { path: 'admin/agregarCliente', component: CrearClienteComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
+  { path: 'admin/listadoCliente', component: ListadoClientesComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
+  { path: 'admin/modificarCliente/:id', component: ModificarClienteComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
   { path: 'admin/crearProducto', component: CrearProductoComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
   { path: 'admin/modificarProducto/:id', component: ModificarProductoComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
   { path: 'admin/listadoProducto', component: ListadoProductosComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
@@ -45,8 +51,9 @@ const routes: Routes = [
   { path: 'admin/listadoMateriaPrima', component: ListadoMateriaPrimaComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
   { path: 'admin/listadoProveedor', component: ListadoProveedorComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
   { path: 'admin/agregarProveedor', component: CrearProveedorComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
-  { path: 'admin/modificarProveedor/:id', component: ModificarProveedorComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } }
-
+  { path: 'admin/modificarProveedor/:id', component: ModificarProveedorComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
+  { path: 'admin/crearPrecio/:id', component: CrearPrecioComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
+  { path: 'admin/modificarPrecio/:id', component: ModificarPrecioComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } }
 ];
 
 @NgModule({
