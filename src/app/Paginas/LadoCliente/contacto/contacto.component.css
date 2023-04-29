@@ -27,3 +27,18 @@
     color: #8b3af4;
     font-size: 21px;
 }
+
+.map-container {
+    position: relative;
+    height: 600px; /* Ajusta la altura según sea necesario */
+    
+}
+
+.map-frame {
+    border: 1px solid #162B4E;
+    height: 100%;
+}
+
+#map {
+    height: 100%;
+}
