@@ -139,18 +139,19 @@ export class CrearCatalogoComponent implements OnInit {
       formData.append('idProducto', f.value.idProducto);
       formData.append('idCatalogo', "0");
       formData.append('descripcion', f.value.descripcion);
-
+      this.spinner.show();
       this.serviceCatalogo.PostCatalogo(formData).subscribe({
+        
         next: (resultado: any) => {
           Swal.fire({
             icon: 'success',
             text: resultado.message,
             confirmButtonColor: '#162B4E',
+            
           });
-
-          f.resetForm();
-          this.volver();
           this.spinner.hide();
+          this.volver();
+          
         },
         error: (error: any) => {
           Swal.fire({

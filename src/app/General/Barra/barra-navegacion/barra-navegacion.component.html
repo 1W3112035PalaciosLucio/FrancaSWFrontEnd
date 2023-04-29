@@ -12,81 +12,94 @@
                 <!--Vista general-->
                 <li class="nav-item">
                     <a class="nav-link active letra" href="#" routerLink="cliente/inicioCliente"
-                        (click)="isNavbarCollapsed = true">INICIO</a>
+                        [ngClass]="{ 'selected-item': selectedItem === 'home' }"
+                        (click)="isNavbarCollapsed = true; selectedItem = 'home'">INICIO</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active letra" href="#" routerLink="/cliente/catalogoCliente"
-                        (click)="isNavbarCollapsed = true">CATÁLOGO</a>
+                        [ngClass]="{ 'selected-item': selectedItem === 'catalogo' }"
+                        (click)="isNavbarCollapsed = true ; selectedItem = 'catalogo'">CATÁLOGO</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active letra" href="#" routerLink="/cliente/contacto"
-                        (click)="isNavbarCollapsed = true">CONTACTO</a>
+                        [ngClass]="{ 'selected-item': selectedItem === 'contacto' }"
+                        (click)="isNavbarCollapsed = true; selectedItem = 'contacto'">CONTACTO</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active letra" href="#" routerLink="/cliente/ubicacion"
-                        (click)="isNavbarCollapsed = true">UBICACIÓN</a>
+                        [ngClass]="{ 'selected-item': selectedItem === 'ubicacion' }"
+                        (click)="isNavbarCollapsed = true ; selectedItem = 'ubicacion'">UBICACIÓN</a>
                 </li>
 
                 <!-- Administrador -->
 
                 <li class="nav-item" *ngIf="this.userHasRole(['Adm'])">
                     <a class="nav-link active letra" href="#" routerLink="/admin/inicioAdmin"
-                        (click)="isNavbarCollapsed = true">INICIO ADMIN</a>
+                        [ngClass]="{ 'selected-item': selectedItem === 'inicioAdmin' }"
+                        (click)="isNavbarCollapsed = true ; selectedItem = 'inicioAdmin'">INICIO ADMIN</a>
                 </li>
                 <li class="nav-item" *ngIf="this.userHasRole(['Adm'])">
                     <a class="nav-link active letra" href="#" routerLink="/admin/ordenProduccion"
-                        (click)="isNavbarCollapsed = true">ORDENES DE
+                        [ngClass]="{ 'selected-item': selectedItem === 'odenProd' }"
+                        (click)="isNavbarCollapsed = true ; selectedItem = 'odenProd'">ORDENES DE
                         PRODUCCIÓN</a>
                 </li>
                 <li class="nav-item dropdown" *ngIf="this.userHasRole(['Adm'])">
                     <a class="nav-link dropdown-toggle letra" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
+                        aria-expanded="false" [ngClass]="{ 'selected-item': selectedItem === 'stock' }">
                         STOCK
                     </a>
                     <ul class="dropdown-menu BackgroundAzul">
                         <li><a class="dropdown-item letra" href="#" routerLink="/admin/stockProducto"
-                                (click)="isNavbarCollapsed = true">PRODUCTOS</a></li>
+                                (click)="isNavbarCollapsed = true ; selectedItem = 'stock'">PRODUCTOS</a></li>
                         <li><a class="dropdown-item letra" href="#" routerLink="/admin/stockMateriaPrima"
-                                (click)="isNavbarCollapsed = true">MATERIAS
+                                (click)="isNavbarCollapsed = true; selectedItem = 'stock'">MATERIAS
                                 PRIMAS</a>
                         </li>
                     </ul>
                 </li>
                 <li class="nav-item" *ngIf="this.userHasRole(['Adm'])">
                     <a class="nav-link active letra" href="#" routerLink="/admin/listadoCatalogo"
-                        (click)="isNavbarCollapsed = true">CATÁLOGO</a>
+                        [ngClass]="{ 'selected-item': selectedItem === 'catalogoA' }"
+                        (click)="isNavbarCollapsed = true; selectedItem = 'catalogoA'">CATÁLOGO</a>
                 </li>
                 <li class="nav-item" *ngIf="this.userHasRole(['Adm'])">
                     <a class="nav-link active letra" href="#" routerLink="/admin/listadoProducto"
-                        (click)="isNavbarCollapsed = true">PRODUCTOS</a>
+                        [ngClass]="{ 'selected-item': selectedItem === 'prod' }"
+                        (click)="isNavbarCollapsed = true; selectedItem = 'prod'">PRODUCTOS</a>
                 </li>
                 <li class="nav-item" *ngIf="this.userHasRole(['Adm'])">
                     <a class="nav-link active letra" href="#" routerLink="/admin/listadoMateriaPrima"
-                        (click)="isNavbarCollapsed = true">MATERIAS
+                        [ngClass]="{ 'selected-item': selectedItem === 'matPr' }"
+                        (click)="isNavbarCollapsed = true; selectedItem = 'matPr'">MATERIAS
                         PRIMAS</a>
                 </li>
                 <li class="nav-item" *ngIf="this.userHasRole(['Adm'])">
                     <a class="nav-link active letra" href="#" routerLink="/admin/listadoProveedor"
-                        (click)="isNavbarCollapsed = true">PROVEEDORES</a>
+                        [ngClass]="{ 'selected-item': selectedItem === 'prov' }"
+                        (click)="isNavbarCollapsed = true; selectedItem = 'prov'">PROVEEDORES</a>
                 </li>
                 <li class="nav-item" *ngIf="this.userHasRole(['Adm'])">
                     <a class="nav-link active letra" href="#" routerLink="/admin/listadoCliente"
-                        (click)="isNavbarCollapsed = true">CLIENTES</a>
+                        [ngClass]="{ 'selected-item': selectedItem === 'clientes' }"
+                        (click)="isNavbarCollapsed = true; selectedItem = 'clientes'">CLIENTES</a>
                 </li>
             </ul>
 
             <ul class="navbar-nav mb-2 mb-lg-0 me-5 dropdown-menu-start" *ngIf="!this.userHasRole(['Adm'])">
                 <li class="nav-item dropdown fuente fixed-end">
                     <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false" (click)="isNavbarCollapsed = true">
-                        <i class="fa-solid fa-user icono" routerLink="/seguridad/login"></i>
+                        aria-expanded="false" [ngClass]="{ 'selected-item': selectedItem === 'p' }"
+                        (click)="isNavbarCollapsed = true; selectedItem = 'p'">
+                        <i class="fa-solid fa-user icono" [ngClass]="{ 'selected-item': selectedItem === 'p' }"
+                            routerLink="/seguridad/login"></i>
                     </a>
                 </li>
             </ul>
 
             <ul class="navbar-nav mb-2 mb-lg-0 me-5 dropdown-menu-start" *ngIf="this.userHasRole(['Adm'])">
                 <li class="nav-item dropdown fuente fixed-end">
-                    <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown"
+                    <a class="nav-link dropdown-toggle active" href="" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
                         <i class="fa-solid fa-user icono"></i>
                     </a>

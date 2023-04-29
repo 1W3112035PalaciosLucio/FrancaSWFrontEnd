@@ -8,6 +8,8 @@ import { LoginService } from 'src/app/Services/login.service';
 })
 export class BarraNavegacionComponent implements OnInit {
 
+  selectedItem: string;
+
   constructor(private loginService: LoginService) { }
   public isNavbarCollapsed = true;
   ngOnInit(): void {

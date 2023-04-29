@@ -9,3 +9,21 @@
     color: #fff;
     border-color: #467cda
 }
+
+.iconoW{
+    color: #25D366;
+    font-size: 21px;
+}
+.iconoW:hover{
+    color: #128C7E;
+    font-size: 21px;
+}
+
+.iconoY{
+    color: #7315ee;
+    font-size: 21px;
+}
+.iconoY:hover{
+    color: #8b3af4;
+    font-size: 21px;
+}

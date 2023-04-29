@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { DtoCatalogo, DtoListaCatalogo } from 'src/app/Models/Catalogo/Catalogo';
 import { CatalogoService } from 'src/app/Services/Catalogo/catalogo.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-listado-catalogo',
@@ -54,14 +55,6 @@ export class ListadoCatalogoComponent implements OnInit {
     this.catalogos = catalogos_;
   }
 
-  // FiltrarTabla() {
-  //   this.catalogos = this.catalogos.filter((item) =>
-  //     item.descripcion.includes(this.nombre), console.log(this.catalogos)
-  //   );
-  //   this.SetData(this.catalogos);
-  //   this.nombre = '';
-  // }
-
   filtrarTabla() {
     if (this.filtro.length === 0 || this.filtro.length <= 3) {
       this.cargarCatalogos();
@@ -106,6 +99,50 @@ export class ListadoCatalogoComponent implements OnInit {
           return 0;
       }
     });
+  }
+
+  EliminarCatalogo(id: number) {
+    Swal.fire({
+      title: '¿Estas seguro de eliminar este catálogo?',
+      text:'Los cambios serán permanentes',
+      showDenyButton: false,
+      showCancelButton: true,
+      confirmButtonText: 'Si',
+      cancelButtonText: "No",
+      cancelButtonColor: "#dc3545",
+      confirmButtonColor: "#1d3763",
+      icon: "warning",
+      denyButtonText: 'No',
+      customClass: {
+        actions: 'my-actions',
+        cancelButton: 'order-1 right-gap',
+        confirmButton: 'order-2',
+        denyButton: 'order-3',
+      }
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.servicio.EliminarCatalogo(id).subscribe({
+          next: (resultado) => {
+            Swal.fire({
+              icon: 'success',
+              text: resultado.message,
+              confirmButtonColor: '#162B4E'
+            }),
+              this.cargarCatalogos()
+          },
+          error: (error) => {
+            Swal.fire({
+              title: "¡Error!",
+              text: error.error,
+              confirmButtonColor: '#1d3763'
+            });
+            console.log(error);
+          }
+        })
+      } else if (result.isDenied) {
+
+      }
+    })
   }
 }
 

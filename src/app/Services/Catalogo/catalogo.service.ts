@@ -55,4 +55,7 @@ export class CatalogoService {
   GetCatalogoCard(): Observable<any> {
     return this.http.get(this.urlBase + "Catalogo/GetCatalogoCard", { headers: this.headers });
   }
+  EliminarCatalogo(id: number): Observable<any> {
+    return this.http.delete(this.urlBase + "Catalogo/EliminarCatalogo/" + id, { headers: this.headers });
+  }
 }

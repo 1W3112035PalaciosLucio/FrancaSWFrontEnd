@@ -2,22 +2,29 @@
     color: #ffffff;
     font-size: 26px;
 }
-.icono:hover{
+
+.icono:hover {
     color: #5192FF;
 }
 
-.letra{
+.letra {
     color: #ffffff;
     zoom: 79%;
 }
-.letra:hover{
+
+.letra:hover {
     color: #5192FF;
 }
 
-.letra1{
+.letra1 {
     color: #ffffff;
     font-weight: bold;
 }
-.letra1:hover{
+
+.letra1:hover {
     color: #5192FF;
+}
+
+.selected-item {
+    color: #5192FF !important;
 }
