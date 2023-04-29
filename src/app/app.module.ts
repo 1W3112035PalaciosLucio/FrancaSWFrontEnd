@@ -7,7 +7,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSortModule } from '@angular/material/sort';
-import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 
@@ -23,7 +23,6 @@ import { InicioAdministradorComponent } from './Paginas/LadoAdmin/inicio-adminis
 import { OrdenesDeProduccionComponent } from './Paginas/LadoAdmin/ordenes-de-produccion/ordenes-de-produccion.component';
 import { StockProductosComponent } from './Paginas/LadoAdmin/stock-productos/stock-productos.component';
 import { StockMateriaPrimaComponent } from './Paginas/LadoAdmin/stock-materia-prima/stock-materia-prima.component';
-import { CatalogoAdminComponent } from './Paginas/LadoAdmin/catalogo-admin/catalogo-admin.component';
 import { LoginService } from './Services/login.service';
 import { DetalleCatalogoComponent } from './Paginas/LadoCliente/detalle-catalogo/detalle-catalogo.component';
 import { CrearProductoComponent } from './Paginas/LadoAdmin/Productos/crear-producto/crear-producto.component';
@@ -41,6 +40,11 @@ import { ModificarPrecioComponent } from './Paginas/LadoAdmin/Proveedores/ProvMa
 import { CrearClienteComponent } from './Paginas/LadoAdmin/Clientes/crear-cliente/crear-cliente.component';
 import { ModificarClienteComponent } from './Paginas/LadoAdmin/Clientes/modificar-cliente/modificar-cliente.component';
 import { ListadoClientesComponent } from './Paginas/LadoAdmin/Clientes/listado-clientes/listado-clientes.component';
+import { CrearCatalogoComponent } from './Paginas/LadoAdmin/CatalogoAdm/crear-catalogo/crear-catalogo.component';
+import { ModificarCatalogoComponent } from './Paginas/LadoAdmin/CatalogoAdm/modificar-catalogo/modificar-catalogo.component';
+import { ListadoCatalogoComponent } from './Paginas/LadoAdmin/CatalogoAdm/listado-catalogo/listado-catalogo.component';
+import { CardComponent } from './Paginas/LadoCliente/card/card.component';
+
 
 
 
@@ -59,7 +63,6 @@ import { ListadoClientesComponent } from './Paginas/LadoAdmin/Clientes/listado-c
     OrdenesDeProduccionComponent,
     StockProductosComponent,
     StockMateriaPrimaComponent,
-    CatalogoAdminComponent,
     DetalleCatalogoComponent,
     CrearProductoComponent,
     ModificarProductoComponent,
@@ -74,7 +77,11 @@ import { ListadoClientesComponent } from './Paginas/LadoAdmin/Clientes/listado-c
     ModificarPrecioComponent,
     CrearClienteComponent,
     ModificarClienteComponent,
-    ListadoClientesComponent
+    ListadoClientesComponent,
+    CrearCatalogoComponent,
+    ModificarCatalogoComponent,
+    ListadoCatalogoComponent,
+    CardComponent
 
 
 

@@ -74,7 +74,6 @@ export class ListadoProductosComponent implements OnInit {
   Modificar(id: number) {
     this.router.navigateByUrl('/admin/modificarProducto/' + id);
   }
-
   agregar() {
     this.router.navigateByUrl('/admin/crearProducto');
   }

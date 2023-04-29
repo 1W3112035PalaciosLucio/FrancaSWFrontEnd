@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CatalogoAdminComponent } from './Paginas/LadoAdmin/catalogo-admin/catalogo-admin.component';
+
 import { InicioAdministradorComponent } from './Paginas/LadoAdmin/inicio-administrador/inicio-administrador.component';
 import { OrdenesDeProduccionComponent } from './Paginas/LadoAdmin/ordenes-de-produccion/ordenes-de-produccion.component';
 import { StockMateriaPrimaComponent } from './Paginas/LadoAdmin/stock-materia-prima/stock-materia-prima.component';
@@ -26,6 +26,10 @@ import { ModificarPrecioComponent } from './Paginas/LadoAdmin/Proveedores/ProvMa
 import { CrearClienteComponent } from './Paginas/LadoAdmin/Clientes/crear-cliente/crear-cliente.component';
 import { ListadoClientesComponent } from './Paginas/LadoAdmin/Clientes/listado-clientes/listado-clientes.component';
 import { ModificarClienteComponent } from './Paginas/LadoAdmin/Clientes/modificar-cliente/modificar-cliente.component';
+import { ListadoCatalogoComponent } from './Paginas/LadoAdmin/CatalogoAdm/listado-catalogo/listado-catalogo.component';
+import { CrearCatalogoComponent } from './Paginas/LadoAdmin/CatalogoAdm/crear-catalogo/crear-catalogo.component';
+import { ModificarCatalogoComponent } from './Paginas/LadoAdmin/CatalogoAdm/modificar-catalogo/modificar-catalogo.component';
+import { CardComponent } from './Paginas/LadoCliente/card/card.component';
 
 const routes: Routes = [
   { path: '', component: InicioClienteComponent },
@@ -39,7 +43,9 @@ const routes: Routes = [
   { path: 'admin/ordenProduccion', component: OrdenesDeProduccionComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
   { path: 'admin/stockMateriaPrima', component: StockMateriaPrimaComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
   { path: 'admin/stockProducto', component: StockProductosComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
-  { path: 'admin/catalogoAdmin', component: CatalogoAdminComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
+  { path: 'admin/listadoCatalogo', component: ListadoCatalogoComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
+  { path: 'admin/crearCatalogo', component: CrearCatalogoComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
+  { path: 'admin/modificarCatalogo/:id', component: ModificarCatalogoComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
   { path: 'admin/agregarCliente', component: CrearClienteComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
   { path: 'admin/listadoCliente', component: ListadoClientesComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
   { path: 'admin/modificarCliente/:id', component: ModificarClienteComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },

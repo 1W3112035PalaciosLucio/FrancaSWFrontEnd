@@ -1,1 +1,6 @@
-<p>catalogo works!</p>
+<div class="container py-2">
+    <div class="row">
+        <app-card class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4" *ngFor="let item of lista" [codigo]="item.codigo"
+            [imagen]="item.imagen"  [descripcion]="item.descripcion"  [nombre]="item.nombre"></app-card>
+    </div>
+</div>

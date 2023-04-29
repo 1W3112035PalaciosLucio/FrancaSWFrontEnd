@@ -45,6 +45,11 @@ export class ProductosService {
   GetProductoById(id: number): Observable<any> {
     return this.http.get(this.urlBase + "Producto/GetProductoById/" + id, { headers: this.headers });
   }
+  
+  GetProdByCodigo(id: number): Observable<any> {
+    return this.http.get(this.urlBase + "Producto/GetProdByCodigo/" + id, { headers: this.headers });
+  }
+
   PostProducto(p: Producto): Observable<any> {
     return this.http.post(this.urlBase + "Producto/PostProducto", p, { headers: this.headers });
   }

@@ -23,7 +23,8 @@
           <th mat-sort-header="medidaProducto" scope="col">MEDIDA</th>
           <th mat-sort-header="tipoProducto" scope="col">TIPO</th>
           <th mat-sort-header="precioBocha" scope="col">PRECIO</th>
-          <th scope="col"></th>
+          <th scope="col">PRODUCTOS</th>
+          <th scope="col">CATÁLOGO</th>
         </tr>
       </thead>
       <tbody>
@@ -42,6 +43,10 @@
               matTooltip="Desactivar producto"></i>
             <i type="button" class="fa-solid fa-check iconoListaA" *ngIf="!prodc.activo" (click)="Activar(prodc.codigo)"
               matTooltip="Activar producto"></i>
+          </td>
+          <td>
+            <!-- <i  type="button" class="fa-solid fa-plus ms-4 iconoLista" (click)="AgregarCatalogo(prodc.idProducto)"
+            matTooltip="Agregar catálgo"></i> -->
           </td>
         </tr>
       </tbody>

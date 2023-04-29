@@ -40,7 +40,7 @@ export class CrearProductoComponent implements OnInit {
 
   iniciarForm() {
     this.form = this.formBuilder.group({
-      codigo: ['', [Validators.required], [ Validators.pattern('^[0-9]*$')]],
+      codigo: ['', [Validators.required], [Validators.pattern('^[0-9]*$')]],
       nombre: ['', [Validators.required]],
       disenio: ['', [Validators.required]],
       precio: ['', [Validators.required]],
@@ -81,71 +81,6 @@ export class CrearProductoComponent implements OnInit {
         this.spinner.hide();
       }
     });
-
-    // this.spinner.show();
-    // this.servicio.GetColor().subscribe({
-    //   next: (resultado: any) => { this.color = resultado; this.spinner.hide(); },
-    //   error: (e: any) => {
-    //     Swal.fire({
-    //       title: "Error",
-    //       text: e.error,
-    //       confirmButtonColor: '#162B4E'
-    //     });
-    //     console.log(e.error), this.spinner.hide();
-    //   }
-    // });
-
-    // this.spinner.show();
-    // this.servicio.GetDisenio().subscribe({
-    //   next: (resultado: any) => { this.disenio = resultado; this.spinner.hide(); },
-    //   error: (e: any) => {
-    //     Swal.fire({
-    //       title: "Error",
-    //       text: e.error,
-    //       confirmButtonColor: '#162B4E'
-    //     });
-    //     console.log(e.error), this.spinner.hide();
-    //   }
-    // });
-
-    // this.spinner.show();
-    // this.servicio.GetMedida().subscribe({
-    //   next: (resultado: any) => { this.medida = resultado; this.spinner.hide(); },
-    //   error: (e: any) => {
-    //     Swal.fire({
-    //       title: "Error",
-    //       text: e.error,
-    //       confirmButtonColor: '#162B4E'
-    //     });
-    //     console.log(e.error), this.spinner.hide();
-    //   }
-    // });
-
-    // this.spinner.show();
-    // this.servicio.GetPrecio().subscribe({
-    //   next: (resultado: any) => { this.precio = resultado; this.spinner.hide(); },
-    //   error: (e: any) => {
-    //     Swal.fire({
-    //       title: "Error",
-    //       text: e.error,
-    //       confirmButtonColor: '#162B4E'
-    //     });
-    //     console.log(e.error), this.spinner.hide();
-    //   }
-    // });
-
-    // this.spinner.show();
-    // this.servicio.GetTipoProducto().subscribe({
-    //   next: (resultado: any) => { this.tipo = resultado; this.spinner.hide(); },
-    //   error: (e: any) => {
-    //     Swal.fire({
-    //       title: "Error",
-    //       text: e.error,
-    //       confirmButtonColor: '#162B4E'
-    //     });
-    //     console.log(e.error), this.spinner.hide();
-    //   }
-    // });
   }
 
   registrarProducto(f: NgForm) {
@@ -190,5 +125,5 @@ export class CrearProductoComponent implements OnInit {
   volver() {
     this.router.navigateByUrl("/admin/listadoProducto")
   }
-  
+
 }
