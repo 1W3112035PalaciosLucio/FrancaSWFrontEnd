@@ -1,6 +1,6 @@
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { Catalogo, DtoCatalogo } from 'src/app/Models/Catalogo/Catalogo';
 import { environment } from 'src/environments/environment';
 
@@ -30,18 +30,15 @@ export class CatalogoService {
   PostCatalogo(c: any): Observable<any> {
     let headerss = new HttpHeaders();
     console.log(c);
-    /** In Angular 5, including the header Content-Type can invalidate your request */
     headerss.append('Content-Type', 'multipart/form-data');
     headerss.append('Accept', 'application/json');
     return this.http.post(this.urlBase + "Catalogo/PostCatalogo", c, { headers: headerss });
   }
-  PutCatalogo(c: any): Observable<any> {
-    let headerss = new HttpHeaders();
-    console.log(c);
-    /** In Angular 5, including the header Content-Type can invalidate your request */
-    headerss.append('Content-Type', 'multipart/form-data');
-    headerss.append('Accept', 'application/json');
-    return this.http.put(this.urlBase + "Catalogo/PutCatalogo", c, { headers: this.headers });
+  PutCatalogo(c: FormData): Observable<any> {
+    let headers = new HttpHeaders();
+    headers.append('Content-Type', 'multipart/form-data');
+    headers.append('Accept', 'application/json');
+    return this.http.put(this.urlBase + "Catalogo/PutCatalogo", c, { headers: headers });
   }
   GetProductos(): Observable<any> {
     return this.http.get(this.urlBase + "Producto/GetProducto", { headers: this.headers });
@@ -57,5 +54,14 @@ export class CatalogoService {
   }
   EliminarCatalogo(id: number): Observable<any> {
     return this.http.delete(this.urlBase + "Catalogo/EliminarCatalogo/" + id, { headers: this.headers });
+  }
+
+  GetCatalogoCardRandom(): Observable<any> {
+    return this.http.get<any>(this.urlBase + "Catalogo/GetCatalogoCard", { headers: this.headers }).pipe(
+      map((resultado) => {
+        resultado.sort(() => Math.random() - 0.5); // Mezcla aleatoriamente el arreglo
+        return resultado.slice(0, 3); // Devuelve solo los primeros 3 elementos aleatorios
+      })
+    );
   }
 }

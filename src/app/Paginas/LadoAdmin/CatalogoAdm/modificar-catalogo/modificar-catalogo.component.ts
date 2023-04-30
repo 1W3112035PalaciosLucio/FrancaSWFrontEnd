@@ -47,7 +47,6 @@ export class ModificarCatalogoComponent {
     this.cod = this.params.snapshot.params["id"];
   }
 
-
   ngOnInit(): void {
     this.cargarProd(this.cod);
     this.cargarSelect();
@@ -80,7 +79,6 @@ export class ModificarCatalogoComponent {
       }
     });
   }
-
   cargarProd(id: number) {
     this.serviceCatalogo.GetCatalogoId(id).subscribe({
       next: (data) => {
@@ -102,11 +100,8 @@ export class ModificarCatalogoComponent {
       formData.append('idProducto', idProducto.toString());
       formData.append('idCatalogo', idCatalogo.toString());
       formData.append('descripcion', f.value.descripcion);
-      console.log(idCatalogo.toString());
-      console.log(idProducto.toString());
-      console.log(this.selectedFile);
-      console.log(f.value.descripcion);
 
+      this.spinner.show();
       this.serviceCatalogo.PutCatalogo(formData).subscribe({
         next: (resultado: any) => {
           Swal.fire({
@@ -114,8 +109,6 @@ export class ModificarCatalogoComponent {
             text: resultado.message,
             confirmButtonColor: '#162B4E',
           });
-
-          f.resetForm();
           this.volver();
           this.spinner.hide();
         },

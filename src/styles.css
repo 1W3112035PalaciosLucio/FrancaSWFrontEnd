@@ -4,6 +4,7 @@
 .BackgroundAzul {
     background-color: #162B4E;
 }
+
 .BackgroundAzulCard {
     background-color: #1b345d;
 }
@@ -14,6 +15,10 @@
 
 .TextAzul {
     color: #162B4E;
+}
+
+.TextCeleste {
+    color: #5192FF;
 }
 
 body {
@@ -131,8 +136,7 @@ select.ng-valid {
     color: #198754;
 }
 
-.modal-backdrop{
+.modal-backdrop {
     z-index: -1;
-    
-}
 
+}

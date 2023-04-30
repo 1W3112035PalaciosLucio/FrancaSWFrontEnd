@@ -1,0 +1,87 @@
+<div id="carouselExampleInterval" class="carousel slide shadow-lg" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="6000">
+            <img src="https://res.cloudinary.com/dawraxuq1/image/upload/v1680536225/FrancaSW/My_project-1_2_levzks.png"
+                class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item active" data-bs-interval="6000">
+            <img src="https://res.cloudinary.com/dawraxuq1/image/upload/v1680536147/FrancaSW/My_project-1_1_browzy.png"
+                class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item active" data-bs-interval="6000">
+            <img src="https://res.cloudinary.com/dawraxuq1/image/upload/v1680535973/FrancaSW/My_project-1_eji7sr.png"
+                class="d-block w-100" alt="...">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+<div class="container py-3">
+    <div class="row">
+        <app-card-inicio class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 mb-4 pt-2" *ngFor="let item of lista"
+            [codigo]="item.codigo" [imagen]="item.imagen" [descripcion]="item.descripcion" [nombre]="item.nombre">
+        </app-card-inicio>
+    </div>
+</div>
+<div class="container py-5 TextWhite">
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+            <h1>DETALLES TÉCNICOS</h1>
+            <p>La fabricación de estas bochas se realiza bajo un riguroso control de temperatura y tiempo de cocción,
+                así como también un control mecánico en su acabado, lo que garantiza un producto de alta calidad con un
+                índice de fallas prácticamente nulo.</p>
+
+            <p> El control automático de la temperatura y el tiempo de cocción aseguran una cocción uniforme en el
+                interior y exterior de la bocha, lo que es fundamental para obtener una dureza óptima y evitar defectos
+                que puedan resultar en roturas totales o parciales de la bocha. Además, esto permite minimizar el
+                desgaste.
+            </p>
+            <p> El acabado mecánico, junto con un control manual, se realiza de forma individual para cada bocha, lo que
+                asegura que ninguna de ellas tenga algún tipo de defecto antes de salir a la venta.
+            </p>
+            <p> El material utilizado para su fabricación es un plástico termo fijo, resistente e inalterable siempre y
+                cuando se le dé el tratamiento adecuado.</p>
+        </div>
+        <div class="d-none d-lg-block col-md-12 col-lg-6 col-xl-6 ">
+            <img src="https://res.cloudinary.com/dawraxuq1/image/upload/v1680559070/FrancaSW/avenue-815297__480_f12sck.jpg"
+                alt="descripcion-de-la-imagen" class="img-fluid">
+        </div>
+    </div>
+</div>
+<div class="container py-3 TextWhite">
+    <div class="row">
+        <div class="d-none d-lg-block  col-md-12 col-lg-6 col-xl-6">
+            <img src="https://res.cloudinary.com/dawraxuq1/image/upload/v1680559070/FrancaSW/avenue-815297__480_f12sck.jpg"
+                alt="descripcion-de-la-imagen" class="img-fluid">
+        </div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+            <h1>NUESTRA EMPRESA</h1>
+            <p>Bochas Franca SRL se inició en el negocio de la fabricación de bochas en abril de 2001, fundada por un
+                equipo
+                de expertos con años de experiencia en la materia. Para comenzar, se adquirió toda la maquinaria nueva y
+                las matrices necesarias para su fabricación. Desde entonces, se ha prestado una atención minuciosa a
+                cada detalle del proceso de producción, lo que ha garantizado un índice de fallas de fabricación
+                prácticamente nulo. De hecho, de cada 10 mil bochas fabricadas, solo 1 es devuelta.</p>
+
+            <p> Como resultado de este alto estándar de calidad, nuestro producto viene con una garantía de 12 meses
+                contra fallas de fabricación. Nos esforzamos por mantener esta seriedad y calidad a largo plazo, lo que
+                se traduce en una excelente reputación y publicidad para nuestra empresa.</p>
+        </div>
+    </div>
+</div>
+
+<div>
+    <footer >
+        <hr class="BackgroundAzul shadow">
+        <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae dolorum, vitae expedita modi temporibus
+            ab, unde quae dolore suscipit incidunt eaque perspiciatis ducimus officiis sed, iusto saepe? Cum, adipisci
+            dolore.</h1>
+
+    </footer>
+</div>

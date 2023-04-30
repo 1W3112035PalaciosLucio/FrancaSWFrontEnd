@@ -5,7 +5,7 @@ import 'leaflet-routing-machine';
 import { icon, Marker } from 'leaflet';
 export const DEFAULT_LAT = -31.66477;
 export const DEFAULT_LON = -63.90998;
-export const TITULO = 'Bochas Franca SRL';
+export const TITULO = 'Bv. Lavalle 125';
 const iconRetinaUrl = 'assets/marker-icon-2x.png';
 const iconUrl = 'assets/marker-icon.png';
 const shadowUrl = 'assets/marker-shadow.png';

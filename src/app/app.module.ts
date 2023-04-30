@@ -44,6 +44,7 @@ import { CrearCatalogoComponent } from './Paginas/LadoAdmin/CatalogoAdm/crear-ca
 import { ModificarCatalogoComponent } from './Paginas/LadoAdmin/CatalogoAdm/modificar-catalogo/modificar-catalogo.component';
 import { ListadoCatalogoComponent } from './Paginas/LadoAdmin/CatalogoAdm/listado-catalogo/listado-catalogo.component';
 import { CardComponent } from './Paginas/LadoCliente/card/card.component';
+import { CardInicioComponent } from './Paginas/LadoCliente/card-inicio/card-inicio.component';
 
 
 
@@ -81,7 +82,8 @@ import { CardComponent } from './Paginas/LadoCliente/card/card.component';
     CrearCatalogoComponent,
     ModificarCatalogoComponent,
     ListadoCatalogoComponent,
-    CardComponent
+    CardComponent,
+    CardInicioComponent
 
 
 
