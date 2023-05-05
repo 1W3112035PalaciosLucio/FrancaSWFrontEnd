@@ -1,0 +1,48 @@
+<div class="container TextWhite rounded-2 ff mtt">
+    <h1 class="text-center py-2">STOCK DE MATERIAS PRIMAS</h1>
+    <hr />
+    <label class="mb-2" for="">BUSCAR</label>
+    <div class="row py-2 mtc-5 mb-2" style="text-align: center">
+        <div class="col-8 col-sm-8 col-md-8 col-lg-8">
+            <input type="text" class="form-control inputColor" [(ngModel)]="filtro" (keyup)="filtrarTabla()"
+                matTooltip="Filtrar" />
+        </div>
+        <div class="col-4 col-sm-4 col-md-4 col-lg-4 text-center">
+            <button class="btn btnCeleste" (click)="agregar()" matTooltip="Nuevo stock">NUEVO</button>
+        </div>
+    </div>
+    <hr />
+    <div class="table-responsive">
+        <table class="table table-responsive mtc-5 TextWhite" matSort (matSortChange)="sortData($event)">
+            <thead class="table mtc-5 table-sm TextWhite text-center">
+                <tr>
+                    <th mat-sort-header="descripcion" scope="col">DESCRIPCIÓN</th>
+                    <th mat-sort-header="cantidad" scope="col">CANTIDAD</th>
+                    <th mat-sort-header="precio" scope="col">PRECIO</th>
+                    <th mat-sort-header="stockMinimo" scope="col">STOCK MÍNIMO</th>
+                    <th mat-sort-header="stockInicial" scope="col">STOCK INICIAL</th>
+                    <th mat-sort-header="fechaUltimoPrecio" scope="col">FECHA ÚLT. PRECIO</th>
+                    <th mat-sort-header="fechaUltimaActualizacion" scope="col">FECHA ÚLT. ACTUALIZACIÓN</th>
+                    <th scope="col">FUNCIONES</th>
+                </tr>
+            </thead>
+            <tbody class="text-center">
+                <tr *ngFor="let stockMp of listado">
+                    <td class="text-start">{{ stockMp.descripcion }}</td>
+                    <td>{{ stockMp.cantidad }}</td>
+                    <td>$ {{ stockMp.precio }}</td>
+                    <td>{{ stockMp.stockMinimo }}</td>
+                    <td>{{ stockMp.stockInicial }}</td>
+                    <td>{{ stockMp.fechaUltimoPrecio | date}}</td>
+                    <td>{{ stockMp.fechaUltimaActualizacion |date }}</td>
+                    <td>
+                        <i type="button" class="fa-solid fa-pencil me-3 iconoLista"
+                            (click)="Modificar(stockMp.idStockMateriaPrima)" matTooltip="Modificar stock"></i>
+                        <!-- <i type="button" class="fa-solid fa-trash me-3 iconoListaD" (click)="EliminarCatalogo(stockMp.idStockMateriaPrima)"
+                matTooltip="Eliminar catálogo"></i> -->
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

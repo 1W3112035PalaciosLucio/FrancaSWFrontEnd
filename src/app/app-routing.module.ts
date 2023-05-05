@@ -3,8 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { InicioAdministradorComponent } from './Paginas/LadoAdmin/inicio-administrador/inicio-administrador.component';
 import { OrdenesDeProduccionComponent } from './Paginas/LadoAdmin/ordenes-de-produccion/ordenes-de-produccion.component';
-import { StockMateriaPrimaComponent } from './Paginas/LadoAdmin/stock-materia-prima/stock-materia-prima.component';
-import { StockProductosComponent } from './Paginas/LadoAdmin/stock-productos/stock-productos.component';
 import { CatalogoComponent } from './Paginas/LadoCliente/catalogo/catalogo.component';
 import { ContactoComponent } from './Paginas/LadoCliente/contacto/contacto.component';
 import { InicioClienteComponent } from './Paginas/LadoCliente/inicio-cliente/inicio-cliente.component';
@@ -30,6 +28,14 @@ import { ListadoCatalogoComponent } from './Paginas/LadoAdmin/CatalogoAdm/listad
 import { CrearCatalogoComponent } from './Paginas/LadoAdmin/CatalogoAdm/crear-catalogo/crear-catalogo.component';
 import { ModificarCatalogoComponent } from './Paginas/LadoAdmin/CatalogoAdm/modificar-catalogo/modificar-catalogo.component';
 import { CardComponent } from './Paginas/LadoCliente/card/card.component';
+import { ListaStockMateriaPrimaComponent } from './Paginas/LadoAdmin/StockMateriaPrima/lista-stock-materia-prima/lista-stock-materia-prima.component';
+import { CrearStockMateriaPrimaComponent } from './Paginas/LadoAdmin/StockMateriaPrima/crear-stock-materia-prima/crear-stock-materia-prima.component';
+import { ModificarStockMateriaPrimaComponent } from './Paginas/LadoAdmin/StockMateriaPrima/modificar-stock-materia-prima/modificar-stock-materia-prima.component';
+import { ListadoStockProductoComponent } from './Paginas/LadoAdmin/StockProducto/listado-stock-producto/listado-stock-producto.component';
+import { CrearStockProductoComponent } from './Paginas/LadoAdmin/StockProducto/crear-stock-producto/crear-stock-producto.component';
+import { ModificarStockProductoComponent } from './Paginas/LadoAdmin/StockProducto/modificar-stock-producto/modificar-stock-producto.component';
+import { TerminosComponent } from './Paginas/LadoCliente/Soporte/terminos/terminos.component';
+import { AyudaComponent } from './Paginas/LadoCliente/Soporte/ayuda/ayuda.component';
 
 const routes: Routes = [
   { path: '', component: InicioClienteComponent },
@@ -39,10 +45,12 @@ const routes: Routes = [
   { path: 'cliente/inicioCliente', component: InicioClienteComponent },
   { path: 'cliente/ubicacion', component: UbicacionComponent },
   { path: 'cliente/detalleCatalogo', component: DetalleCatalogoComponent },
+  { path: 'cliente/terminos', component: TerminosComponent },
+  { path: 'cliente/ayuda', component: AyudaComponent },
+
+
   { path: 'admin/inicioAdmin', component: InicioAdministradorComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
   { path: 'admin/ordenProduccion', component: OrdenesDeProduccionComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
-  { path: 'admin/stockMateriaPrima', component: StockMateriaPrimaComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
-  { path: 'admin/stockProducto', component: StockProductosComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
   { path: 'admin/listadoCatalogo', component: ListadoCatalogoComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
   { path: 'admin/crearCatalogo', component: CrearCatalogoComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
   { path: 'admin/modificarCatalogo/:id', component: ModificarCatalogoComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
@@ -59,7 +67,13 @@ const routes: Routes = [
   { path: 'admin/agregarProveedor', component: CrearProveedorComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
   { path: 'admin/modificarProveedor/:id', component: ModificarProveedorComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
   { path: 'admin/crearPrecio/:id', component: CrearPrecioComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
-  { path: 'admin/modificarPrecio/:id', component: ModificarPrecioComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } }
+  { path: 'admin/modificarPrecio/:id', component: ModificarPrecioComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
+  { path: 'admin/listadoStockMateriaPrima', component: ListaStockMateriaPrimaComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
+  { path: 'admin/crearStockMateriaPrima', component: CrearStockMateriaPrimaComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
+  { path: 'admin/modificarStockMateriaPrima/:id', component: ModificarStockMateriaPrimaComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
+  { path: 'admin/listadoStockProducto', component: ListadoStockProductoComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
+  { path: 'admin/crearStockProducto', component: CrearStockProductoComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
+  { path: 'admin/modificarStockProducto/:id', component: ModificarStockProductoComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } }
 ];
 
 @NgModule({

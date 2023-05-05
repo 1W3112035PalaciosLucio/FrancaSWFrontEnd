@@ -140,3 +140,6 @@ select.ng-valid {
     z-index: -1;
 
 }
+.bold{
+    font-weight: bolder;
+}

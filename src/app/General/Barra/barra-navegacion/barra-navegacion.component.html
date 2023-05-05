@@ -25,11 +25,6 @@
                         [ngClass]="{ 'selected-item': selectedItem === 'contacto' }"
                         (click)="isNavbarCollapsed = true; selectedItem = 'contacto'">CONTACTO</a>
                 </li>
-                <!-- <li class="nav-item">
-                    <a class="nav-link active letra" href="#" routerLink="/cliente/ubicacion"
-                        [ngClass]="{ 'selected-item': selectedItem === 'ubicacion' }"
-                        (click)="isNavbarCollapsed = true ; selectedItem = 'ubicacion'">UBICACIÓN</a>
-                </li> -->
 
                 <!-- Administrador -->
 
@@ -50,9 +45,9 @@
                         STOCK
                     </a>
                     <ul class="dropdown-menu BackgroundAzul">
-                        <li><a class="dropdown-item letra" href="#" routerLink="/admin/stockProducto"
+                        <li><a class="dropdown-item letra" href="#" routerLink="/admin/listadoStockProducto"
                                 (click)="isNavbarCollapsed = true ; selectedItem = 'stock'">PRODUCTOS</a></li>
-                        <li><a class="dropdown-item letra" href="#" routerLink="/admin/stockMateriaPrima"
+                        <li><a class="dropdown-item letra" href="#" routerLink="/admin/listadoStockMateriaPrima"
                                 (click)="isNavbarCollapsed = true; selectedItem = 'stock'">MATERIAS
                                 PRIMAS</a>
                         </li>

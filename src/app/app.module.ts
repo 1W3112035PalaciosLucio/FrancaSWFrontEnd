@@ -21,8 +21,6 @@ import { UbicacionComponent } from './Paginas/LadoCliente/ubicacion/ubicacion.co
 import { InicioClienteComponent } from './Paginas/LadoCliente/inicio-cliente/inicio-cliente.component';
 import { InicioAdministradorComponent } from './Paginas/LadoAdmin/inicio-administrador/inicio-administrador.component';
 import { OrdenesDeProduccionComponent } from './Paginas/LadoAdmin/ordenes-de-produccion/ordenes-de-produccion.component';
-import { StockProductosComponent } from './Paginas/LadoAdmin/stock-productos/stock-productos.component';
-import { StockMateriaPrimaComponent } from './Paginas/LadoAdmin/stock-materia-prima/stock-materia-prima.component';
 import { LoginService } from './Services/login.service';
 import { DetalleCatalogoComponent } from './Paginas/LadoCliente/detalle-catalogo/detalle-catalogo.component';
 import { CrearProductoComponent } from './Paginas/LadoAdmin/Productos/crear-producto/crear-producto.component';
@@ -45,6 +43,14 @@ import { ModificarCatalogoComponent } from './Paginas/LadoAdmin/CatalogoAdm/modi
 import { ListadoCatalogoComponent } from './Paginas/LadoAdmin/CatalogoAdm/listado-catalogo/listado-catalogo.component';
 import { CardComponent } from './Paginas/LadoCliente/card/card.component';
 import { CardInicioComponent } from './Paginas/LadoCliente/card-inicio/card-inicio.component';
+import { CrearStockMateriaPrimaComponent } from './Paginas/LadoAdmin/StockMateriaPrima/crear-stock-materia-prima/crear-stock-materia-prima.component';
+import { ListaStockMateriaPrimaComponent } from './Paginas/LadoAdmin/StockMateriaPrima/lista-stock-materia-prima/lista-stock-materia-prima.component';
+import { ModificarStockMateriaPrimaComponent } from './Paginas/LadoAdmin/StockMateriaPrima/modificar-stock-materia-prima/modificar-stock-materia-prima.component';
+import { CrearStockProductoComponent } from './Paginas/LadoAdmin/StockProducto/crear-stock-producto/crear-stock-producto.component';
+import { ListadoStockProductoComponent } from './Paginas/LadoAdmin/StockProducto/listado-stock-producto/listado-stock-producto.component';
+import { ModificarStockProductoComponent } from './Paginas/LadoAdmin/StockProducto/modificar-stock-producto/modificar-stock-producto.component';
+import { TerminosComponent } from './Paginas/LadoCliente/Soporte/terminos/terminos.component';
+import { AyudaComponent } from './Paginas/LadoCliente/Soporte/ayuda/ayuda.component';
 
 
 
@@ -62,8 +68,6 @@ import { CardInicioComponent } from './Paginas/LadoCliente/card-inicio/card-inic
     InicioClienteComponent,
     InicioAdministradorComponent,
     OrdenesDeProduccionComponent,
-    StockProductosComponent,
-    StockMateriaPrimaComponent,
     DetalleCatalogoComponent,
     CrearProductoComponent,
     ModificarProductoComponent,
@@ -83,7 +87,15 @@ import { CardInicioComponent } from './Paginas/LadoCliente/card-inicio/card-inic
     ModificarCatalogoComponent,
     ListadoCatalogoComponent,
     CardComponent,
-    CardInicioComponent
+    CardInicioComponent,
+    CrearStockMateriaPrimaComponent,
+    ListaStockMateriaPrimaComponent,
+    ModificarStockMateriaPrimaComponent,
+    CrearStockProductoComponent,
+    ListadoStockProductoComponent,
+    ModificarStockProductoComponent,
+    TerminosComponent,
+    AyudaComponent
 
 
 

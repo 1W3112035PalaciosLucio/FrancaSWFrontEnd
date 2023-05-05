@@ -9,3 +9,17 @@
     border: none;
     border-radius: 0;
 } 
+
+.lighter{
+    font-weight: lighter;
+}
+
+.vertical-line {
+    border-left: 1px solid #ccc;
+    height: 100%;
+    width: 2px; /* Establece el ancho de la línea vertical */
+}
+
+a {
+    text-decoration: none;
+}
