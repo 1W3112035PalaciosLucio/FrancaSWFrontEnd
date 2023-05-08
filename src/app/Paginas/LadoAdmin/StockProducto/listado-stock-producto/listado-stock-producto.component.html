@@ -1,1 +1,86 @@
-<p>listado-stock-producto works!</p>
+<div class="container TextWhite rounded-2 ff mtt">
+    <div class="row">
+        <div class="col-8 col-sm-5 col-md-5 col-lg-5">
+            <h3 class="text-start py-3 mt-1">STOCK DE PRODUCTOS</h3>
+        </div>
+
+        <div class="col-4 col-sm-7 col-md-7 col-lg-7 text-start py-3">
+            <button class="btn btnCeleste" (click)="agregar()" matTooltip="Nuevo stock">NUEVO</button>
+        </div>
+    </div>
+    <hr />
+    <label class="mb-2" for="">BUSCAR</label>
+    <div class="row py-3 mtc-5 mb-4" style="text-align: center">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+            <input type="text" class="form-control inputColor" [(ngModel)]="filtro" (keyup)="filtrarTabla()"
+                matTooltip="Filtrar" />
+        </div>
+        <div class="col-md-6 col-lg-6">
+        </div>
+
+    </div>
+    <div class="table-responsive">
+        <table class="table table-responsive mtc-5 TextWhite" matSort (matSortChange)="sortData($event)">
+            <thead class="table mtc-5 table-sm TextWhite text-center">
+                <tr>
+                    <th mat-sort-header="descripcion" scope="col">NOMBRE</th>
+                    <th mat-sort-header="cantidad" scope="col">CANTIDAD</th>
+                    <th mat-sort-header="precio" scope="col">PRECIO</th>
+                    <th mat-sort-header="fechaUltimaActualizacion" scope="col">FECHA ÚLT. ACTUALIZACIÓN</th>
+                    <th scope="col">FUNCIONES</th>
+                </tr>
+            </thead>
+            <tbody class="text-center">
+                <tr *ngFor="let prod of listado">
+                    <td class="text-start">{{ prod.nombre }}</td>
+                    <td>{{ prod.cantidad }}</td>
+                    <td>$ {{ prod.precio }}</td>
+                    <td>{{ prod.fechaUltimaActualizacion |date }}</td>
+                    <td>
+
+                        <button data-bs-toggle="modal" class="fa-solid fa-circle-info iconoLista fondo me-3"
+                            data-bs-target="#myModal" data-bs-whatever="@mdo" #abrirModal
+                            (click)="cargarHistorial(prod.idProducto)" matTooltip="Detalle de movimiento"></button>
+                        <i type="button" class="fa-solid fa-pencil me-3 iconoLista"
+                            (click)="Modificar(prod.idStockProducto)" matTooltip="Modificar stock"></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal fade" tabindex="-1" role="dialog" id="myModal" *ngIf="estadoRespuesta !== 400">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">MOVIMIENTOS DEL STOCK DE PRODUCTOS</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                    #cerrarModal></button>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive">
+                    <table class="table table-responsive mtc-5 ">
+                        <thead class="table mtc-5 table-sm ">
+                            <tr>
+                                <th scope="col">NOMBRE</th>
+                                <th scope="col">CANTIDAD</th>
+                                <th scope="col">F. ÚLTIMA ACTUALIZACIÓN</th>
+                                <th scope="col">TIPO DE MOVIMIENTO</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let hist of lista">
+                                <td>{{hist.nombre}}</td>
+                                <td class="text-center">{{ hist.cantidad}}</td>
+                                <td class="text-center">{{ hist.fechaUltimaActualizacion | date: 'dd/MM/yyyy'}}</td>
+                                <td>{{hist.tipoMovimiento}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -21,6 +21,7 @@
     "@angular/router": "^15.2.7",
     "@auth0/angular-jwt": "^5.1.2",
     "angular-animations": "^0.11.0",
+    "date-fns": "^2.30.0",
     "leaflet": "^1.9.3",
     "leaflet-routing-machine": "^3.2.12",
     "ngx-spinner": "^15.0.1",

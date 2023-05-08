@@ -1,1 +1,113 @@
-<p>crear-stock-materia-prima works!</p>
+<div class="container TextWhite mtt ff shadow-lg rounded-2">
+    <form #f="ngForm" (ngSubmit)="cargarStock(f)" class="container">
+        <h3 class="text-start py-3">NUEVO STOCK DE MATERIA PRIMA</h3>
+        <hr />
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-3">
+                <div class="form-group">
+                    <label for="tipo">MATERIA PRIMA</label>
+                    <select name="idMateriaPrima" id="idMateriaPrima" class="form-select"
+                        [(ngModel)]="stockMP.idMateriaPrima" #idMateriaPrima="ngModel" required
+                        aria-label="Seleccione la materia prima"
+                        [ngClass]="{'ng-invalid': idMateriaPrima.invalid && idMateriaPrima.touched && !flag}">
+                        <option value="null" selected disabled>Seleccione la materia prima</option>
+                        <option value="{{mp.idMateriaPrima}}" *ngFor="let mp of materiaPrima">
+                            {{mp.descripcion}}
+                        </option>
+                    </select>
+                    <div *ngIf="idMateriaPrima.invalid && idMateriaPrima.touched && !flag" class="text-danger">
+                        Debe seleccionar una materia prima.
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-3">
+                <div class="form-group">
+                    <label for="">CANTIDAD</label>
+                    <input type="text" class="form-control" [(ngModel)]="stockMP.cantidad" #cantidad="ngModel"
+                        name="cantidad" required placeholder="Ingrese la cantidad" pattern="[0-9]*" />
+                    <div *ngIf="cantidad.invalid && (cantidad.dirty || cantidad.touched)">
+                        <small class="text-danger">Por favor ingrese una cantidad válida</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-3">
+                <div class="form-group">
+                    <label for="">PRECIO</label>
+                    <input type="text" class="form-control" [(ngModel)]="stockMP.precio" #precio="ngModel" name="precio"
+                        required placeholder="Ingrese el precio" pattern="[0-9]*" />
+                    <div *ngIf="precio.invalid && (precio.dirty || precio.touched)">
+                        <small class="text-danger">Por favor ingrese un precio válido</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-3">
+                <div class="form-group">
+                    <label for="">STOCK MÍNIMO</label>
+                    <input type="text" class="form-control" [(ngModel)]="stockMP.stockMinimo" #stockMinimo="ngModel"
+                        name="stockMinimo" required placeholder="Ingrese el stock mínimo" pattern="[0-9]*" />
+                    <div *ngIf="stockMinimo.invalid && (stockMinimo.dirty || stockMinimo.touched)">
+                        <small class="text-danger">Por favor ingrese un valor válido</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-3">
+                <div class="form-group">
+                    <label for="">STOCK INICIAL</label>
+                    <input type="text" class="form-control" [(ngModel)]="stockMP.stockInicial" #stockInicial="ngModel"
+                        name="stockInicial" required placeholder="Ingrese el stock inicial" pattern="[0-9]*" />
+                    <div *ngIf="stockInicial.invalid && (stockInicial.dirty || stockInicial.touched)">
+                        <small class="text-danger">Por favor ingrese un valor válido</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-3">
+                <div class="form-group">
+                    <label for="fechaUltimoPrecio">FECHA ÚLTIMO PRECIO</label>
+                    <input type="date" class="form-control" name="fechaUltimoPrecio"
+                        [(ngModel)]="stockMP.fechaUltimoPrecio" #fechaUltimoPrecio="ngModel" required />
+                    <div *ngIf="fechaUltimoPrecio.invalid && (fechaUltimoPrecio.dirty || fechaUltimoPrecio.touched)">
+                        <small class="text-danger">Por favor ingrese una fecha valida</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-3">
+                <div class="form-group">
+                    <label for="fechaUltimaActualizacion">FECHA ÚLTIMA ACTUALIZACIÓN</label>
+                    <input type="date" class="form-control" name="fechaUltimaActualizacion"
+                        [(ngModel)]="stockMP.fechaUltimaActualizacion" #fechaUltimaActualizacion="ngModel" required />
+                    <div
+                        *ngIf="fechaUltimaActualizacion.invalid && (fechaUltimaActualizacion.dirty || fechaUltimaActualizacion.touched)">
+                        <small class="text-danger">Por favor ingrese una fecha valida</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row py-4">
+            <div class="col-6 col-sm-6 col-md-3 col-lg-3 text-center mt-2">
+                <div class="">
+                    <button class="btn btn-success" type="submit" id="" matTooltip="Agregar stock">AGREGAR</button>
+                </div>
+            </div>
+            <div class="col-6 col-sm-6 col-md-3 col-lg-3 text-center mt-2">
+                <div class="">
+                    <button class="btn btn-danger" (click)="Limpiar(this.f)" matTooltip="Cancelar">CANCELAR</button>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 text-center mt-3">
+                <i class="fa-solid fa-arrow-left icono" (click)="volver()" matTooltip="Volver al listado"></i>
+            </div>
+        </div>
+
+    </form>
+</div>

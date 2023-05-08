@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Sort } from '@angular/material/sort';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { DtoHistorialStockMp, HistorialStockMp } from 'src/app/Models/StockMateriaPrima/HistorialStockMP';
 import { DtoListaStockMP, DtoStockMateriaPrima } from 'src/app/Models/StockMateriaPrima/StockMateriaPrima';
 import { StockMateriaPrimaService } from 'src/app/Services/StockMateriPrima/stock-materia-prima.service';
 import Swal from 'sweetalert2';
@@ -11,11 +12,16 @@ import Swal from 'sweetalert2';
   templateUrl: './lista-stock-materia-prima.component.html',
   styleUrls: ['./lista-stock-materia-prima.component.css']
 })
-export class ListaStockMateriaPrimaComponent {
+export class ListaStockMateriaPrimaComponent implements OnInit{
   nombre!: string;
   listado: DtoListaStockMP[] = [];
   materiaPrima: DtoStockMateriaPrima[] = [];
   filtro: string = '';
+
+  estadoRespuesta: number;
+  lista: HistorialStockMp[] = [];
+  @ViewChild('abrirModal') abrirModal: any;
+  @ViewChild('cerrarModal') cerrarModal: any;
 
   constructor(
     private servicio: StockMateriaPrimaService,
@@ -25,6 +31,40 @@ export class ListaStockMateriaPrimaComponent {
 
   ngOnInit(): void {
     this.cargarStockMP();
+  }
+
+  cargarHistorial(id: number) {
+    if (!id) {
+      throw new Error("El ID no puede estar vacío.");
+    }
+    this.spinner.show();
+    this.estadoRespuesta = 0;
+    this.servicio.GetListadoHistorialStockMpById(id).subscribe({
+      next: (resultado) => {
+        this.lista = resultado;
+
+        console.log(resultado);
+        this.spinner.hide();
+      },
+      error: (error) => {
+        this.estadoRespuesta = error.status;
+        if (this.estadoRespuesta === 400) {
+          Swal.fire({
+            title: "¡Error!",
+            text: `El stock no tiene movimientos realizados!`,
+            confirmButtonColor: '#1d3763'
+          });
+        } else {
+          Swal.fire({
+            title: "¡Error!",
+            text: error.error,
+            confirmButtonColor: '#1d3763'
+          });
+        }
+        console.log(error.status);
+        this.spinner.hide();
+      }
+    });
   }
 
   cargarStockMP() {
@@ -43,11 +83,11 @@ export class ListaStockMateriaPrimaComponent {
   }
 
   Modificar(id: number) {
-    this.router.navigateByUrl('/admin/modificarCatalogo/' + id);
+    this.router.navigateByUrl('/admin/modificarStockMateriaPrima/' + id);
   }
 
   agregar() {
-    this.router.navigateByUrl('/admin/crearCatalogo');
+    this.router.navigateByUrl('/admin/crearStockMateriaPrima');
   }
 
   SetData(materiaPrima_: DtoStockMateriaPrima[]) {
@@ -101,49 +141,6 @@ export class ListaStockMateriaPrimaComponent {
     });
   }
 
-  // EliminarCatalogo(id: number) {
-  //   Swal.fire({
-  //     title: '¿Estas seguro de eliminar este catálogo?',
-  //     text:'Los cambios serán permanentes',
-  //     showDenyButton: false,
-  //     showCancelButton: true,
-  //     confirmButtonText: 'Si',
-  //     cancelButtonText: "No",
-  //     cancelButtonColor: "#dc3545",
-  //     confirmButtonColor: "#1d3763",
-  //     icon: "warning",
-  //     denyButtonText: 'No',
-  //     customClass: {
-  //       actions: 'my-actions',
-  //       cancelButton: 'order-1 right-gap',
-  //       confirmButton: 'order-2',
-  //       denyButton: 'order-3',
-  //     }
-  //   }).then((result) => {
-  //     if (result.isConfirmed) {
-  //       this.servicio.EliminarCatalogo(id).subscribe({
-  //         next: (resultado) => {
-  //           Swal.fire({
-  //             icon: 'success',
-  //             text: resultado.message,
-  //             confirmButtonColor: '#162B4E'
-  //           }),
-  //             this.cargarCatalogos()
-  //         },
-  //         error: (error) => {
-  //           Swal.fire({
-  //             title: "¡Error!",
-  //             text: error.error,
-  //             confirmButtonColor: '#1d3763'
-  //           });
-  //           console.log(error);
-  //         }
-  //       })
-  //     } else if (result.isDenied) {
-
-  //     }
-  //   })
-  // }
 }
 
 function compare(a: number | string, b: number | string, isAsc: boolean) {

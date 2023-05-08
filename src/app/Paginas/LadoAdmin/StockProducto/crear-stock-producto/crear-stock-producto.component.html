@@ -1,1 +1,65 @@
-<p>crear-stock-producto works!</p>
+<div class="container TextWhite mtt ff shadow-lg rounded-2">
+    <form #f="ngForm" (ngSubmit)="cargarStock(f)" class="container">
+        <h3 class="text-start py-3">NUEVO STOCK DE PRODUCTOS</h3>
+        <hr />
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-3">
+                <div class="form-group">
+                    <label for="tipo">PRODUCTO</label>
+                    <select name="idProducto" id="idProducto" class="form-select"
+                        [(ngModel)]="stockP.idProducto" #idProducto="ngModel" required
+                        aria-label="Seleccione el producto"
+                        [ngClass]="{'ng-invalid': idProducto.invalid && idProducto.touched && !flag}">
+                        <option value="null" selected disabled>Seleccione el producto</option>
+                        <option value="{{p.idProducto}}" *ngFor="let p of producto">
+                            {{p.nombre}}
+                        </option>
+                    </select>
+                    <div *ngIf="idProducto.invalid && idProducto.touched && !flag" class="text-danger">
+                        Debe seleccionar un producto.
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-3">
+                <div class="form-group">
+                    <label for="">CANTIDAD</label>
+                    <input type="text" class="form-control" [(ngModel)]="stockP.cantidad" #cantidad="ngModel"
+                        name="cantidad" required placeholder="Ingrese la cantidad" pattern="[0-9]*" />
+                    <div *ngIf="cantidad.invalid && (cantidad.dirty || cantidad.touched)">
+                        <small class="text-danger">Por favor ingrese una cantidad válida</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-3">
+                <div class="form-group">
+                    <label for="fechaUltimaActualizacion">FECHA ÚLTIMA ACTUALIZACIÓN</label>
+                    <input type="date" class="form-control" name="fechaUltimaActualizacion"
+                        [(ngModel)]="stockP.fechaUltimaActualizacion" #fechaUltimaActualizacion="ngModel" required />
+                    <div
+                        *ngIf="fechaUltimaActualizacion.invalid && (fechaUltimaActualizacion.dirty || fechaUltimaActualizacion.touched)">
+                        <small class="text-danger">Por favor ingrese una fecha valida</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row py-4">
+            <div class="col-6 col-sm-6 col-md-3 col-lg-3 text-center mt-2">
+                <div class="">
+                    <button class="btn btn-success" type="submit" id="" matTooltip="Agregar stock">AGREGAR</button>
+                </div>
+            </div>
+            <div class="col-6 col-sm-6 col-md-3 col-lg-3 text-center mt-2">
+                <div class="">
+                    <button class="btn btn-danger" (click)="Limpiar(this.f)" matTooltip="Cancelar">CANCELAR</button>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 text-center mt-3">
+                <i class="fa-solid fa-arrow-left icono" (click)="volver()" matTooltip="Volver al listado"></i>
+            </div>
+        </div>
+
+    </form>
+</div>

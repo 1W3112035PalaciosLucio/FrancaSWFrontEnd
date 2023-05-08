@@ -8,7 +8,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
-
+import { CommonModule } from '@angular/common';
+import { DatePipe } from '@angular/common';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -111,11 +112,12 @@ import { AyudaComponent } from './Paginas/LadoCliente/Soporte/ayuda/ayuda.compon
     BrowserAnimationsModule,
     MatTooltipModule,
     MatSortModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    CommonModule
 
 
   ],
-  providers: [LoginService, ProductosService],
+  providers: [LoginService, ProductosService, DatePipe],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 

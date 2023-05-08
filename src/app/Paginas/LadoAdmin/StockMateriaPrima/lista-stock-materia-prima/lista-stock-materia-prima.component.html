@@ -1,17 +1,25 @@
 <div class="container TextWhite rounded-2 ff mtt">
-    <h1 class="text-center py-2">STOCK DE MATERIAS PRIMAS</h1>
-    <hr />
-    <label class="mb-2" for="">BUSCAR</label>
-    <div class="row py-2 mtc-5 mb-2" style="text-align: center">
-        <div class="col-8 col-sm-8 col-md-8 col-lg-8">
-            <input type="text" class="form-control inputColor" [(ngModel)]="filtro" (keyup)="filtrarTabla()"
-                matTooltip="Filtrar" />
+    <div class="row">
+        <div class="col-8 col-sm-5 col-md-5 col-lg-5">
+            <h3 class="text-start py-3 mt-1">STOCK DE MATERIAS PRIMAS</h3>
         </div>
-        <div class="col-4 col-sm-4 col-md-4 col-lg-4 text-center">
+
+        <div class="col-4 col-sm-7 col-md-7 col-lg-7 text-start py-3">
             <button class="btn btnCeleste" (click)="agregar()" matTooltip="Nuevo stock">NUEVO</button>
         </div>
     </div>
     <hr />
+    <label class="mb-2" for="">BUSCAR</label>
+    <div class="row py-3 mtc-5 mb-4" style="text-align: center">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+            <input type="text" class="form-control inputColor" [(ngModel)]="filtro" (keyup)="filtrarTabla()"
+                matTooltip="Filtrar" />
+        </div>
+        <div class="col-md-6 col-lg-6">
+        </div>
+
+    </div>
+    <!-- <hr /> -->
     <div class="table-responsive">
         <table class="table table-responsive mtc-5 TextWhite" matSort (matSortChange)="sortData($event)">
             <thead class="table mtc-5 table-sm TextWhite text-center">
@@ -36,13 +44,53 @@
                     <td>{{ stockMp.fechaUltimoPrecio | date}}</td>
                     <td>{{ stockMp.fechaUltimaActualizacion |date }}</td>
                     <td>
+
+                        <button data-bs-toggle="modal" class="fa-solid fa-circle-info iconoLista fondo me-3"
+                            data-bs-target="#myModal" data-bs-whatever="@mdo" #abrirModal
+                            (click)="cargarHistorial(stockMp.idMateriaPrima)"
+                            matTooltip="Detalle de movimiento"></button>
                         <i type="button" class="fa-solid fa-pencil me-3 iconoLista"
                             (click)="Modificar(stockMp.idStockMateriaPrima)" matTooltip="Modificar stock"></i>
-                        <!-- <i type="button" class="fa-solid fa-trash me-3 iconoListaD" (click)="EliminarCatalogo(stockMp.idStockMateriaPrima)"
-                matTooltip="Eliminar catálogo"></i> -->
                     </td>
                 </tr>
             </tbody>
         </table>
+    </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal fade" tabindex="-1" role="dialog" id="myModal" *ngIf="estadoRespuesta !== 400">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">MOVIMIENTOS DEL STOCK DE MATERIAS PRIMAS</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                    #cerrarModal></button>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive">
+                    <table class="table table-responsive mtc-5 ">
+                        <thead class="table mtc-5 table-sm ">
+                            <tr>
+                                <th scope="col">DESCRIPCIÓN</th>
+                                <th scope="col">CANTIDAD</th>
+                                <th scope="col">PRECIO</th>
+                                <th scope="col">F. ÚLTIMA ACTUALIZACIÓN</th>
+                                <th scope="col">TIPO DE MOVIMIENTO</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let hist of lista">
+                                <td>{{hist.descripcion}}</td>
+                                <td class="text-center">{{ hist.cantidad}}</td>
+                                <td>${{ hist.precio }}</td>
+                                <td class="text-center">{{ hist.fechaUltimaActualizacion | date: 'dd/MM/yyyy'}}</td>
+                                <td>{{hist.tipoMovimiento}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

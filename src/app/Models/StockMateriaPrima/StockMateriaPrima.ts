@@ -1,7 +1,14 @@
 import { MateriaPrima } from "../MateriaPrima/MateriaPrima";
 
 export class StockMateriPrima {
-
+    idStockMateriaPrima: number;
+    idMateriaPrima: number;
+    cantidad: number;
+    precio: number;
+    stockMinimo: number;
+    fechaUltimoPrecio: Date;
+    fechaUltimaActualizacion: Date;
+    stockInicial: number;
 }
 
 export class DtoListaStockMP {
@@ -22,4 +29,16 @@ export class DtoStockMateriaPrima {
     descripcion: string;
     imagen: string;
     materiaPrima: MateriaPrima;
+}
+
+export class DTTOStockMateriPrima {
+    idStockMateriaPrima: number;
+    idMateriaPrima: number;
+    cantidad: number;
+    precio: number;
+    stockMinimo: number;
+    fechaUltimoPrecio: Date;
+    fechaUltimaActualizacion: Date;
+    stockInicial: number;
+    tipoMovimiento: string;
 }
