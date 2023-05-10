@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { InicioAdministradorComponent } from './Paginas/LadoAdmin/inicio-administrador/inicio-administrador.component';
-import { OrdenesDeProduccionComponent } from './Paginas/LadoAdmin/ordenes-de-produccion/ordenes-de-produccion.component';
 import { CatalogoComponent } from './Paginas/LadoCliente/catalogo/catalogo.component';
 import { ContactoComponent } from './Paginas/LadoCliente/contacto/contacto.component';
 import { InicioClienteComponent } from './Paginas/LadoCliente/inicio-cliente/inicio-cliente.component';
@@ -36,6 +35,11 @@ import { CrearStockProductoComponent } from './Paginas/LadoAdmin/StockProducto/c
 import { ModificarStockProductoComponent } from './Paginas/LadoAdmin/StockProducto/modificar-stock-producto/modificar-stock-producto.component';
 import { TerminosComponent } from './Paginas/LadoCliente/Soporte/terminos/terminos.component';
 import { AyudaComponent } from './Paginas/LadoCliente/Soporte/ayuda/ayuda.component';
+import { ListadoOrdenesProduccionComponent } from './Paginas/LadoAdmin/OrdenesProduccion/listado-ordenes-produccion/listado-ordenes-produccion.component';
+import { AltaOrdenesProduccionComponent } from './Paginas/LadoAdmin/OrdenesProduccion/alta-ordenes-produccion/alta-ordenes-produccion.component';
+import { ListadoFormulaComponent } from './Paginas/LadoAdmin/Formulas/listado-formula/listado-formula.component';
+import { CrearFormulaComponent } from './Paginas/LadoAdmin/Formulas/crear-formula/crear-formula.component';
+import { ModificarFormulaComponent } from './Paginas/LadoAdmin/Formulas/modificar-formula/modificar-formula.component';
 
 const routes: Routes = [
   { path: '', component: InicioClienteComponent },
@@ -50,7 +54,6 @@ const routes: Routes = [
 
 
   { path: 'admin/inicioAdmin', component: InicioAdministradorComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
-  { path: 'admin/ordenProduccion', component: OrdenesDeProduccionComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
   { path: 'admin/listadoCatalogo', component: ListadoCatalogoComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
   { path: 'admin/crearCatalogo', component: CrearCatalogoComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
   { path: 'admin/modificarCatalogo/:id', component: ModificarCatalogoComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
@@ -73,7 +76,13 @@ const routes: Routes = [
   { path: 'admin/modificarStockMateriaPrima/:id', component: ModificarStockMateriaPrimaComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
   { path: 'admin/listadoStockProducto', component: ListadoStockProductoComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
   { path: 'admin/crearStockProducto', component: CrearStockProductoComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
-  { path: 'admin/modificarStockProducto/:id', component: ModificarStockProductoComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } }
+  { path: 'admin/modificarStockProducto/:id', component: ModificarStockProductoComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
+  { path: 'admin/listadoOrdenProduccion', component: ListadoOrdenesProduccionComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
+  { path: 'admin/crearOrdenProduccion', component: AltaOrdenesProduccionComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
+  { path: 'admin/listadoFormula', component: ListadoFormulaComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
+  { path: 'admin/crearFormula', component: CrearFormulaComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
+  { path: 'admin/modificarFormula/:id', component: ModificarFormulaComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } }
+
 ];
 
 @NgModule({

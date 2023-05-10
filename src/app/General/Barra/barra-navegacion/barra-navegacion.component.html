@@ -36,7 +36,7 @@
                         (click)="isNavbarCollapsed = true ; selectedItem = 'inicioAdmin'">INICIO ADMIN</a>
                 </li>
                 <li class="nav-item" *ngIf="this.userHasRole(['Adm'])">
-                    <a class="nav-link active letra" href="#" routerLink="/admin/ordenProduccion"
+                    <a class="nav-link active letra" href="#" routerLink="/admin/listadoOrdenProduccion"
                         [ngClass]="{ 'selected-item': selectedItem === 'odenProd' }"
                         (click)="isNavbarCollapsed = true ; selectedItem = 'odenProd'">ORDENES DE
                         PRODUCCIÓN</a>

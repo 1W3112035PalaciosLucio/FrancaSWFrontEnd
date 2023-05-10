@@ -21,7 +21,6 @@ import { ContactoComponent } from './Paginas/LadoCliente/contacto/contacto.compo
 import { UbicacionComponent } from './Paginas/LadoCliente/ubicacion/ubicacion.component';
 import { InicioClienteComponent } from './Paginas/LadoCliente/inicio-cliente/inicio-cliente.component';
 import { InicioAdministradorComponent } from './Paginas/LadoAdmin/inicio-administrador/inicio-administrador.component';
-import { OrdenesDeProduccionComponent } from './Paginas/LadoAdmin/ordenes-de-produccion/ordenes-de-produccion.component';
 import { LoginService } from './Services/login.service';
 import { DetalleCatalogoComponent } from './Paginas/LadoCliente/detalle-catalogo/detalle-catalogo.component';
 import { CrearProductoComponent } from './Paginas/LadoAdmin/Productos/crear-producto/crear-producto.component';
@@ -52,6 +51,11 @@ import { ListadoStockProductoComponent } from './Paginas/LadoAdmin/StockProducto
 import { ModificarStockProductoComponent } from './Paginas/LadoAdmin/StockProducto/modificar-stock-producto/modificar-stock-producto.component';
 import { TerminosComponent } from './Paginas/LadoCliente/Soporte/terminos/terminos.component';
 import { AyudaComponent } from './Paginas/LadoCliente/Soporte/ayuda/ayuda.component';
+import { ListadoOrdenesProduccionComponent } from './Paginas/LadoAdmin/OrdenesProduccion/listado-ordenes-produccion/listado-ordenes-produccion.component';
+import { AltaOrdenesProduccionComponent } from './Paginas/LadoAdmin/OrdenesProduccion/alta-ordenes-produccion/alta-ordenes-produccion.component';
+import { ListadoFormulaComponent } from './Paginas/LadoAdmin/Formulas/listado-formula/listado-formula.component';
+import { CrearFormulaComponent } from './Paginas/LadoAdmin/Formulas/crear-formula/crear-formula.component';
+import { ModificarFormulaComponent } from './Paginas/LadoAdmin/Formulas/modificar-formula/modificar-formula.component';
 
 
 
@@ -68,7 +72,6 @@ import { AyudaComponent } from './Paginas/LadoCliente/Soporte/ayuda/ayuda.compon
     UbicacionComponent,
     InicioClienteComponent,
     InicioAdministradorComponent,
-    OrdenesDeProduccionComponent,
     DetalleCatalogoComponent,
     CrearProductoComponent,
     ModificarProductoComponent,
@@ -96,7 +99,12 @@ import { AyudaComponent } from './Paginas/LadoCliente/Soporte/ayuda/ayuda.compon
     ListadoStockProductoComponent,
     ModificarStockProductoComponent,
     TerminosComponent,
-    AyudaComponent
+    AyudaComponent,
+    ListadoOrdenesProduccionComponent,
+    AltaOrdenesProduccionComponent,
+    ListadoFormulaComponent,
+    CrearFormulaComponent,
+    ModificarFormulaComponent
 
 
 

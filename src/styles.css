@@ -143,3 +143,8 @@ select.ng-valid {
 .bold{
     font-weight: bolder;
 }
+
+.text-justify {
+    text-align: justify;
+    text-justify: inter-word;
+}

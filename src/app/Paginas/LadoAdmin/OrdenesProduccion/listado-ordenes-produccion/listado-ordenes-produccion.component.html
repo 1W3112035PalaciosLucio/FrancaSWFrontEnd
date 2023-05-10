@@ -1,0 +1,55 @@
+<div class="container TextWhite rounded-2 ff mtt">
+    <div class="row">
+        <div class="col-8 col-sm-5 col-md-5 col-lg-5">
+            <h3 class="text-start py-3 mt-1">ORDENES DE PRODUCCIÓN</h3>
+        </div>
+
+        <div class="col-4 col-sm-7 col-md-7 col-lg-7 text-start py-3">
+            <button class="btn btnCeleste" (click)="agregar()" matTooltip="Nueva orden">NUEVO</button>
+        </div>
+    </div>
+    <hr />
+    <label class="mb-2" for="">BUSCAR</label>
+    <div class="row py-3 mtc-5 mb-4" style="text-align: center">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+            <input type="text" class="form-control inputColor" [(ngModel)]="filtro" (keyup)="filtrarTabla()"
+                matTooltip="Filtrar" />
+        </div>
+        <div class="col-md-6 col-lg-6">
+        </div>
+
+    </div>
+    <div class="table-responsive">
+        <table class="table table-responsive mtc-5 TextWhite" matSort (matSortChange)="sortData($event)">
+            <thead class="table mtc-5 table-sm TextWhite text-center">
+                <tr>
+                    <th mat-sort-header="numeroOrden" scope="col">NÚMERO ORDEN</th>
+                    <th mat-sort-header="nombreCliente" scope="col">CLIENTE</th>
+                    <th mat-sort-header="nombreProd" scope="col">PRODUCTO</th>
+                    <th mat-sort-header="nombreUsuario" scope="col">USUARIO</th>
+                    <th mat-sort-header="cantidad" scope="col">CANTIDAD</th>
+                    <th mat-sort-header="fechaPedido" scope="col">FECHA PEDIDO</th>
+                    <th mat-sort-header="fechaEntrega" scope="col">FECHA ENTREGA</th>
+                    <th mat-sort-header="estadoOrden" scope="col">ESTADO</th>
+                    <th scope="col">FUNCIONES</th>
+                </tr>
+            </thead>
+            <tbody class="text-center">
+                <tr *ngFor="let ordP of listado">
+                    <td class="text-start">{{ ordP.numeroOrden }}</td>
+                    <td class="text-start">{{ ordP.nombreCliente }} {{ordP.apellidoCliente}}</td>
+                    <td class="text-start">{{ ordP.nombreProd }}</td>
+                    <td class="text-start">{{ ordP.nombreUsuario }}</td>
+                    <td>{{ ordP.cantidad }}</td>
+                    <td>{{ ordP.fechaPedido | date}}</td>
+                    <td>{{ ordP.fechaEntrega |date }}</td>
+                    <td class="text-start">{{ ordP.estadoOrden }}</td>
+                    <td>
+                        <i type="button" class="fa-solid fa-pencil me-3 iconoLista"
+                            (click)="Modificar(ordP.idOrdenProduccion)" matTooltip="Modificar orden"></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
