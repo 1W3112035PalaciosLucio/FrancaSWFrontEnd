@@ -31,7 +31,9 @@
                     <th mat-sort-header="fechaPedido" scope="col">FECHA PEDIDO</th>
                     <th mat-sort-header="fechaEntrega" scope="col">FECHA ENTREGA</th>
                     <th mat-sort-header="estadoOrden" scope="col">ESTADO</th>
+                    <th></th>
                     <th scope="col">FUNCIONES</th>
+
                 </tr>
             </thead>
             <tbody class="text-center">
@@ -43,13 +45,56 @@
                     <td>{{ ordP.cantidad }}</td>
                     <td>{{ ordP.fechaPedido | date}}</td>
                     <td>{{ ordP.fechaEntrega |date }}</td>
-                    <td class="text-start">{{ ordP.estadoOrden }}</td>
+                    <td class="text-start">{{ ordP.estadoOrden }} </td>
+                    <td class="text-start">
+                        <!-- <button data-bs-toggle="modal"
+                            class="fa-solid fa-circle-info iconoLista fondo me-3" data-bs-target="#myModal"
+                            data-bs-whatever="@mdo" #abrirModal matTooltip="Modificar estado"></button> -->
+                        <button data-bs-toggle="modal" class="fa-solid fa-circle-info iconoLista fondo me-3"
+                            data-bs-target="#myModal" data-bs-whatever="@mdo"
+                            (click)="setNumeroOrdenSeleccionado(ordP.numeroOrden)" #abrirModal
+                            matTooltip="Modificar estado"></button>
+                    </td>
                     <td>
                         <i type="button" class="fa-solid fa-pencil me-3 iconoLista"
                             (click)="Modificar(ordP.idOrdenProduccion)" matTooltip="Modificar orden"></i>
                     </td>
+
                 </tr>
             </tbody>
         </table>
+    </div>
+</div>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="myModal">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">MODIFICAR ESTADO</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                    #cerrarModal></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-10">
+                        <div class="mb-3">
+                            <div class="col-12 table-container">
+                                <select class="form-select inputColor" name="idEstadoOrdenProduccion"
+                                    [(ngModel)]="idEstadoOrdenProduccion">
+                                    <option *ngFor="let estados of estado" [value]="estados.idEstadoOrdenProduccion">
+                                        {{ estados.descripcion }}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <button class="btn btnAzul text-start" matTooltip="Modificar estado"
+                            (click)="actualizarOrden()">MODIFICAR</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

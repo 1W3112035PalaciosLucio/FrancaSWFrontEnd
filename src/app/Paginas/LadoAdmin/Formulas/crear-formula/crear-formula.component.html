@@ -1,1 +1,72 @@
-<p>crear-formula works!</p>
+<div class="container TextWhite mtt ff shadow-lg rounded-2">
+    <form #f="ngForm" (ngSubmit)="registrarFormula(f)" class="container">
+        <h3 class="text-start py-3">NUEVA FORMULA</h3>
+        <hr />
+        
+
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-3">
+                <div class="form-group">
+                    <label for="prod">PRODUCTO</label>
+                    <select name="prod" id="prod" class="form-select" [(ngModel)]="formula.idProducto"
+                        #idProducto="ngModel" required aria-label="Seleccione el producto"
+                        [ngClass]="{'ng-invalid': idProducto.invalid && idProducto.touched && !flag}">
+                        <option value="null" selected disabled>Seleccione el producto</option>
+                        <option value="{{p.idProducto}}" *ngFor="let p of prod">
+                            {{p.nombre}}
+                        </option>
+                    </select>
+                    <div *ngIf="idProducto.invalid && idProducto.touched && !flag" class="text-danger">
+                        Debe seleccionar un producto.
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-3">
+                <div class="form-group">
+                    <label for="matPr">MATERIA PRIMA</label>
+                    <select name="matPr" id="matPr" class="form-select" [(ngModel)]="formula.idMateriaPrima"
+                        #idMateriaPrima="ngModel" required aria-label="Seleccione la materia prima"
+                        [ngClass]="{'ng-invalid': idMateriaPrima.invalid && idMateriaPrima.touched && !flag}">
+                        <option value="null" selected disabled>Seleccione la materia prima</option>
+                        <option value="{{mp.idMateriaPrima}}" *ngFor="let mp of matPr">
+                            {{mp.descripcion}}
+                        </option>
+                    </select>
+                    <div *ngIf="idMateriaPrima.invalid && idMateriaPrima.touched && !flag" class="text-danger">
+                        Debe seleccionar una materia prima.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-3">
+                <div class="form-group">
+                    <label for="">CANTIDAD DE MATERIA PRIMA</label>
+                    <input type="text" class="form-control" [(ngModel)]="formula.cantidadMateriaPrima" #cantidadMateriaPrima="ngModel"
+                        name="cantidadMateriaPrima" required placeholder="Ingrese la cantidad de materia prima" pattern="[0-9]*" />
+                    <div *ngIf="cantidadMateriaPrima.invalid && (cantidadMateriaPrima.dirty || cantidadMateriaPrima.touched)">
+                        <small class="text-danger">Por favor ingrese una cantidad</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-3">
+            </div>
+        </div>
+        <div class="row py-4">
+            <div class="col-6 col-sm-6 col-md-3 col-lg-3 text-center mt-2">
+                <div class="">
+                    <button class="btn btn-success" type="submit" id=""  matTooltip="Agregar formula">AGREGAR</button>
+                </div>
+            </div>
+            <div class="col-6 col-sm-6 col-md-3 col-lg-3 text-center mt-2">
+                <div class="">
+                    <button class="btn btn-danger" (click)="Limpiar(this.f)"  matTooltip="Cancelar">CANCELAR</button>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 text-center mt-3">
+                <i class="fa-solid fa-arrow-left icono" (click)="volver()"  matTooltip="Volver al listado"></i>
+            </div>
+        </div>
+
+    </form>
+</div>

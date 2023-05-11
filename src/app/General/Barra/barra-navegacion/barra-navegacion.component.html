@@ -35,11 +35,19 @@
                         [ngClass]="{ 'selected-item': selectedItem === 'inicioAdmin' }"
                         (click)="isNavbarCollapsed = true ; selectedItem = 'inicioAdmin'">INICIO ADMIN</a>
                 </li>
-                <li class="nav-item" *ngIf="this.userHasRole(['Adm'])">
-                    <a class="nav-link active letra" href="#" routerLink="/admin/listadoOrdenProduccion"
-                        [ngClass]="{ 'selected-item': selectedItem === 'odenProd' }"
-                        (click)="isNavbarCollapsed = true ; selectedItem = 'odenProd'">ORDENES DE
-                        PRODUCCIÓN</a>
+                <li class="nav-item dropdown" *ngIf="this.userHasRole(['Adm'])">
+                    <a class="nav-link dropdown-toggle letra" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false" [ngClass]="{ 'selected-item': selectedItem === 'ordenProd' }">
+                        PRODUCCIÓN
+                    </a>
+                    <ul class="dropdown-menu BackgroundAzul fondoDw">
+                        <li><a class="dropdown-item letra fondoDw" href="#" routerLink="/admin/listadoOrdenProduccion"
+                                (click)="isNavbarCollapsed = true ; selectedItem = 'ordenProd'">ORDENES DE
+                                PRODUCCIÓN</a></li>
+                        <li><a class="dropdown-item letra fondoDw" href="#" routerLink="/admin/listadoFormula"
+                                (click)="isNavbarCollapsed = true; selectedItem = 'ordenProd'">FÓRMULAS</a>
+                        </li>
+                    </ul>
                 </li>
                 <li class="nav-item dropdown" *ngIf="this.userHasRole(['Adm'])">
                     <a class="nav-link dropdown-toggle letra" href="#" role="button" data-bs-toggle="dropdown"

@@ -24,6 +24,10 @@ export class OrdenesProduccionService {
   PostOrdenProduccion(op: DtoOrdenesProduccion): Observable<any> {
     return this.http.post(this.urlBase + "OrdenProduccion/PostOrdenProd", op, { headers: this.headers });
   }
+  PutEstadoOrden(numeroOrden: number, idEstadoOrdenProduccion: number): Observable<any> {
+    const data = { numeroOrden: numeroOrden, idEstadoOrdenProduccion: idEstadoOrdenProduccion };
+    return this.http.put(this.urlBase + "OrdenProduccion/PutEstado", data, { headers: this.headers });
+  }
 
   // CARGAR DE COMBOS 
   GetNCliente(): Observable<any> {

@@ -25,3 +25,11 @@
      text-decoration: none;
  }
 
+ .borderNone {
+     border: none;
+ }
+
+ .carousel-control-prev[data-bs-target="#carouselExampleInterval"],
+ .carousel-control-next[data-bs-target="#carouselExampleInterval"] {
+     color: #162B4E !important;
+ }

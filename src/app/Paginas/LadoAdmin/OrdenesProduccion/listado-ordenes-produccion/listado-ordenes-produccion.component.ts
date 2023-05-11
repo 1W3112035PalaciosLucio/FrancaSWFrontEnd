@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Sort } from '@angular/material/sort';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { estado } from 'src/app/Models/OrdenesProduccion/Combos/CombosOrdenProd';
 import { OrdenesProduccion } from 'src/app/Models/OrdenesProduccion/OrdenesProduccion';
 import { OrdenesProduccionService } from 'src/app/Services/OrdenesProduccion/ordenes-produccion.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-listado-ordenes-produccion',
@@ -14,12 +16,16 @@ export class ListadoOrdenesProduccionComponent implements OnInit {
 
   nombre!: string;
   listado: OrdenesProduccion[] = [];
-  //materiaPrima: DtoStockMateriaPrima[] = [];
   filtro: string = '';
+  numeroOrden: number;
+  idEstadoOrdenProduccion: number;
 
+  numeroOrdenSeleccionado: number;
 
-  //lista: HistorialStockMp[] = [];
+  estado: estado[] = [];
 
+  @ViewChild('abrirModal') abrirModal: any;
+  @ViewChild('cerrarModal') cerrarModal: any;
 
   constructor(
     private servicio: OrdenesProduccionService,
@@ -29,8 +35,18 @@ export class ListadoOrdenesProduccionComponent implements OnInit {
 
   ngOnInit(): void {
     this.cargarOrdenProd();
+    this.cargarSelects();
   }
-
+  setNumeroOrdenSeleccionado(numeroOrden: number) {
+    this.numeroOrdenSeleccionado = numeroOrden;
+    console.log(this.numeroOrdenSeleccionado);
+  }
+  cargarSelects() {
+    this.servicio.GetEstado().subscribe({
+      next: (resultado: any) => { this.estado = resultado },
+      error: (e: any) => (console.log(e.error))
+    })
+  }
 
   cargarOrdenProd() {
     this.spinner.show();
@@ -78,6 +94,32 @@ export class ListadoOrdenesProduccionComponent implements OnInit {
       this.SetData(this.listado);
     }
   }
+
+  actualizarOrden() {
+    this.servicio.PutEstadoOrden(this.numeroOrdenSeleccionado, this.idEstadoOrdenProduccion).subscribe({
+      next: (resultado: any) => {
+        if (resultado.ok == true) {
+          Swal.fire({
+            icon: 'success',
+            text: resultado.message,
+            confirmButtonColor: '#162B4E'
+          }).then(() => {
+            this.cargarOrdenProd();
+            this.cerrarModal.nativeElement.click();
+          })
+        } else {
+          Swal.fire({
+            icon: 'warning',
+            text: resultado.message,
+            confirmButtonColor: '#162B4E'
+          });
+          console.log(resultado);
+        }
+      },
+      error: (e: any) => console.log(e.error)
+    });
+  }
+
 
   sortData(sort: Sort) {
     const data = this.listado.slice();
