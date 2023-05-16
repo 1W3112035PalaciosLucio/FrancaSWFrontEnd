@@ -56,6 +56,12 @@ import { AltaOrdenesProduccionComponent } from './Paginas/LadoAdmin/OrdenesProdu
 import { ListadoFormulaComponent } from './Paginas/LadoAdmin/Formulas/listado-formula/listado-formula.component';
 import { CrearFormulaComponent } from './Paginas/LadoAdmin/Formulas/crear-formula/crear-formula.component';
 import { ModificarFormulaComponent } from './Paginas/LadoAdmin/Formulas/modificar-formula/modificar-formula.component';
+import { AgregarPrecioComponent } from './Paginas/LadoAdmin/ItemsProducto/agregar-precio/agregar-precio.component';
+import { AgregarColorComponent } from './Paginas/LadoAdmin/ItemsProducto/agregar-color/agregar-color.component';
+import { AgregarDisenioComponent } from './Paginas/LadoAdmin/ItemsProducto/agregar-disenio/agregar-disenio.component';
+import { AgregarTipoComponent } from './Paginas/LadoAdmin/ItemsProducto/agregar-tipo/agregar-tipo.component';
+import { AgregarMedidaComponent } from './Paginas/LadoAdmin/ItemsProducto/agregar-medida/agregar-medida.component';
+import { ModificarOrdenesProduccionComponent } from './Paginas/LadoAdmin/OrdenesProduccion/modificar-ordenes-produccion/modificar-ordenes-produccion.component';
 
 
 
@@ -104,7 +110,13 @@ import { ModificarFormulaComponent } from './Paginas/LadoAdmin/Formulas/modifica
     AltaOrdenesProduccionComponent,
     ListadoFormulaComponent,
     CrearFormulaComponent,
-    ModificarFormulaComponent
+    ModificarFormulaComponent,
+    AgregarPrecioComponent,
+    AgregarColorComponent,
+    AgregarDisenioComponent,
+    AgregarTipoComponent,
+    AgregarMedidaComponent,
+    ModificarOrdenesProduccionComponent
 
 
 

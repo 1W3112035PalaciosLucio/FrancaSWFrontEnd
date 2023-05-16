@@ -1,3 +1,9 @@
+@media screen and (max-width: 937px) and (min-height: 2327px) {
+    .carousel.pointer-event {
+      touch-action: auto;
+    }
+  }
+ 
  .card img {
      max-width: 90%;
      max-height: 90%;
@@ -27,9 +33,23 @@
 
  .borderNone {
      border: none;
+     outline: none;
+     box-shadow: none;
  }
 
- .carousel-control-prev[data-bs-target="#carouselExampleInterval"],
- .carousel-control-next[data-bs-target="#carouselExampleInterval"] {
-     color: #162B4E !important;
+ .carousel-control-prev-icon .fa-angle-left {
+     color: #162B4E;
+ }
+
+ .carousel-control-next-icon .fa-angle-right {
+     color: #162B4E;
+ }
+
+ .carousel,
+ .carousel-inner,
+ .carousel-control-prev,
+ .carousel-control-next {
+   border: none !important;
+   box-shadow: none !important;
+   outline: none !important;
  }

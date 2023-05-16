@@ -47,16 +47,17 @@
                     <td>{{ ordP.fechaEntrega |date }}</td>
                     <td class="text-start">{{ ordP.estadoOrden }} </td>
                     <td class="text-start">
-                        <!-- <button data-bs-toggle="modal"
-                            class="fa-solid fa-circle-info iconoLista fondo me-3" data-bs-target="#myModal"
-                            data-bs-whatever="@mdo" #abrirModal matTooltip="Modificar estado"></button> -->
-                        <button data-bs-toggle="modal" class="fa-solid fa-circle-info iconoLista fondo me-3"
+                        <!-- <button data-bs-toggle="modal" class="fa-solid fa-pen-to-square iconoLista fondo me-3"
+                            data-bs-target="#myModal" data-bs-whatever="@mdo"
+                            (click)="setNumeroOrdenSeleccionado(ordP.numeroOrden)" #abrirModal
+                            matTooltip="Modificar estado"></button> -->
+                            <button *ngIf="ordP.estadoOrden === 'Pendiente'" data-bs-toggle="modal" class="fa-solid fa-pen-to-square iconoLista fondo me-3"
                             data-bs-target="#myModal" data-bs-whatever="@mdo"
                             (click)="setNumeroOrdenSeleccionado(ordP.numeroOrden)" #abrirModal
                             matTooltip="Modificar estado"></button>
                     </td>
                     <td>
-                        <i type="button" class="fa-solid fa-pencil me-3 iconoLista"
+                        <i type="button"  *ngIf="ordP.estadoOrden === 'Pendiente'" class="fa-solid fa-pencil me-3 iconoLista"
                             (click)="Modificar(ordP.idOrdenProduccion)" matTooltip="Modificar orden"></i>
                     </td>
 

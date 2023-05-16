@@ -2,25 +2,41 @@
     color: #ffffff;
     font-size: 26px;
 }
-
 .icono:hover {
     color: #5192FF;
 }
 
-.letra {
-    color: #ffffff;
-    zoom: 79%;
-}
 
-.letra:hover {
+.ICONO1 {
+    color: #ffffff !important;
+    font-size: 20px;
+}
+.ICONO1:hover {
     color: #5192FF;
 }
+
+
+.ICONO2 {
+    color: #ffffff !important;
+}
+.ICONO2:hover {
+    color: #5192FF;
+}
+
+
+.letra {
+    color: #ffffff !important;
+    zoom: 79%;
+}
+.letra:hover {
+    color: #5192FF !important;
+}
+
 
 .letra1 {
     color: #ffffff;
     font-weight: bold;
 }
-
 .letra1:hover {
     color: #5192FF;
 }
@@ -29,22 +45,103 @@
     color: #5192FF !important;
 }
 
+
 .fondoDw {
     background-color: #162B4E;
 }
-
 .fondoDw:hover {
     background-color: #162B4E;
 }
+
+
+.BackgroundBlanco {
+    background-color: #ffffff;
+}
+
 
 .imagen {
     width: 75px;
     height: 50px;
     background-image: url("https://res.cloudinary.com/dawraxuq1/image/upload/v1683497196/FrancaSW/75px_50px_xtfwy5.png");
 }
-
 .imagen:hover {
     width: 75px;
     height: 50px;
     background-image: url("https://res.cloudinary.com/dawraxuq1/image/upload/v1683499947/FrancaSW/75px_50px_color_2_ztsk9m.png");
 }
+
+
+.letraD {
+    color: #ffffff;
+    zoom: 79%;
+}
+.letraD:hover {
+    color: #5192FF;
+}
+
+.selected-item-pressed {
+    background-color: white;
+
+    >nav {
+        background-color: white !important;
+    }
+
+}
+
+
+.selected-item-pressed .letra {
+    color: #162B4E !important;
+    zoom: 79% !important;
+}
+.selected-item-pressed .letra:hover {
+    color: #5192FF !important;
+    zoom: 79% !important;
+}
+
+
+.selected-item-pressed .imagen {
+    width: 75px;
+    height: 50px;
+    background-image: url("https://res.cloudinary.com/dawraxuq1/image/upload/v1683499947/FrancaSW/75px_50px_color_2_ztsk9m.png");
+}
+.selected-item-pressed .imagen:hover {
+    width: 75px;
+    height: 50px;
+    background-image: url("https://res.cloudinary.com/dawraxuq1/image/upload/v1683499947/FrancaSW/75px_50px_color_2_ztsk9m.png");
+}
+
+
+.selected-item-pressed .icono {
+    color: #162B4E;
+    font-size: 26px;
+}
+.selected-item-pressed .icono:hover {
+    color: #5192FF;
+}
+
+
+.selected-item-pressed .letraD {
+    color: #ffffff;
+    zoom: 79%;
+}
+.selected-item-pressed .letraD:hover {
+    color: #5192FF;
+}
+
+
+.selected-item-pressed .ICONO1 {
+    color: #162B4E;
+    font-size: 20px;
+}
+.selected-item-pressed .ICONO1:hover {
+    color: #5192FF;
+}
+
+
+.selected-item-pressed .ICONO2 {
+    color: #162B4E;
+}
+.selected-item-pressed .ICONO2:hover {
+    color: #5192FF;
+}
+

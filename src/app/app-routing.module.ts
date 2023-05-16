@@ -40,6 +40,12 @@ import { AltaOrdenesProduccionComponent } from './Paginas/LadoAdmin/OrdenesProdu
 import { ListadoFormulaComponent } from './Paginas/LadoAdmin/Formulas/listado-formula/listado-formula.component';
 import { CrearFormulaComponent } from './Paginas/LadoAdmin/Formulas/crear-formula/crear-formula.component';
 import { ModificarFormulaComponent } from './Paginas/LadoAdmin/Formulas/modificar-formula/modificar-formula.component';
+import { AgregarColorComponent } from './Paginas/LadoAdmin/ItemsProducto/agregar-color/agregar-color.component';
+import { AgregarDisenioComponent } from './Paginas/LadoAdmin/ItemsProducto/agregar-disenio/agregar-disenio.component';
+import { AgregarMedidaComponent } from './Paginas/LadoAdmin/ItemsProducto/agregar-medida/agregar-medida.component';
+import { AgregarPrecioComponent } from './Paginas/LadoAdmin/ItemsProducto/agregar-precio/agregar-precio.component';
+import { AgregarTipoComponent } from './Paginas/LadoAdmin/ItemsProducto/agregar-tipo/agregar-tipo.component';
+import { ModificarOrdenesProduccionComponent } from './Paginas/LadoAdmin/OrdenesProduccion/modificar-ordenes-produccion/modificar-ordenes-produccion.component';
 
 const routes: Routes = [
   { path: '', component: InicioClienteComponent },
@@ -79,9 +85,15 @@ const routes: Routes = [
   { path: 'admin/modificarStockProducto/:id', component: ModificarStockProductoComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
   { path: 'admin/listadoOrdenProduccion', component: ListadoOrdenesProduccionComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
   { path: 'admin/crearOrdenProduccion', component: AltaOrdenesProduccionComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
+  { path: 'admin/modificarOrdenProduccion/:id', component: ModificarOrdenesProduccionComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
   { path: 'admin/listadoFormula', component: ListadoFormulaComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
   { path: 'admin/crearFormula', component: CrearFormulaComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
-  { path: 'admin/modificarFormula/:id', component: ModificarFormulaComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } }
+  { path: 'admin/modificarFormula/:id', component: ModificarFormulaComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
+  { path: 'admin/agregarColor', component: AgregarColorComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
+  { path: 'admin/agregarDisenio', component: AgregarDisenioComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
+  { path: 'admin/agregarMedida', component: AgregarMedidaComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
+  { path: 'admin/agregarPrecio', component: AgregarPrecioComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } },
+  { path: 'admin/agregarTipo', component: AgregarTipoComponent, canActivate: [AuthGuard], data: { roles: ['Adm'] } }
 
 ];
 

@@ -78,6 +78,22 @@ export class ListadoProductosComponent implements OnInit {
     this.router.navigateByUrl('/admin/crearProducto');
   }
 
+  color(){
+    this.router.navigateByUrl('/admin/agregarColor');
+  }
+  medida(){
+    this.router.navigateByUrl('/admin/agregarMedida');
+  }
+  tipo(){
+    this.router.navigateByUrl('/admin/agregarTipo');
+  }
+  disenio(){
+    this.router.navigateByUrl('/admin/agregarDisenio');
+  }
+  precio(){
+    this.router.navigateByUrl('/admin/agregarPrecio');
+  }
+
   filtrarTabla() {
     if (this.filtro.length === 0 || this.filtro.length <= 3) {
       this.cargarProductos();

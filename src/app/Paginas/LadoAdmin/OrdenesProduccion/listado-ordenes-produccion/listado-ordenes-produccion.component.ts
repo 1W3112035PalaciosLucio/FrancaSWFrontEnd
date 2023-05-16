@@ -42,7 +42,7 @@ export class ListadoOrdenesProduccionComponent implements OnInit {
     console.log(this.numeroOrdenSeleccionado);
   }
   cargarSelects() {
-    this.servicio.GetEstado().subscribe({
+    this.servicio.GetEstado2().subscribe({
       next: (resultado: any) => { this.estado = resultado },
       error: (e: any) => (console.log(e.error))
     })
@@ -64,7 +64,7 @@ export class ListadoOrdenesProduccionComponent implements OnInit {
   }
 
   Modificar(id: number) {
-    this.router.navigateByUrl('/admin/modificarStockMateriaPrima/' + id);
+    this.router.navigateByUrl('/admin/modificarOrdenProduccion/' + id);
   }
 
   agregar() {

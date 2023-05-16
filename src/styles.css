@@ -11,8 +11,9 @@
 }
 
 .BackgroundAzul {
-    /* background-color: #162B4E; */
-    background-color: rgb(22, 43, 78);
+    background-color: #162B4E;
+
+
 }
 
 .BackgroundAzulCard {
@@ -158,4 +159,64 @@ select.ng-valid {
 .text-justify {
     text-align: justify;
     text-justify: inter-word;
+}
+
+.btnA1 {
+    background-color: #3766b5;
+    color: #fff;
+    border-color: #3766b5
+}
+
+.btnA2 {
+    background-color: #3b6dbb;
+    color: #fff;
+    border-color: #3b6dbb
+}
+
+.btnA3 {
+    background-color: #457ddd;
+    color: #fff;
+    border-color: #457ddd
+}
+
+.btnA4 {
+    background-color: #4a82e0;
+    color: #fff;
+    border-color: #4a82e0
+}
+
+.btnA5 {
+    background-color: #4f8aed;
+    color: #fff;
+    border-color: #4f8aed
+}
+
+.btnA1:hover {
+    background-color: #3966b4;
+    color: #fff;
+    border-color: #3966b4
+}
+
+.btnA2:hover {
+    background-color: #3e6cb9;
+    color: #fff;
+    border-color: #3e6cb9
+}
+
+.btnA3:hover {
+    background-color: #4578d3;
+    color: #fff;
+    border-color: #4578d3
+}
+
+.btnA4:hover {
+    background-color: #4a80d9;
+    color: #fff;
+    border-color: #4a80d9
+}
+
+.btnA5:hover {
+    background-color: #4f87df;
+    color: #fff;
+    border-color: #4f87df
 }

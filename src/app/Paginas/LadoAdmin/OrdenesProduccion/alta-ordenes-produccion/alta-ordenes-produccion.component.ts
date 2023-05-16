@@ -38,7 +38,7 @@ export class AltaOrdenesProduccionComponent implements OnInit {
       apeCliente: ['', [Validators.required]],
       nomProd: ['', [Validators.required]],
       nomUsuario: ['', [Validators.required]],
-      estado: ['', [Validators.required]],
+      estado: [1, [Validators.required]],
       fechaPedido: ['', [Validators.required]],
       fechaEntrega: ['', [Validators.required]],
       numeroOrden: ['', [Validators.required]]
@@ -57,7 +57,7 @@ export class AltaOrdenesProduccionComponent implements OnInit {
       apeCliente: this.servicio.GetACliente(),
       nomProd: this.servicio.GetProducto(),
       nomUsuario: this.servicio.GetUsuario(),
-      estado: this.servicio.GetEstado(),
+      estado: this.servicio.GetEstado1(),
     }).subscribe({
       next: (resultado: any) => {
         this.nomCliente = resultado.nomCliente;

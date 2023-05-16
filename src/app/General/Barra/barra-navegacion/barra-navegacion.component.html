@@ -1,12 +1,15 @@
-<nav class="navbar navbar-expand-lg shadow BackgroundAzu" data-bs-theme="dark">
+<nav class="navbar navbar-expand-lg shadow BackgroundAzul"
+    [ngClass]="{ 'selected-item-pressed': selectedItem === 'home' && selectedItemsPressed }">
     <div class="container-fluid py-2">
-        <a class="navbar-brand TextWhite letra1 imagen" href="#"
-            [ngClass]="{ 'selected-item': selectedItem === 'home' }"
-            (click)="isNavbarCollapsed = true; selectedItem = 'home'"></a>
+        <a class="navbar-brand TextWhite letra1 imagen" href="#" routerLink="cliente/inicioCliente"
+            routerLinkActive="selected-item {{selectedItemPressedClass}}"
+            [ngClass]="{ 'selected-item': selectedItem === 'home','selected-item-pressed': selectedItemsPressed }"
+            (click)="isNavbarCollapsed = true; selectedItem = 'home'; selectedItemsPressed = true;"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
             aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation"
             (click)="isNavbarCollapsed = !isNavbarCollapsed">
-            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon ICONO1"
+                [ngClass]="{ 'selected-item-pressed': selectedItem === 'home' && selectedItemsPressed }"></span>
         </button>
         <div class="collapse navbar-collapse fLight " [ngClass]="{ 'show': !isNavbarCollapsed }" id="navbarText">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -14,18 +17,19 @@
                 <!--Vista general-->
                 <li class="nav-item">
                     <a class="nav-link active letra" href="#" routerLink="cliente/inicioCliente"
-                        [ngClass]="{ 'selected-item': selectedItem === 'home' }"
-                        (click)="isNavbarCollapsed = true; selectedItem = 'home'">INICIO</a>
+                        routerLinkActive="selected-item {{selectedItemPressedClass}}"
+                        [ngClass]="{ 'selected-item': selectedItem === 'home','selected-item-pressed': selectedItemsPressed }"
+                        (click)="isNavbarCollapsed = true; selectedItem = 'home'; selectedItemsPressed = true;">INICIO</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active letra" href="#" routerLink="/cliente/catalogoCliente"
                         [ngClass]="{ 'selected-item': selectedItem === 'catalogo' }"
-                        (click)="isNavbarCollapsed = true ; selectedItem = 'catalogo'">CATÁLOGO</a>
+                        (click)="isNavbarCollapsed = true ; selectedItem = 'catalogo';deselectedItemPressed();">CATÁLOGO</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active letra" href="#" routerLink="/cliente/contacto"
                         [ngClass]="{ 'selected-item': selectedItem === 'contacto' }"
-                        (click)="isNavbarCollapsed = true; selectedItem = 'contacto'">CONTACTO</a>
+                        (click)="isNavbarCollapsed = true; selectedItem = 'contacto';deselectedItemPressed();">CONTACTO</a>
                 </li>
 
                 <!-- Administrador -->
@@ -33,7 +37,8 @@
                 <li class="nav-item" *ngIf="this.userHasRole(['Adm'])">
                     <a class="nav-link active letra" href="#" routerLink="/admin/inicioAdmin"
                         [ngClass]="{ 'selected-item': selectedItem === 'inicioAdmin' }"
-                        (click)="isNavbarCollapsed = true ; selectedItem = 'inicioAdmin'">INICIO ADMIN</a>
+                        (click)="isNavbarCollapsed = true ; selectedItem = 'inicioAdmin';deselectedItemPressed();">
+                        ADMINISTRADOR</a>
                 </li>
                 <li class="nav-item dropdown" *ngIf="this.userHasRole(['Adm'])">
                     <a class="nav-link dropdown-toggle letra" href="#" role="button" data-bs-toggle="dropdown"
@@ -41,11 +46,12 @@
                         PRODUCCIÓN
                     </a>
                     <ul class="dropdown-menu BackgroundAzul fondoDw">
-                        <li><a class="dropdown-item letra fondoDw" href="#" routerLink="/admin/listadoOrdenProduccion"
-                                (click)="isNavbarCollapsed = true ; selectedItem = 'ordenProd'">ORDENES DE
+                        <li><a class="dropdown-item letraD fondoDw" href="#" routerLink="/admin/listadoOrdenProduccion"
+                                (click)="isNavbarCollapsed = true ; selectedItem = 'ordenProd';deselectedItemPressed();">ORDENES
+                                DE
                                 PRODUCCIÓN</a></li>
-                        <li><a class="dropdown-item letra fondoDw" href="#" routerLink="/admin/listadoFormula"
-                                (click)="isNavbarCollapsed = true; selectedItem = 'ordenProd'">FÓRMULAS</a>
+                        <li><a class="dropdown-item letraD fondoDw" href="#" routerLink="/admin/listadoFormula"
+                                (click)="isNavbarCollapsed = true; selectedItem = 'ordenProd';deselectedItemPressed();">FÓRMULAS</a>
                         </li>
                     </ul>
                 </li>
@@ -55,10 +61,12 @@
                         STOCK
                     </a>
                     <ul class="dropdown-menu BackgroundAzul fondoDw">
-                        <li><a class="dropdown-item letra fondoDw" href="#" routerLink="/admin/listadoStockProducto"
-                                (click)="isNavbarCollapsed = true ; selectedItem = 'stock'">PRODUCTOS</a></li>
-                        <li><a class="dropdown-item letra fondoDw" href="#" routerLink="/admin/listadoStockMateriaPrima"
-                                (click)="isNavbarCollapsed = true; selectedItem = 'stock'">MATERIAS
+                        <li><a class="dropdown-item letraD fondoDw" href="#" routerLink="/admin/listadoStockProducto"
+                                (click)="isNavbarCollapsed = true ; selectedItem = 'stock';deselectedItemPressed();">PRODUCTOS</a>
+                        </li>
+                        <li><a class="dropdown-item letraD fondoDw" href="#"
+                                routerLink="/admin/listadoStockMateriaPrima"
+                                (click)="isNavbarCollapsed = true; selectedItem = 'stock';deselectedItemPressed();">MATERIAS
                                 PRIMAS</a>
                         </li>
                     </ul>
@@ -66,28 +74,28 @@
                 <li class="nav-item" *ngIf="this.userHasRole(['Adm'])">
                     <a class="nav-link active letra" href="#" routerLink="/admin/listadoCatalogo"
                         [ngClass]="{ 'selected-item': selectedItem === 'catalogoA' }"
-                        (click)="isNavbarCollapsed = true; selectedItem = 'catalogoA'">CATÁLOGO</a>
+                        (click)="isNavbarCollapsed = true; selectedItem = 'catalogoA';deselectedItemPressed();">CATÁLOGO</a>
                 </li>
                 <li class="nav-item" *ngIf="this.userHasRole(['Adm'])">
                     <a class="nav-link active letra" href="#" routerLink="/admin/listadoProducto"
                         [ngClass]="{ 'selected-item': selectedItem === 'prod' }"
-                        (click)="isNavbarCollapsed = true; selectedItem = 'prod'">PRODUCTOS</a>
+                        (click)="isNavbarCollapsed = true; selectedItem = 'prod';deselectedItemPressed();">PRODUCTOS</a>
                 </li>
                 <li class="nav-item" *ngIf="this.userHasRole(['Adm'])">
                     <a class="nav-link active letra" href="#" routerLink="/admin/listadoMateriaPrima"
                         [ngClass]="{ 'selected-item': selectedItem === 'matPr' }"
-                        (click)="isNavbarCollapsed = true; selectedItem = 'matPr'">MATERIAS
+                        (click)="isNavbarCollapsed = true; selectedItem = 'matPr';deselectedItemPressed();">MATERIAS
                         PRIMAS</a>
                 </li>
                 <li class="nav-item" *ngIf="this.userHasRole(['Adm'])">
                     <a class="nav-link active letra" href="#" routerLink="/admin/listadoProveedor"
                         [ngClass]="{ 'selected-item': selectedItem === 'prov' }"
-                        (click)="isNavbarCollapsed = true; selectedItem = 'prov'">PROVEEDORES</a>
+                        (click)="isNavbarCollapsed = true; selectedItem = 'prov';deselectedItemPressed();">PROVEEDORES</a>
                 </li>
                 <li class="nav-item" *ngIf="this.userHasRole(['Adm'])">
                     <a class="nav-link active letra" href="#" routerLink="/admin/listadoCliente"
                         [ngClass]="{ 'selected-item': selectedItem === 'clientes' }"
-                        (click)="isNavbarCollapsed = true; selectedItem = 'clientes'">CLIENTES</a>
+                        (click)="isNavbarCollapsed = true; selectedItem = 'clientes';deselectedItemPressed();">CLIENTES</a>
                 </li>
             </ul>
 
@@ -95,7 +103,7 @@
                 <li class="nav-item dropdown fuente fixed-end">
                     <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false" [ngClass]="{ 'selected-item': selectedItem === 'p' }"
-                        (click)="isNavbarCollapsed = true; selectedItem = 'p'">
+                        (click)="isNavbarCollapsed = true; selectedItem = 'p';deselectedItemPressed();">
                         <i class="fa-solid fa-user icono" [ngClass]="{ 'selected-item': selectedItem === 'p' }"
                             routerLink="/seguridad/login"></i>
                     </a>
@@ -104,7 +112,7 @@
 
             <ul class="navbar-nav mb-2 mb-lg-0 me-5 dropdown-menu-start" *ngIf="this.userHasRole(['Adm'])">
                 <li class="nav-item dropdown fuente fixed-end">
-                    <a class="nav-link dropdown-toggle active" href="" role="button" data-bs-toggle="dropdown"
+                    <a class="nav-link dropdown-toggle active ICONO2" href="" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
                         <i class="fa-solid fa-user icono"></i>
                     </a>

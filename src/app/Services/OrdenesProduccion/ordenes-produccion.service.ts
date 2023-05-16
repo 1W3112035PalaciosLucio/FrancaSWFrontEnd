@@ -45,4 +45,18 @@ export class OrdenesProduccionService {
   GetEstado(): Observable<any> {
     return this.http.get(this.urlBase + "AgregarOrdenProd/GetEstado", { headers: this.headers });
   }
+  GetEstado1(): Observable<any> {
+    return this.http.get(this.urlBase + "AgregarOrdenProd/GetEstado1", { headers: this.headers });
+  }
+  GetEstado2(): Observable<any> {
+    return this.http.get(this.urlBase + "AgregarOrdenProd/GetEstado2", { headers: this.headers });
+  }
+
+  GetOrdenProduccionById(id: number): Observable<any> {
+    return this.http.get(this.urlBase + "OrdenProduccion/GetOrdenProduccionById/" + id, { headers: this.headers });
+  }
+
+  PutOrden(orden: DtoOrdenesProduccion): Observable<any> {
+    return this.http.put(this.urlBase + "OrdenProduccion/PutOrdenProd", orden, { headers: this.headers });
+  }
 }
