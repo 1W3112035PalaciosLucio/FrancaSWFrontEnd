@@ -10,3 +10,11 @@ export interface ReporteStockProd {
     cantidad: number;
     fechaUltimaActualizacion: Date;
 }
+export interface ReporteStockProd1 {
+    nombre: string;
+    cantidad: number;
+}
+export interface ReporteStockMP {
+    descripcion: string;
+    cantidad: number;
+}

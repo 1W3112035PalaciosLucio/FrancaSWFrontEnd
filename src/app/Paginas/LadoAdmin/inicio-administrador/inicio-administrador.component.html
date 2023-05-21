@@ -1,1 +1,76 @@
-<p>inicio-administrador works!</p>
+<div class="container-fluid py-3 mb-3 BackgroundAzul">
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-start TextWhite">
+                <h3>STOCK DE PRODUCTOS <i type="button" class="fa-solid fa-arrow-up-right-from-square ms-2 icono "
+                        matTooltip="Ir al stock" (click)="stockP()"></i></h3>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
+            <div class="chart-container">
+                <ngx-charts-bar-vertical [view]="view" [colorScheme]="colorScheme" [results]="single"
+                    [gradient]="gradient" [xAxis]="showXAxis" [yAxis]="showYAxis" [legendTitle]="legendTitle"
+                    [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel"
+                    [yAxisLabel]="yAxisLabel" (select)="onSelect($event)" style="fill: #FFFFFF;">
+                </ngx-charts-bar-vertical>
+            </div>
+        </div>
+        <!-- <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 d-flex justify-content-center">
+            <div class="table-responsive">
+                <table class="table table-responsive mtc-5 TextWhite textSm" matSort (matSortChange)="sortData($event)">
+                    <thead class="table mtc-5 table-sm TextWhite text-center">
+                        <tr>
+                            <th mat-sort-header="codigo" scope="col">CÓDIGO</th>
+                            <th mat-sort-header="nombre" scope="col">NOMBRE</th>
+                            <th mat-sort-header="tipoProducto" scope="col">TIPO</th>
+                            <th mat-sort-header="colorProducto" scope="col">COLOR</th>
+                            <th mat-sort-header="medidaProducto" scope="col">MEDIDA</th>
+                            <th mat-sort-header="disenioProducto" scope="col">DISEÑO</th>
+                            <th mat-sort-header="cantidad" scope="col">CANTIDAD</th>
+                            <th mat-sort-header="precioBocha" scope="col">PRECIO</th>
+                            <th mat-sort-header="fechaUltimaActualizacion" scope="col">FECHA ÚLT. ACTUALIZACIÓN</th>
+
+                        </tr>
+                    </thead>
+                    <tbody class="text-center">
+                        <tr *ngFor="let prod of listado">
+                            <td>{{ prod.codigo }}</td>
+                            <td class="text-start">{{ prod.nombre }}</td>
+                            <td>{{ prod.tipoProducto }}</td>
+                            <td>{{ prod.colorProducto }}</td>
+                            <td>{{ prod.medidaProducto }}</td>
+                            <td>{{ prod.disenioProducto }}</td>
+                            <td>{{ prod.cantidad }}</td>
+                            <td>$ {{ prod.precioBocha }}</td>
+                            <td>{{ prod.fechaUltimaActualizacion |date }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div> -->
+    </div>
+</div>
+<div class="container-fluid mt-3 py-5 backgroundInicio">
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-start TextWhite">
+                <h3>STOCK DE MATERIAS PRIMAS <i type="button" class="fa-solid fa-arrow-up-right-from-square ms-2 icono "
+                        matTooltip="Ir al stock" (click)="stockMP()"></i></h3>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
+            <div class="chart-container">
+                <ngx-charts-bar-vertical [view]="viewmp " [colorScheme]="colorScheme" [results]="single1"
+                    [gradient]="gradientmp " [xAxis]="showXAxismp " [yAxis]="showYAxismp " [legendTitle]="legendTitlemp"
+                    [showXAxisLabel]="showXAxisLabelmp" [showYAxisLabel]="showYAxisLabelmp "
+                    [xAxisLabel]="xAxisLabelmp " [yAxisLabel]="yAxisLabelmp" (select)="onSelect($event)"
+                    style="fill: #FFFFFF;">
+                </ngx-charts-bar-vertical>
+            </div>
+        </div>
+    </div>
+</div>

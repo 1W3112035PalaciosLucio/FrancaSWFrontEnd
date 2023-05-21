@@ -18,6 +18,12 @@ export class ReportesService {
   urlBase = environment.baseApiUrl;
 
   GetListadoReporteStockProd(): Observable<any> {
+    return this.http.get(this.urlBase + "Reportes/GetListadoReporteStockProd1", { headers: this.headers });
+  }
+  GetListaReporteStockProd(): Observable<any> {
     return this.http.get(this.urlBase + "Reportes/GetListadoReporteStockProd", { headers: this.headers });
+  }
+  GetListadoReporteStockMP(): Observable<any> {
+    return this.http.get(this.urlBase + "Reportes/GetListadoReporteStockMP", { headers: this.headers });
   }
 }

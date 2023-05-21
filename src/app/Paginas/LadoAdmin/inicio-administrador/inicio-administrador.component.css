@@ -1,0 +1,36 @@
+.chart-container {
+  overflow-x: auto;
+}
+
+.x-axis-label,
+.y-axis-label {
+  fill: #FFFFFF !important;
+}
+
+.ngx-charts-legend-text {
+  fill: #FF0000;
+  /* Cambia #FF0000 por el color que deseas */
+}
+
+.textSm {
+  font-size: 12px;
+}
+
+
+.backgroundInicio {
+  background: #162B4E;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #1e52ae, #1b345d, #162B4E);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #1e52ae, #1b345d, #162B4E); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+}
+
+.iconoRedirect {
+  color: #ffffff;
+  font-size: 20px;
+  margin-bottom: 11px;
+}
+
+.iconoRedirect:hover {
+
+  color: #5192FF;
+}

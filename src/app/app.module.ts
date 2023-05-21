@@ -62,6 +62,7 @@ import { AgregarDisenioComponent } from './Paginas/LadoAdmin/ItemsProducto/agreg
 import { AgregarTipoComponent } from './Paginas/LadoAdmin/ItemsProducto/agregar-tipo/agregar-tipo.component';
 import { AgregarMedidaComponent } from './Paginas/LadoAdmin/ItemsProducto/agregar-medida/agregar-medida.component';
 import { ModificarOrdenesProduccionComponent } from './Paginas/LadoAdmin/OrdenesProduccion/modificar-ordenes-produccion/modificar-ordenes-produccion.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 
 
@@ -133,7 +134,10 @@ import { ModificarOrdenesProduccionComponent } from './Paginas/LadoAdmin/Ordenes
     MatTooltipModule,
     MatSortModule,
     MatPaginatorModule,
-    CommonModule
+    CommonModule,
+    NgxChartsModule
+     
+
 
 
   ],

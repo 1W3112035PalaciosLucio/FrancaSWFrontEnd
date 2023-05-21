@@ -1,10 +1,11 @@
 <nav class="navbar navbar-expand-lg shadow BackgroundAzul"
-    [ngClass]="{ 'selected-item-pressed': selectedItem === 'home' && selectedItemsPressed }">
+  [ngClass]="{ 'selected-item-pressed': selectedItem === 'home' && selectedItemsPressed }">
     <div class="container-fluid py-2">
         <a class="navbar-brand TextWhite letra1 imagen" href="#" routerLink="cliente/inicioCliente"
             routerLinkActive="selected-item {{selectedItemPressedClass}}"
             [ngClass]="{ 'selected-item': selectedItem === 'home','selected-item-pressed': selectedItemsPressed }"
-            (click)="isNavbarCollapsed = true; selectedItem = 'home'; selectedItemsPressed = true;"></a>
+            (click)="isNavbarCollapsed = true; selectedItem = 'home'; selectedItemsPressed = true;"
+            (click)="activarSelectedItem()"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
             aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation"
             (click)="isNavbarCollapsed = !isNavbarCollapsed">
@@ -19,17 +20,18 @@
                     <a class="nav-link active letra" href="#" routerLink="cliente/inicioCliente"
                         routerLinkActive="selected-item {{selectedItemPressedClass}}"
                         [ngClass]="{ 'selected-item': selectedItem === 'home','selected-item-pressed': selectedItemsPressed }"
-                        (click)="isNavbarCollapsed = true; selectedItem = 'home'; selectedItemsPressed = true;">INICIO</a>
+                        (click)="isNavbarCollapsed = true; selectedItem = 'home'; selectedItemsPressed = true;"
+                        (click)="activarSelectedItem()">INICIO</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active letra" href="#" routerLink="/cliente/catalogoCliente"
                         [ngClass]="{ 'selected-item': selectedItem === 'catalogo' }"
-                        (click)="isNavbarCollapsed = true ; selectedItem = 'catalogo';deselectedItemPressed();">CATÁLOGO</a>
+                        (click)="isNavbarCollapsed = true ; selectedItem = 'catalogo'; deselectedItemPressed();">CATÁLOGO</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active letra" href="#" routerLink="/cliente/contacto"
                         [ngClass]="{ 'selected-item': selectedItem === 'contacto' }"
-                        (click)="isNavbarCollapsed = true; selectedItem = 'contacto';deselectedItemPressed();">CONTACTO</a>
+                        (click)="isNavbarCollapsed = true; selectedItem = 'contacto'; deselectedItemPressed();">CONTACTO</a>
                 </li>
 
                 <!-- Administrador -->

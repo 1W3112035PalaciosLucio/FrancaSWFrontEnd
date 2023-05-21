@@ -2,7 +2,7 @@
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
 ::-webkit-scrollbar {
-    background-color: #fff;
+    background-color: #162B4E;
     width: 3px;
 }
 

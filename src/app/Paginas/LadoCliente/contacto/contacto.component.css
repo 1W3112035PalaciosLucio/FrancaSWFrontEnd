@@ -42,3 +42,9 @@
 #map {
     height: 100%;
 }
+
+.aClass{
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}

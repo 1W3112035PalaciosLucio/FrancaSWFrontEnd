@@ -62,12 +62,12 @@
 .imagen {
     width: 75px;
     height: 50px;
-    background-image: url("https://res.cloudinary.com/dawraxuq1/image/upload/v1683497196/FrancaSW/75px_50px_xtfwy5.png");
+    background-image: url("https://res.cloudinary.com/dawraxuq1/image/upload/v1684378206/FrancaSW/bochas_-_75x50_blanca_j9ehvy.png");
 }
 .imagen:hover {
     width: 75px;
     height: 50px;
-    background-image: url("https://res.cloudinary.com/dawraxuq1/image/upload/v1683499947/FrancaSW/75px_50px_color_2_ztsk9m.png");
+    background-image: url("https://res.cloudinary.com/dawraxuq1/image/upload/v1684378640/FrancaSW/bochas_-_75x50_celeste_f5r0cd.png");
 }
 
 
@@ -102,12 +102,12 @@
 .selected-item-pressed .imagen {
     width: 75px;
     height: 50px;
-    background-image: url("https://res.cloudinary.com/dawraxuq1/image/upload/v1683499947/FrancaSW/75px_50px_color_2_ztsk9m.png");
+    background-image: url("https://res.cloudinary.com/dawraxuq1/image/upload/v1684377365/FrancaSW/bochas_-_75x50_r2dw39.png");
 }
 .selected-item-pressed .imagen:hover {
     width: 75px;
     height: 50px;
-    background-image: url("https://res.cloudinary.com/dawraxuq1/image/upload/v1683499947/FrancaSW/75px_50px_color_2_ztsk9m.png");
+    background-image: url("https://res.cloudinary.com/dawraxuq1/image/upload/v1684378640/FrancaSW/bochas_-_75x50_celeste_f5r0cd.png");
 }
 
 

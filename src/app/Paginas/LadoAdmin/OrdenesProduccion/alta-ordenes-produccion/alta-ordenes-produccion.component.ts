@@ -97,9 +97,11 @@ export class AltaOrdenesProduccionComponent implements OnInit {
         error: (e: any) => {
           Swal.fire({
             title: "Error",
-            text: e.error,
+            icon: 'warning',
+            text: e.error.message,
             confirmButtonColor: '#162B4E'
           });
+          f.reset();
           console.log(e);
           this.spinner.hide();
         }
