@@ -16,6 +16,7 @@ export class ListadoCatalogoComponent implements OnInit {
   listado: DtoListaCatalogo[] = [];
   catalogos: DtoCatalogo[] = [];
   filtro: string = '';
+  isNavVisible = true;
 
 
   constructor(
@@ -26,6 +27,17 @@ export class ListadoCatalogoComponent implements OnInit {
 
   ngOnInit(): void {
     this.cargarCatalogos();
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        this.isNavVisible = !entry.isIntersecting;
+      });
+    });
+
+    const target = document.getElementById('barraNav');
+    if (target) {
+      observer.observe(target);
+    }
+
   }
 
   cargarCatalogos() {
@@ -143,6 +155,17 @@ export class ListadoCatalogoComponent implements OnInit {
 
       }
     })
+  }
+
+  scrollToSection(sectionId: string) {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  onClickNavLink(fragment: string) {
+    this.scrollToSection(fragment);
   }
 }
 

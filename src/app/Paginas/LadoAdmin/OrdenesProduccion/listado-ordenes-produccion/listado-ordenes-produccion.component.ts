@@ -13,6 +13,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./listado-ordenes-produccion.component.css']
 })
 export class ListadoOrdenesProduccionComponent implements OnInit {
+  isNavVisible = true;
 
   nombre!: string;
   listado: OrdenesProduccion[] = [];
@@ -36,6 +37,16 @@ export class ListadoOrdenesProduccionComponent implements OnInit {
   ngOnInit(): void {
     this.cargarOrdenProd();
     this.cargarSelects();
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        this.isNavVisible = !entry.isIntersecting;
+      });
+    });
+
+    const target = document.getElementById('barraNav');
+    if (target) {
+      observer.observe(target);
+    }
   }
   setNumeroOrdenSeleccionado(numeroOrden: number) {
     this.numeroOrdenSeleccionado = numeroOrden;
@@ -153,6 +164,17 @@ export class ListadoOrdenesProduccionComponent implements OnInit {
           return 0;
       }
     });
+  }
+
+  scrollToSection(sectionId: string) {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  onClickNavLink(fragment: string) {
+    this.scrollToSection(fragment);
   }
 
 }

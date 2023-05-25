@@ -37,10 +37,21 @@ export class ListadoProductosComponent implements OnInit {
   listado: DtoLista[] = [];
 
   filtro: string = '';
-
+  isNavVisible = true;
   
   ngOnInit(): void {
     this.cargarProductos();
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        this.isNavVisible = !entry.isIntersecting;
+      });
+    });
+
+    const target = document.getElementById('barraNav');
+    if (target) {
+      observer.observe(target);
+    }
+
   }
 
   SetData(productos_: DtoProducto[]) {
@@ -223,6 +234,17 @@ export class ListadoProductosComponent implements OnInit {
           return 0;
       }
     });
+  }
+
+  scrollToSection(sectionId: string) {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  onClickNavLink(fragment: string) {
+    this.scrollToSection(fragment);
   }
 
 }

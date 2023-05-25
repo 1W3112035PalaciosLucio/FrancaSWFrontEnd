@@ -17,6 +17,7 @@ export class ListaStockMateriaPrimaComponent implements OnInit{
   listado: DtoListaStockMP[] = [];
   materiaPrima: DtoStockMateriaPrima[] = [];
   filtro: string = '';
+  isNavVisible = true;
 
   estadoRespuesta: number;
   lista: HistorialStockMp[] = [];
@@ -31,6 +32,16 @@ export class ListaStockMateriaPrimaComponent implements OnInit{
 
   ngOnInit(): void {
     this.cargarStockMP();
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        this.isNavVisible = !entry.isIntersecting;
+      });
+    });
+
+    const target = document.getElementById('barraNav');
+    if (target) {
+      observer.observe(target);
+    }
   }
 
   cargarHistorial(id: number) {
@@ -140,7 +151,17 @@ export class ListaStockMateriaPrimaComponent implements OnInit{
       }
     });
   }
+  
+  scrollToSection(sectionId: string) {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
 
+  onClickNavLink(fragment: string) {
+    this.scrollToSection(fragment);
+  }
 }
 
 function compare(a: number | string, b: number | string, isAsc: boolean) {

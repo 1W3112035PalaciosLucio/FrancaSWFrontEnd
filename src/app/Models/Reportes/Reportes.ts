@@ -18,3 +18,24 @@ export interface ReporteStockMP {
     descripcion: string;
     cantidad: number;
 }
+export interface ReportePrecioStockMP {
+    descripcion: string;
+    precio: number;
+    fechaUltimaActualizacion: string;
+}
+export interface ReporteOrdenesPendiente {
+    nombre: string;
+    cantidad: number;
+}
+export interface ReporteOrdenesPendienteMp {
+    descripcion: string;
+    cantidadMateriaPrima: number;
+}
+export interface ReporteMateriaDisponible {
+    descripcion: string;
+    cantidad: number;
+}
+export interface ReporteMPStockMinimo {
+    descripcion: string;
+    cantidad: number;
+}

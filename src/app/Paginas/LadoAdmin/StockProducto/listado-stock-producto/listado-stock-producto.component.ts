@@ -17,6 +17,7 @@ export class ListadoStockProductoComponent {
   listado: DtoListadoStockProd[] = [];
   producto: DtoStockProd[] = [];
   filtro: string = '';
+  isNavVisible = true;
 
   estadoRespuesta: number;
   lista: DtoListaHistorialStockProd[] = [];
@@ -31,6 +32,16 @@ export class ListadoStockProductoComponent {
 
   ngOnInit(): void {
     this.cargarStockProd();
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        this.isNavVisible = !entry.isIntersecting;
+      });
+    });
+
+    const target = document.getElementById('barraNav');
+    if (target) {
+      observer.observe(target);
+    }
   }
 
   cargarHistorial(id: number) {
@@ -135,7 +146,16 @@ export class ListadoStockProductoComponent {
       }
     });
   }
+  scrollToSection(sectionId: string) {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
 
+  onClickNavLink(fragment: string) {
+    this.scrollToSection(fragment);
+  }
 }
 function compare(a: number | string, b: number | string, isAsc: boolean) {
   return (a < b ? -1 : 1) * (isAsc ? 1 : -1);

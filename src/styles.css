@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
+
 ::-webkit-scrollbar {
     background-color: #162B4E;
     width: 3px;
@@ -26,6 +27,14 @@
 
 .TextAzul {
     color: #162B4E;
+}
+
+.TextYellow {
+    color: #ffc107;
+}
+
+.TextYellow:hover {
+    color: #fd7e14;
 }
 
 .TextCeleste {
@@ -219,4 +228,22 @@ select.ng-valid {
     background-color: #4f87df;
     color: #fff;
     border-color: #4f87df
+}
+
+
+.floating-object {
+    position: fixed;
+    bottom: 30px;
+    right: 35px;
+    z-index: 9999;
+    /* Ajusta otros estilos según tus necesidades */
+}
+
+.iconoFlecha {
+    color: #ffc107;
+    font-size: 30px;
+}
+
+.iconoFlecha:hover {
+    color: #fd7e14;
 }

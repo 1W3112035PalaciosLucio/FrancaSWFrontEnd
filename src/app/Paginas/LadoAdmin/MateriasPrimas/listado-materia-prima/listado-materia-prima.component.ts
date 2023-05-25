@@ -22,13 +22,33 @@ export class ListadoMateriaPrimaComponent implements OnInit {
   descripcion!: string;
 
   filtro: string = '';
-
+  isNavVisible = true;
 
 
   ngOnInit(): void {
     this.cargarMateriaPrima();
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        this.isNavVisible = !entry.isIntersecting;
+      });
+    });
+
+    const target = document.getElementById('barraNav');
+    if (target) {
+      observer.observe(target);
+    }
+  }
+  scrollToSection(sectionId: string) {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   }
 
+  onClickNavLink(fragment: string) {
+    this.scrollToSection(fragment);
+  }
 
   SetData(materiaPrima_: MateriaPrima[]) {
     this.materiaPrima = materiaPrima_

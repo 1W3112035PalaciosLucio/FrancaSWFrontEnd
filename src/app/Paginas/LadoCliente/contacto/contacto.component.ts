@@ -17,7 +17,7 @@ const shadowUrl = 'assets/marker-shadow.png';
 })
 export class ContactoComponent implements OnInit {
   private map: any;
-
+  isNavVisible = true;
   @Input() lat: number = DEFAULT_LAT;
   @Input() lon: number = DEFAULT_LON;
   @Input() titulo: string = TITULO;
@@ -26,6 +26,16 @@ export class ContactoComponent implements OnInit {
 
   ngOnInit(): void {
     this.initMap();
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        this.isNavVisible = !entry.isIntersecting;
+      });
+    });
+
+    const target = document.getElementById('barraNav');
+    if (target) {
+      observer.observe(target);
+    }
   }
   private initMap(): void {
     //configuración del mapa
@@ -60,5 +70,15 @@ export class ContactoComponent implements OnInit {
     marker.addTo(this.map);
 
     tiles.addTo(this.map);
+  }
+  scrollToSection(sectionId: string) {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  onClickNavLink(fragment: string) {
+    this.scrollToSection(fragment);
   }
 }

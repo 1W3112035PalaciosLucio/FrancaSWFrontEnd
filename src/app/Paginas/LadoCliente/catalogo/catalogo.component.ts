@@ -14,9 +14,21 @@ export class CatalogoComponent implements OnInit {
   nombre!: string;
   filtro: string = '';
 
+  isNavVisible = true;
+
   constructor(private servicio: CatalogoService, private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        this.isNavVisible = !entry.isIntersecting;
+      });
+    });
+
+    const target = document.getElementById('barraNav');
+    if (target) {
+      observer.observe(target);
+    }
     this.cargarCard();
   }
 
@@ -51,5 +63,14 @@ export class CatalogoComponent implements OnInit {
     }
   }
 
+  scrollToSection(sectionId: string) {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
 
+  onClickNavLink(fragment: string) {
+    this.scrollToSection(fragment);
+  }
 }

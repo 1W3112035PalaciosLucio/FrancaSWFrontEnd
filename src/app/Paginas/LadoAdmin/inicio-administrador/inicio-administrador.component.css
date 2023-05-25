@@ -18,10 +18,30 @@
 
 
 .backgroundInicio {
-  background: #162B4E;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to top, #1e52ae, #1b345d, #162B4E);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to top, #1e52ae, #1b345d, #162B4E); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  
+  background: #162B4E;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #1e52ae, #1b345d, #162B4E);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #1e52ae, #1b345d, #162B4E);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.backgroundInicio1 {
+  background: #162B4E;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #012e7b, #082d6a, #0e2b5a, #162B4E);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #012e7b, #082d6a, #0e2b5a, #162B4E);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.backgroundInicio2 {
+  background: #162B4E;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #162B4E, #0e2b5a, #082d6a, #012e7b);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #162B4E, #0e2b5a, #082d6a, #012e7b);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .iconoRedirect {
@@ -34,3 +54,4 @@
 
   color: #5192FF;
 }
+

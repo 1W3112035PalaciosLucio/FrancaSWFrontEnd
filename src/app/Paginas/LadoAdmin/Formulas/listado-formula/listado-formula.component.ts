@@ -12,7 +12,7 @@ import { FormulaService } from 'src/app/Services/Formula/formula.service';
   styleUrls: ['./listado-formula.component.css']
 })
 export class ListadoFormulaComponent implements OnInit {
-
+  isNavVisible = true;
   constructor(
     private servicio: FormulaService,
     private spinner: NgxSpinnerService,
@@ -31,6 +31,16 @@ export class ListadoFormulaComponent implements OnInit {
 
 
   ngOnInit(): void {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        this.isNavVisible = !entry.isIntersecting;
+      });
+    });
+
+    const target = document.getElementById('barraNav');
+    if (target) {
+      observer.observe(target);
+    }
     this.cargarFormula();
   }
 
@@ -94,6 +104,17 @@ export class ListadoFormulaComponent implements OnInit {
           return 0;
       }
     });
+  }
+
+  scrollToSection(sectionId: string) {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  onClickNavLink(fragment: string) {
+    this.scrollToSection(fragment);
   }
 }
 

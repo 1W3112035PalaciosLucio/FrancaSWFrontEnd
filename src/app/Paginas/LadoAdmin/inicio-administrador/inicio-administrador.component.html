@@ -1,76 +1,188 @@
-<div class="container-fluid py-3 mb-3 BackgroundAzul">
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-start TextWhite">
-                <h3>STOCK DE PRODUCTOS <i type="button" class="fa-solid fa-arrow-up-right-from-square ms-2 icono "
-                        matTooltip="Ir al stock" (click)="stockP()"></i></h3>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
-            <div class="chart-container">
-                <ngx-charts-bar-vertical [view]="view" [colorScheme]="colorScheme" [results]="single"
-                    [gradient]="gradient" [xAxis]="showXAxis" [yAxis]="showYAxis" [legendTitle]="legendTitle"
-                    [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel"
-                    [yAxisLabel]="yAxisLabel" (select)="onSelect($event)" style="fill: #FFFFFF;">
-                </ngx-charts-bar-vertical>
-            </div>
-        </div>
-        <!-- <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 d-flex justify-content-center">
-            <div class="table-responsive">
-                <table class="table table-responsive mtc-5 TextWhite textSm" matSort (matSortChange)="sortData($event)">
-                    <thead class="table mtc-5 table-sm TextWhite text-center">
-                        <tr>
-                            <th mat-sort-header="codigo" scope="col">CÓDIGO</th>
-                            <th mat-sort-header="nombre" scope="col">NOMBRE</th>
-                            <th mat-sort-header="tipoProducto" scope="col">TIPO</th>
-                            <th mat-sort-header="colorProducto" scope="col">COLOR</th>
-                            <th mat-sort-header="medidaProducto" scope="col">MEDIDA</th>
-                            <th mat-sort-header="disenioProducto" scope="col">DISEÑO</th>
-                            <th mat-sort-header="cantidad" scope="col">CANTIDAD</th>
-                            <th mat-sort-header="precioBocha" scope="col">PRECIO</th>
-                            <th mat-sort-header="fechaUltimaActualizacion" scope="col">FECHA ÚLT. ACTUALIZACIÓN</th>
+<div class="floating-object" *ngIf="isNavVisible">
+    <a class="nav-link TextWhite iconoFlecha" (click)="onClickNavLink('barraNav')" matTooltip="Subir">
+        <i class="fa-solid fa-arrow-up"></i>
+    </a>
+</div>
 
-                        </tr>
-                    </thead>
-                    <tbody class="text-center">
-                        <tr *ngFor="let prod of listado">
-                            <td>{{ prod.codigo }}</td>
-                            <td class="text-start">{{ prod.nombre }}</td>
-                            <td>{{ prod.tipoProducto }}</td>
-                            <td>{{ prod.colorProducto }}</td>
-                            <td>{{ prod.medidaProducto }}</td>
-                            <td>{{ prod.disenioProducto }}</td>
-                            <td>{{ prod.cantidad }}</td>
-                            <td>$ {{ prod.precioBocha }}</td>
-                            <td>{{ prod.fechaUltimaActualizacion |date }}</td>
-                        </tr>
-                    </tbody>
-                </table>
+
+<section id="barra">
+    <ul class="nav justify-content-md-center justify-content-sm-start py-3">
+        <li class="nav-item">
+            <a class="nav-link TextYellow" (click)="onClickNavLink('mpStockMinimo')">Materias primas sin stock</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link TextYellow" (click)="onClickNavLink('ordenProd')">Ordenes de producción</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link TextYellow" (click)="onClickNavLink('stockProd')">Stock de productos</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link TextYellow" (click)="onClickNavLink('stockMp')">Stock de materias primas</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link TextYellow" (click)="onClickNavLink('histPrMp')">Historial de precios de materias
+                primas</a>
+        </li>
+    </ul>
+</section>
+
+
+<section id="mpStockMinimo">
+    <div class="container-fluid mt-3 py-2 backgroundInicio1">
+        <div class="container mt-5 text-center">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-start TextWhite">
+                    <h3>MATERIAS PRIMAS SIN STOCK MÍNIMO<i type="button"
+                            class="fa-solid fa-arrow-up-right-from-square ms-2 icono " matTooltip="Ir al stock"
+                            (click)="stockMP()"></i></h3>
+                </div>
             </div>
-        </div> -->
+        </div>
+        <div class="row mb-3">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 TextWhite">
+                <div class="chart-container">
+                    <ngx-charts-bar-horizontal [view]="viewMpSm" [colorScheme]="colorScheme" [results]="singleMpSm"
+                        [gradient]="gradientMpSm" [xAxis]="showXAxisMpSm" [yAxis]="showYAxisMpSm"
+                        [showXAxisLabel]="showXAxisLabelMpSm" [showYAxisLabel]="showYAxisLabelMpSm"
+                        [xAxisLabel]="xAxisLabelMpSm" [yAxisLabel]="yAxisLabelMpSm" (select)="onSelectMpSm($event)"
+                        (activate)="onActivateMpSm($event)" (deactivate)="onDeactivateMpSm($event)"
+                        style="fill: #FFFFFF;">
+                    </ngx-charts-bar-horizontal>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
-<div class="container-fluid mt-3 py-5 backgroundInicio">
-    <div class="container mt-5">
+</section>
+
+<section id="ordenProd">
+    <div class="container-fluid  py-3 backgroundInicio2">
+        <div class="container mt-5 mb-5">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center TextWhite">
+                    <h2>ORDENES DE PRODUCCIÓN <i type="button"
+                            class="fa-solid fa-arrow-up-right-from-square ms-2 icono " matTooltip="Ir al stock"
+                            (click)="ordenP()"></i></h2>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-5">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 TextWhite">
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center TextWhite">
+                        <h3>PENDIENTES</h3>
+                    </div>
+                </div>
+                <div class="chart-container ms-5">
+                    <ngx-charts-advanced-pie-chart [view]="viewOp" [colorScheme]="colorScheme" [results]="singleOp"
+                        [gradient]="gradientOp" (select)="onSelectOp($event)" (activate)="onActivateOp($event)"
+                        (deactivate)="onDeactivateOp($event)" style="fill: #FFFFFF;">
+                    </ngx-charts-advanced-pie-chart>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 TextWhite mt-5">
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center TextWhite">
+                        <h3>MATERIA PRIMA NECESARIA</h3>
+                    </div>
+                </div>
+                <div class="chart-container ms-5">
+                    <ngx-charts-advanced-pie-chart [view]="viewOpMp" [colorScheme]="colorScheme" [results]="singleOpMp"
+                        [gradient]="gradientOpMp" (select)="onSelectOpMp($event)" (activate)="onActivateOpMp($event)"
+                        (deactivate)="onDeactivateOpMp($event)" style="fill: #FFFFFF;">
+                    </ngx-charts-advanced-pie-chart>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 TextWhite mt-5">
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center TextWhite">
+                        <h3>MATERIA PRIMA DISPONIBLE</h3>
+                    </div>
+                </div>
+                <div class="chart-container ms-5">
+                    <ngx-charts-advanced-pie-chart [view]="viewMpD" [colorScheme]="colorScheme" [results]="singleMpD"
+                        [gradient]="gradientMpD" (select)="onSelectMpD($event)" (activate)="onActivateMpD($event)"
+                        (deactivate)="onDeactivateMpD($event)" style="fill: #FFFFFF;">
+                    </ngx-charts-advanced-pie-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="stockProd">
+    <div class="container-fluid py-5 backgroundInicio1">
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-start TextWhite">
+                    <h3>STOCK DE PRODUCTOS <i type="button" class="fa-solid fa-arrow-up-right-from-square ms-2 icono "
+                            matTooltip="Ir al stock" (click)="stockP()"></i></h3>
+                </div>
+            </div>
+        </div>
         <div class="row">
-            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-start TextWhite">
-                <h3>STOCK DE MATERIAS PRIMAS <i type="button" class="fa-solid fa-arrow-up-right-from-square ms-2 icono "
-                        matTooltip="Ir al stock" (click)="stockMP()"></i></h3>
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 TextWhite">
+                <div class="chart-container">
+                    <ngx-charts-bar-vertical [view]="view" [colorScheme]="colorScheme" [results]="single"
+                        [gradient]="gradient" [xAxis]="showXAxis" [yAxis]="showYAxis" [legendTitle]="legendTitle"
+                        [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel"
+                        [yAxisLabel]="yAxisLabel" (select)="onSelect($event)" style="fill: #FFFFFF;">
+                    </ngx-charts-bar-vertical>
+                </div>
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
-            <div class="chart-container">
-                <ngx-charts-bar-vertical [view]="viewmp " [colorScheme]="colorScheme" [results]="single1"
-                    [gradient]="gradientmp " [xAxis]="showXAxismp " [yAxis]="showYAxismp " [legendTitle]="legendTitlemp"
-                    [showXAxisLabel]="showXAxisLabelmp" [showYAxisLabel]="showYAxisLabelmp "
-                    [xAxisLabel]="xAxisLabelmp " [yAxisLabel]="yAxisLabelmp" (select)="onSelect($event)"
-                    style="fill: #FFFFFF;">
-                </ngx-charts-bar-vertical>
+</section>
+
+<section id="stockMp">
+    <div class="container-fluid py-5 backgroundInicio2">
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-start TextWhite">
+                    <h3>STOCK DE MATERIAS PRIMAS <i type="button"
+                            class="fa-solid fa-arrow-up-right-from-square ms-2 icono " matTooltip="Ir al stock"
+                            (click)="stockMP()"></i></h3>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 TextWhite">
+                <div class="chart-container">
+                    <ngx-charts-bar-vertical [view]="viewmp " [colorScheme]="colorScheme" [results]="single1"
+                        [gradient]="gradientmp " [xAxis]="showXAxismp " [yAxis]="showYAxismp "
+                        [legendTitle]="legendTitlemp" [showXAxisLabel]="showXAxisLabelmp"
+                        [showYAxisLabel]="showYAxisLabelmp " [xAxisLabel]="xAxisLabelmp " [yAxisLabel]="yAxisLabelmp"
+                        (select)="onSelect($event)" style="fill: #FFFFFF;">
+                    </ngx-charts-bar-vertical>
+                </div>
             </div>
         </div>
     </div>
-</div>
+</section>
+
+<section id="histPrMp">
+    <div class="container-fluid py-5 backgroundInicio1">
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-start TextWhite">
+                    <h3>HISTORIAL DE PRECIOS DE MATERIAS PRIMAS</h3>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 TextWhite ">
+                <div class="chart-container">
+                    <ngx-charts-bar-vertical-2d [view]="viewhP" [colorScheme]="colorScheme" [results]="multi"
+                        [gradient]="gradient" [xAxis]="showXAxisRepPrecio" [yAxis]="showYAxisRepPrecio"
+                        [legend]="showLegendRepPrecio" [showXAxisLabel]="showXAxisLabelRepPrecio"
+                        [showYAxisLabel]="showYAxisLabelRepPrecio" [xAxisLabel]="xAxisLabelRepPrecio"
+                        [yAxisLabel]="yAxisLabelRepPrecio" [legendTitle]="legendTitleRepPrecio"
+                        (select)="onSelect($event)" (activate)="onActivate($event)" (deactivate)="onDeactivate($event)"
+                        style="fill: #FFFFFF;">
+                    </ngx-charts-bar-vertical-2d>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

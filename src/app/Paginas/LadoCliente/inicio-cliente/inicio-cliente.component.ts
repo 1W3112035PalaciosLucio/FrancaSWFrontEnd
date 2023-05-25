@@ -13,12 +13,23 @@ export class InicioClienteComponent implements OnInit {
 
   lista: DtoCatalogoCard[] = [];
   isSelected: boolean = false;
+  isNavVisible = true;
 
-
-  constructor(private servicio: CatalogoService, 
-    private router: Router,private spinner: NgxSpinnerService) { }
+  constructor(private servicio: CatalogoService,
+    private router: Router, private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        this.isNavVisible = !entry.isIntersecting;
+      });
+    });
+
+    const target = document.getElementById('barraNav');
+    if (target) {
+      observer.observe(target);
+    }
+
     this.cargarCard();
     this.checkIfSelected();
     this.router.events.subscribe((val) => {
@@ -47,6 +58,15 @@ export class InicioClienteComponent implements OnInit {
     });
   }
 
- 
+  scrollToSection(sectionId: string) {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  onClickNavLink(fragment: string) {
+    this.scrollToSection(fragment);
+  }
 
 }

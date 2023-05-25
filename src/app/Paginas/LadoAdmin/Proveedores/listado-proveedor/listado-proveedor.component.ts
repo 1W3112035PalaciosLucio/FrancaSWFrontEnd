@@ -28,13 +28,23 @@ export class ListadoProveedorComponent implements OnInit {
 
   lista: DtoListaPrecioMpProv[] = [];
   estadoRespuesta: number;
-
+  isNavVisible = true;
 
   @ViewChild('abrirModal') abrirModal: any;
   @ViewChild('cerrarModal') cerrarModal: any;
 
   ngOnInit(): void {
     this.CargarProveedor();
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        this.isNavVisible = !entry.isIntersecting;
+      });
+    });
+
+    const target = document.getElementById('barraNav');
+    if (target) {
+      observer.observe(target);
+    }
   }
 
   cargarMpPrProv(id: number) {
@@ -85,6 +95,16 @@ export class ListadoProveedorComponent implements OnInit {
   }
 
 
+  scrollToSection(sectionId: string) {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  onClickNavLink(fragment: string) {
+    this.scrollToSection(fragment);
+  }
 
   SetData(proveedores_: DTOProveedor[]) {
     this.proveedor = proveedores_;
