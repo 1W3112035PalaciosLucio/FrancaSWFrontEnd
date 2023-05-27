@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { BarraService } from 'src/app/Services/Barra/barra.service';
 import { LoginService } from 'src/app/Services/login.service';
 
 @Component({
@@ -14,38 +15,36 @@ export class BarraNavegacionComponent implements OnInit {
   selectedItemPressedClass: string;
   public isNavbarCollapsed = true;
 
-  constructor(private loginService: LoginService, private router: Router) { }
+  barraNavSelected: boolean = false;
 
+  constructor(private loginService: LoginService, private router: Router,
+    private barraNavService: BarraService) { 
+      this.barraNavService.barraNavSelected$.subscribe(selected => {
+        this.barraNavSelected = selected;
+      });
+    }
 
   ngOnInit(): void {
-    //this.checkRoute();
-    // this.activarSelectedItem();
-    this.ch();
-  }
-
-  ch(): void {
-    const currentRoute = this.router.url;
-    const defaultRoute = '/cliente/inicioCliente';
-    if (currentRoute !== defaultRoute) {
-      this.deselectedItemPressed();
-    } else {
-      this.activarSelectedItem();
+    const storedSelectedItem = localStorage.getItem('selectedItem');
+    const storedSelectedItemsPressed = localStorage.getItem('selectedItemsPressed');
+    if (storedSelectedItem && storedSelectedItemsPressed) {
+      this.selectedItem = storedSelectedItem;
+      this.selectedItemsPressed = storedSelectedItemsPressed === 'true';
     }
-  }
 
-  // isActiveRoute(route: string): boolean {
-  //   return this.router.url === route;
-  // }
+  }
 
   activarSelectedItem() {
     this.selectedItem = 'home';
     this.selectedItemsPressed = true;
+    localStorage.setItem('selectedItem', this.selectedItem);
+    localStorage.setItem('selectedItemsPressed', this.selectedItemsPressed.toString());
   }
   deselectedItemPressed() {
     this.selectedItemsPressed = false;
+    localStorage.setItem('selectedItemsPressed', this.selectedItemsPressed.toString());
     this.selectedItemPressedClass = this.selectedItemsPressed ? 'selected-item-pressed' : '';
   }
-
 
   logout() {
     this.loginService.desloguearUsuario();
@@ -61,9 +60,6 @@ export class BarraNavegacionComponent implements OnInit {
     }
   }
 
-
-
-
   checkRoute(): void {
     const currentRoute = this.router.url;
     const defaultRoute = '/cliente/inicioCliente';
@@ -72,4 +68,5 @@ export class BarraNavegacionComponent implements OnInit {
       this.router.navigateByUrl(defaultRoute);
     }
   }
+  
 }

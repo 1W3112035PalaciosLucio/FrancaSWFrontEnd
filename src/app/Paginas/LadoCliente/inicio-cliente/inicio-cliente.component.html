@@ -1,8 +1,9 @@
 <div class="floating-object" *ngIf="isNavVisible">
     <a class="nav-link TextWhite iconoFlecha" (click)="onClickNavLink('barraNav')" matTooltip="Subir">
-        <i class="fa-solid fa-arrow-up"></i>
+        <i class="fa-solid fa-circle-chevron-up"></i>
     </a>
 </div>
+
 
 <div id="carouselExampleInterval" class="carousel slide " data-bs-ride="carousel">
 
@@ -126,10 +127,10 @@
 <div class="container-fluid BackgroundAzulCard">
     <footer class="">
         <div class="row">
-            <small class="text-center TextWhite"><a class="TextWhite me-3" routerLink="/cliente/terminos">Términos y
-                    Condiciones</a>
+            <small class="text-center TextWhite"><a class="TextWhite me-3" routerLink="/cliente/terminos"
+                    (click)="onClickNavLink('barraNav')">Términos y Condiciones</a>
                 <small>|</small>
-                <a class="TextWhite ms-3" routerLink="/cliente/ayuda">Ayuda</a>
+                <a class="TextWhite ms-3" routerLink="/cliente/ayuda" (click)="onClickNavLink('barraNav')">Ayuda</a>
             </small>
         </div>
         <div class="row">

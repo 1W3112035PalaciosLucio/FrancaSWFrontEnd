@@ -42,6 +42,7 @@ export class LoginService {
     localStorage.removeItem('user');
     this.decodedToken = null;
     this.currentUser = null;
+    this.route.navigateByUrl('/seguridad/login');
   }
 
   checkUseHasRole(roles: string[]): boolean {
