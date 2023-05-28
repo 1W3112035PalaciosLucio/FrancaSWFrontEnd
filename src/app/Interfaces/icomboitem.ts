@@ -1,4 +1,4 @@
-export interface IComboBoxItem {
-    id: number;
-    descripcion: string;
-}
+// export interface IComboBoxItem {
+//     id: number;
+//     descripcion: string;
+// }

@@ -21,6 +21,7 @@ export class StockMateriaPrimaService {
   GetListadoStockMateriaPrima(): Observable<any> {
     return this.http.get(this.urlBase + "StockMateria/GetListadoStockMateriaPrima", { headers: this.headers });
   }
+  
   GetStockMateriaPrimaById(id: number): Observable<any> {
     return this.http.get(this.urlBase + "StockMateria/GetStockMateriaPrimaById/" + id, { headers: this.headers });
   }

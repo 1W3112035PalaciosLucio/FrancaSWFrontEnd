@@ -6,10 +6,10 @@ import { Subject } from 'rxjs';
 })
 export class BarraService {
   private barraNavSelected: boolean = false;
-  constructor() { }
-
   private barraNavSelectedSubject = new Subject<boolean>();
   barraNavSelected$ = this.barraNavSelectedSubject.asObservable();
+  
+  constructor() { }
 
   setBarraNavSelected(selected: boolean) {
     this.barraNavSelectedSubject.next(selected);

@@ -33,5 +33,4 @@ export class MateriaPrimaService {
   PutMateriaPrima(mp: MateriaPrima): Observable<any> {
     return this.http.put(this.urlBase + "MateriaPrima/PutMateriaPrima", mp, { headers: this.headers });
   }
-
 }

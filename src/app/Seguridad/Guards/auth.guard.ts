@@ -9,22 +9,17 @@ import Swal from 'sweetalert2';
 })
 export class AuthGuard implements CanActivate {
   constructor(private loginService: LoginService, private router: Router) { }
-  // canActivate(
-  //   route: ActivatedRouteSnapshot,
-  //   state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-  //   return true;
-  // }
 
   canActivate(route: ActivatedRouteSnapshot): boolean {
     if (this.loginService.usuarioLogueado()) {
       if (!this.loginService.checkCanLoad(route.data['roles'])) {
-        this.displayErrors("¡Usted no tiene los permisos nececsarios para acceder a esta sección del sitio.!", "Error");
+        this.displayErrors("¡Usted no tiene los permisos nececsarios para acceder a esta sección del sitio!", "Error");
         this.router.navigateByUrl('/cliente/inicioCliente');
       }
       return true;
     }
 
-    this.displayErrors("¡Para acceder a esta funcion debe loguearse!.", "Error");
+    this.displayErrors("¡Para acceder a esta funcion debe loguearse!", "Error");
     this.router.navigateByUrl('/seguridad/login');
     return false;
   }

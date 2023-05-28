@@ -42,5 +42,4 @@ export class ClientesService {
   PutProveedor(cliente: DtoCliente): Observable<any> {
     return this.http.put(this.urlBase + "Cliente/PutCliente", cliente, { headers: this.headers });
   }
-
 }
