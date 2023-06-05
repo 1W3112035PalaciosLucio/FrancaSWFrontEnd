@@ -20,11 +20,38 @@ export class AgregarPrecioComponent implements OnInit {
   desc!: string;
   filtro: string = '';
 
+  isNavVisible = true;
+
   constructor(private servicio: ItemsProductoService, private formBuilder: FormBuilder,
     private spinner: NgxSpinnerService, private router: Router) { }
 
   ngOnInit(): void {
     this.cargarPrecio();
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        this.isNavVisible = !entry.isIntersecting;
+      });
+    });
+
+    const target = document.getElementById('barraNav');
+    if (target) {
+      observer.observe(target);
+    }
+  }
+
+  nuevo(fragment: string) {
+    this.scrollToSection(fragment);
+  }
+
+  scrollToSection(sectionId: string) {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  onClickNavLink(fragment: string) {
+    this.scrollToSection(fragment);
   }
 
   registrar(f: NgForm) {

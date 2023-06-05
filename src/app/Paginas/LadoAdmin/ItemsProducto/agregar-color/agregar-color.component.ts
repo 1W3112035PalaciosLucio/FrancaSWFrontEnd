@@ -21,13 +21,23 @@ export class AgregarColorComponent implements OnInit {
   col: ColorProd[] = [];
   desc!: string;
   filtro: string = '';
-
+  isNavVisible = true;
 
   constructor(private servicio: ItemsProductoService, private formBuilder: FormBuilder,
     private spinner: NgxSpinnerService, private router: Router) { }
 
   ngOnInit(): void {
     this.cargarColor();
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        this.isNavVisible = !entry.isIntersecting;
+      });
+    });
+
+    const target = document.getElementById('barraNav');
+    if (target) {
+      observer.observe(target);
+    }
   }
 
   registrar(f: NgForm) {
@@ -53,7 +63,6 @@ export class AgregarColorComponent implements OnInit {
   volver() {
     this.router.navigateByUrl("/admin/listadoProducto")
   }
-
 
 
   SetData(col_: ColorProd[]) {
@@ -102,6 +111,22 @@ export class AgregarColorComponent implements OnInit {
           return 0;
       }
     });
+  }
+
+
+  scrollToSection(sectionId: string) {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  onClickNavLink(fragment: string) {
+    this.scrollToSection(fragment);
+  }
+
+  nuevo(fragment: string) {
+    this.scrollToSection(fragment);
   }
 
 }

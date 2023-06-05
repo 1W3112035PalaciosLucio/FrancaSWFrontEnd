@@ -21,11 +21,38 @@ export class AgregarDisenioComponent implements OnInit {
   desc!: string;
   filtro: string = '';
 
+  isNavVisible = true;
+
   constructor(private servicio: ItemsProductoService, private formBuilder: FormBuilder,
     private spinner: NgxSpinnerService, private router: Router) { }
 
   ngOnInit(): void {
     this.cargarDisenio();
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        this.isNavVisible = !entry.isIntersecting;
+      });
+    });
+
+    const target = document.getElementById('barraNav');
+    if (target) {
+      observer.observe(target);
+    }
+  }
+  
+  nuevo(fragment: string) {
+    this.scrollToSection(fragment);
+  }
+
+  scrollToSection(sectionId: string) {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  onClickNavLink(fragment: string) {
+    this.scrollToSection(fragment);
   }
 
   registrar(f: NgForm) {
@@ -37,7 +64,7 @@ export class AgregarDisenioComponent implements OnInit {
             icon: 'success',
             text: resultado.message,
             confirmButtonColor: '#162B4E'
-          }), this.disenio = {} as DisenioProd, this.volver(),f.resetForm(); this.spinner.hide();
+          }), this.disenio = {} as DisenioProd, this.volver(), f.resetForm(); this.spinner.hide();
         }, error: (e: any) => { alert(e.error); console.log(e); }
       })
     }
@@ -70,7 +97,7 @@ export class AgregarDisenioComponent implements OnInit {
       this.cargarDisenio();
     } else {
       this.dis = this.dis.filter((item) =>
-        item.descripcion.toLowerCase().includes(this.filtro.toLowerCase()) 
+        item.descripcion.toLowerCase().includes(this.filtro.toLowerCase())
       );
       this.SetData(this.dis);
     }
