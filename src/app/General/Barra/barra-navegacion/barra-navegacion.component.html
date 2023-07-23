@@ -92,11 +92,11 @@
                             (click)="isNavbarCollapsed = true; selectedItem = 'matPr';deselectedItemPressed();">MATERIAS
                             PRIMAS</a>
                     </li>
-                    <li class="nav-item" *ngIf="this.userHasRole(['Adm'])">
+                    <!-- <li class="nav-item" *ngIf="this.userHasRole(['Adm'])">
                         <a class="nav-link active letra" href="#" routerLink="/admin/listadoProveedor"
                             [ngClass]="{ 'selected-item': selectedItem === 'prov' }"
                             (click)="isNavbarCollapsed = true; selectedItem = 'prov';deselectedItemPressed();">PROVEEDORES</a>
-                    </li>
+                    </li> -->
                     <li class="nav-item" *ngIf="this.userHasRole(['Adm'])">
                         <a class="nav-link active letra" href="#" routerLink="/admin/listadoCliente"
                             [ngClass]="{ 'selected-item': selectedItem === 'clientes' }"
