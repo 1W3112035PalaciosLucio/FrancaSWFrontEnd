@@ -53,8 +53,57 @@ export class ModificarStockProductoComponent implements OnInit {
     })
   }
 
+  // actualizarStock(f: NgForm) {
+  //   if (f.valid) {
+  //     this.servicio.PutStockProducto(this.stockP).subscribe({
+  //       next: (resultado: any) => {
+  //         Swal.fire({
+  //           icon: 'success',
+  //           text: 'El stock se ha actualizado correctamente',
+  //           confirmButtonColor: '#162B4E'
+  //         }).then(() => {
+  //           this.router.navigateByUrl("admin/listadoStockProducto");
+  //         });
+  //         console.log(resultado);
+  //         console.log(f);
+  //       },
+  //       error: (error: any) => {
+  //         Swal.fire({
+  //           icon: 'error',
+  //           title: 'Error',
+  //           text: 'Se ha producido un error al actualizar el stock. Por favor, inténtelo de nuevo más tarde.',
+  //           confirmButtonColor: '#162B4E'
+  //         });
+  //         console.log(error);
+  //       }
+  //     });
+  //   } else {
+  //     Swal.fire({
+  //       icon: 'error',
+  //       title: 'Error',
+  //       text: 'El formulario es inválido. Por favor, corrija los errores antes de continuar.',
+  //       confirmButtonColor: '#162B4E'
+  //     });
+  //   }
+  // }
   actualizarStock(f: NgForm) {
     if (f.valid) {
+      // Obtener la fecha actual
+      const fechaActual = new Date();
+
+      // Obtener la fecha ingresada en el formulario
+      const fechaIngresada = new Date(this.stockP.fechaUltimaActualizacion);
+
+      // Comprobar si la fecha ingresada es posterior a la fecha actual
+      if (fechaIngresada > fechaActual) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'La fecha no puede ser posterior al día actual.',
+          confirmButtonColor: '#162B4E'
+        });
+        return; // Detener el proceso de envío del formulario
+      }
       this.servicio.PutStockProducto(this.stockP).subscribe({
         next: (resultado: any) => {
           Swal.fire({
@@ -62,7 +111,7 @@ export class ModificarStockProductoComponent implements OnInit {
             text: 'El stock se ha actualizado correctamente',
             confirmButtonColor: '#162B4E'
           }).then(() => {
-            this.router.navigateByUrl("admin/listadoStockProducto");
+            this.router.navigateByUrl('admin/listadoStockProducto');
           });
           console.log(resultado);
           console.log(f);

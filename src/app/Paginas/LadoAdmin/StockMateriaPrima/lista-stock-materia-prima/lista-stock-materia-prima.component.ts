@@ -44,6 +44,10 @@ export class ListaStockMateriaPrimaComponent implements OnInit{
     }
   }
 
+  getColorClass(stockMp: any): string {
+    return stockMp.cantidad >= stockMp.stockMinimo ? 'color-verde' : 'color-rojo';
+  }
+
   cargarHistorial(id: number) {
     if (!id) {
       throw new Error("El ID no puede estar vacío.");

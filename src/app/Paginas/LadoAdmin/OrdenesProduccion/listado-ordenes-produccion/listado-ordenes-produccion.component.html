@@ -11,7 +11,7 @@
         </div>
 
         <div class="col-4 col-sm-7 col-md-7 col-lg-7 text-start py-3">
-            <button class="btn btnCeleste" (click)="agregar()" matTooltip="Nueva orden">NUEVO</button>
+            <button class="btn btnCeleste" (click)="agregar()" matTooltip="Nueva Orden">NUEVO</button>
         </div>
     </div>
     <hr />
@@ -29,7 +29,7 @@
         <table class="table table-responsive mtc-5 TextWhite" matSort (matSortChange)="sortData($event)">
             <thead class="table mtc-5 table-sm TextWhite text-center">
                 <tr>
-                    <th mat-sort-header="numeroOrden" scope="col">NÚMERO ORDEN</th>
+                    <!-- <th mat-sort-header="numeroOrden" scope="col">NÚMERO ORDEN</th> -->
                     <th mat-sort-header="nombreCliente" scope="col">CLIENTE</th>
                     <th mat-sort-header="nombreProd" scope="col">PRODUCTO</th>
                     <th mat-sort-header="nombreUsuario" scope="col">USUARIO</th>
@@ -37,22 +37,24 @@
                     <th mat-sort-header="fechaPedido" scope="col">FECHA PEDIDO</th>
                     <th mat-sort-header="fechaEntrega" scope="col">FECHA ENTREGA</th>
                     <th mat-sort-header="estadoOrden" scope="col">ESTADO</th>
-                    <th></th>
-                    <th scope="col">FUNCIONES</th>
+                    <!-- <th></th> -->
+                    <th scope="col">CAMBIAR ESTADO</th>
 
                 </tr>
             </thead>
             <tbody class="text-center">
                 <tr *ngFor="let ordP of listado">
-                    <td class="text-start">{{ ordP.numeroOrden }}</td>
+                    <!-- <td class="text-start">{{ ordP.numeroOrden }}</td> -->
                     <td class="text-start">{{ ordP.nombreCliente }} {{ordP.apellidoCliente}}</td>
                     <td class="text-start">{{ ordP.nombreProd }}</td>
                     <td class="text-start">{{ ordP.nombreUsuario }}</td>
                     <td>{{ ordP.cantidad }}</td>
                     <td>{{ ordP.fechaPedido | date}}</td>
                     <td>{{ ordP.fechaEntrega |date }}</td>
-                    <td class="text-start">{{ ordP.estadoOrden }} </td>
-                    <td class="text-start">
+                    <!-- <td class="text-start">{{ ordP.estadoOrden }} </td> -->
+                    <td [ngClass]="getEstadoClass(ordP.estadoOrden)">{{ ordP.estadoOrden }}</td>
+
+                    <td class="text-center">
                         <!-- <button data-bs-toggle="modal" class="fa-solid fa-pen-to-square iconoLista fondo me-3"
                             data-bs-target="#myModal" data-bs-whatever="@mdo"
                             (click)="setNumeroOrdenSeleccionado(ordP.numeroOrden)" #abrirModal
@@ -60,12 +62,12 @@
                             <button *ngIf="ordP.estadoOrden === 'Pendiente'" data-bs-toggle="modal" class="fa-solid fa-pen-to-square iconoLista fondo me-3"
                             data-bs-target="#myModal" data-bs-whatever="@mdo"
                             (click)="setNumeroOrdenSeleccionado(ordP.numeroOrden)" #abrirModal
-                            matTooltip="Modificar estado"></button>
+                            matTooltip="Cambiar Estado"></button>
                     </td>
-                    <td>
+                    <!-- <td>
                         <i type="button"  *ngIf="ordP.estadoOrden === 'Pendiente'" class="fa-solid fa-pencil me-3 iconoLista"
                             (click)="Modificar(ordP.idOrdenProduccion)" matTooltip="Modificar orden"></i>
-                    </td>
+                    </td> -->
 
                 </tr>
             </tbody>

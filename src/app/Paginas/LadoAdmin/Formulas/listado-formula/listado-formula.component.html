@@ -7,11 +7,11 @@
 <div class="container TextWhite rounded-2 ff mtt">
     <div class="row">
         <div class="col-4 col-sm-4 col-md-3 col-lg-3">
-            <h3 class="text-start py-3 mt-1">FORMULAS</h3>
+            <h3 class="text-start py-3 mt-1">FÓRMULAS</h3>
         </div>
 
         <div class="col-8 col-sm-8 col-md-9 col-lg-9 text-start py-3">
-            <button class="btn btnCeleste" (click)="Agregar()" matTooltip="Nueva formula">NUEVO</button>
+            <button class="btn btnCeleste" (click)="Agregar()" matTooltip="Nueva Fórmula">NUEVO</button>
         </div>
     </div>
     <hr />
@@ -32,7 +32,7 @@
                     <th mat-sort-header="nombreProd" scope="col">PRODUCTO</th>
                     <th mat-sort-header="nombreMatP" scope="col">MATERIA PRIMA</th>
                     <th mat-sort-header="cantidadMateriaPrima" scope="col">CANT. MATERIA PRIMA</th>
-                    <th scope="col">FUNCIONES</th>
+                    <th scope="col">MODIFICAR</th>
                 </tr>
             </thead>
             <tbody>
@@ -40,9 +40,9 @@
                     <td>{{ form.nombreProd }}</td>
                     <td>{{ form.nombreMatP }}</td>
                     <td class="text-start">{{form.cantidadMateriaPrima}} Grs.</td>
-                    <td>
+                    <td  class="text-center">
                         <i type="button" class="fa-solid fa-pencil me-3 iconoLista" (click)="Modificar(form.idFormula)"
-                            matTooltip="Modificar formula"></i>
+                            matTooltip="Modificar Fórmula"></i>
                     </td>
                 </tr>
             </tbody>

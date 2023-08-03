@@ -11,7 +11,7 @@
         </div>
 
         <div class="col-4 col-sm-7 col-md-7 col-lg-7 text-start py-3">
-            <button class="btn btnCeleste" (click)="agregar()" matTooltip="Nuevo stock">NUEVO</button>
+            <button class="btn btnCeleste" (click)="agregar()" matTooltip="Nuevo Stock">NUEVO</button>
         </div>
     </div>
     <hr />
@@ -30,8 +30,9 @@
             <thead class="table mtc-5 table-sm TextWhite text-center">
                 <tr>
                     <th mat-sort-header="descripcion" scope="col">NOMBRE</th>
-                    <th mat-sort-header="cantidad" scope="col">CANTIDAD</th>
+                    <th mat-sort-header="cantidad" scope="col" >CANTIDAD</th>
                     <th mat-sort-header="precio" scope="col">PRECIO</th>
+                    <th mat-sort-header="precio" scope="col">PRECIO TOTAL</th>
                     <th mat-sort-header="fechaUltimaActualizacion" scope="col">FECHA ÚLT. ACTUALIZACIÓN</th>
                     <th scope="col">FUNCIONES</th>
                 </tr>
@@ -39,16 +40,17 @@
             <tbody class="text-center">
                 <tr *ngFor="let prod of listado">
                     <td class="text-start">{{ prod.nombre }}</td>
-                    <td>{{ prod.cantidad }}</td>
-                    <td>$ {{ prod.precio }}</td>
-                    <td>{{ prod.fechaUltimaActualizacion |date }}</td>
-                    <td>
+                    <td class="text-center">{{ prod.cantidad }}</td>
+                    <td class="text-center">$ {{ prod.precio }}</td>
+                    <td class="text-center">$ {{ prod.precio * prod.cantidad }}</td>
+                    <td class="text-center">{{ prod.fechaUltimaActualizacion |date }}</td>
+                    <td class="text-center">
 
                         <button data-bs-toggle="modal" class="fa-solid fa-circle-info iconoLista fondo me-3"
                             data-bs-target="#myModal" data-bs-whatever="@mdo" #abrirModal
-                            (click)="cargarHistorial(prod.idProducto)" matTooltip="Detalle de movimiento"></button>
+                            (click)="cargarHistorial(prod.idProducto)" matTooltip="Detalle de Movimiento"></button>
                         <i type="button" class="fa-solid fa-pencil me-3 iconoLista"
-                            (click)="Modificar(prod.idStockProducto)" matTooltip="Modificar stock"></i>
+                            (click)="Modificar(prod.idStockProducto)" matTooltip="Modificar Stock"></i>
                     </td>
                 </tr>
             </tbody>

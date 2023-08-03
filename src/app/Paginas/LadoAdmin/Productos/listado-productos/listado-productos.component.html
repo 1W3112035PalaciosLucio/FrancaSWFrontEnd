@@ -11,7 +11,7 @@
     </div>
 
     <div class="col-8 col-sm-8 col-md-9 col-lg-9 text-start py-3">
-      <button class="btn btnCeleste ms-5" (click)="agregar()" matTooltip="Nuevo producto">NUEVO</button>
+      <button class="btn btnCeleste ms-5" (click)="agregar()" matTooltip="Nuevo Producto">NUEVO</button>
     </div>
   </div>
   <hr />
@@ -26,7 +26,7 @@
       <button class="btn btnA2 me-1 mt-1" (click)="disenio()" matTooltip="Diseño">DISEÑO</button>
       <button class="btn btnA3 me-1 mt-1" (click)="medida()" matTooltip="Medida">MEDIDA</button>
       <button class="btn btnA4 me-1 mt-1" (click)="precio()" matTooltip="Precio">PRECIO</button>
-      <button class="btn btnA5 me-1 mt-1" (click)="tipo()" matTooltip="Tipo de producto">TIPO</button>
+      <button class="btn btnA5 me-1 mt-1" (click)="tipo()" matTooltip="Tipo de Producto">TIPO</button>
     </div>
 
   </div>
@@ -55,11 +55,11 @@
           <td>${{ prodc.precioBocha }}</td>
           <td>
             <i type="button" class="fa-solid fa-pencil me-3 iconoLista" (click)="Modificar(prodc.idProducto)"
-              matTooltip="Modificar producto"></i>
+              matTooltip="Modificar Producto"></i>
             <i type="button" class="fa-solid fa-ban iconoListaD" *ngIf="prodc.activo" (click)="Desactivar(prodc.codigo)"
-              matTooltip="Desactivar producto"></i>
+              matTooltip="Desactivar Producto"></i>
             <i type="button" class="fa-solid fa-check iconoListaA" *ngIf="!prodc.activo" (click)="Activar(prodc.codigo)"
-              matTooltip="Activar producto"></i>
+              matTooltip="Activar Producto"></i>
           </td>
           <td>
             <!-- <i  type="button" class="fa-solid fa-plus ms-4 iconoLista" (click)="AgregarCatalogo(prodc.idProducto)"

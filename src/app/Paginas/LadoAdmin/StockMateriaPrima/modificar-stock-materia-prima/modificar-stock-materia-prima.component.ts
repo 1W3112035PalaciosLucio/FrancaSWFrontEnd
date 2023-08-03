@@ -56,8 +56,73 @@ export class ModificarStockMateriaPrimaComponent implements OnInit {
     })
   }
 
+  // actualizarStock(f: NgForm) {
+  //   if (f.valid) {
+  //     this.servicio.PutStockMp(this.stockMP).subscribe({
+  //       next: (resultado: any) => {
+  //         Swal.fire({
+  //           icon: 'success',
+  //           text: 'El stock se ha actualizado correctamente',
+  //           confirmButtonColor: '#162B4E'
+  //         }).then(() => {
+  //           this.router.navigateByUrl("admin/listadoStockMateriaPrima");
+  //         });
+  //         console.log(resultado);
+  //         console.log(f);
+  //       },
+  //       error: (error: any) => {
+  //         Swal.fire({
+  //           icon: 'error',
+  //           title: 'Error',
+  //           text: 'Se ha producido un error al actualizar el stock. Por favor, inténtelo de nuevo más tarde.',
+  //           confirmButtonColor: '#162B4E'
+  //         });
+  //         console.log(error);
+  //       }
+  //     });
+  //   } else {
+  //     Swal.fire({
+  //       icon: 'error',
+  //       title: 'Error',
+  //       text: 'El formulario es inválido. Por favor, corrija los errores antes de continuar.',
+  //       confirmButtonColor: '#162B4E'
+  //     });
+  //   }
+  // }
   actualizarStock(f: NgForm) {
     if (f.valid) {
+      // Obtener la fecha actual
+      const fechaActual = new Date();
+
+      // Obtener la fecha "fechaUltimoPrecio" ingresada en el formulario
+      const fechaUltimoPrecioIngresada = new Date(this.stockMP.fechaUltimoPrecio);
+
+      // Obtener la fecha "fechaUltimaActualizacion" ingresada en el formulario
+      const fechaUltimaActualizacionIngresada = new Date(this.stockMP.fechaUltimaActualizacion);
+
+      // Comprobar si la fecha "fechaUltimoPrecio" es posterior a la fecha actual
+      if (fechaUltimoPrecioIngresada > fechaActual) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'La fecha "Fecha Último Precio" no puede ser posterior al día actual.',
+          confirmButtonColor: '#162B4E'
+        });
+        return; // Detener el proceso de envío del formulario
+      }
+
+      // Comprobar si la fecha "fechaUltimaActualizacion" es posterior a la fecha actual
+      if (fechaUltimaActualizacionIngresada > fechaActual) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'La fecha "Fecha Última Actualización" no puede ser posterior al día actual.',
+          confirmButtonColor: '#162B4E'
+        });
+        return; // Detener el proceso de envío del formulario
+      }
+
+      // Si las fechas son válidas y no son posteriores al día actual, continuamos con la actualización del stock
       this.servicio.PutStockMp(this.stockMP).subscribe({
         next: (resultado: any) => {
           Swal.fire({
@@ -89,7 +154,6 @@ export class ModificarStockMateriaPrimaComponent implements OnInit {
       });
     }
   }
-
   volver() {
     this.router.navigateByUrl("admin/listadoStockMateriaPrima");
   }

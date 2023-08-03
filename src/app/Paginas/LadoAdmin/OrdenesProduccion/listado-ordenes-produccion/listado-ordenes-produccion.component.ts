@@ -48,6 +48,20 @@ export class ListadoOrdenesProduccionComponent implements OnInit {
       observer.observe(target);
     }
   }
+
+  getEstadoClass(estado: string): string {
+    switch (estado) {
+      case 'Pendiente':
+        return 'estado-pendiente';
+      case 'Finalizado':
+        return 'estado-finalizado';
+      case 'Cancelado':
+        return 'estado-cancelado';
+      default:
+        return '';
+    }
+  }
+
   setNumeroOrdenSeleccionado(numeroOrden: number) {
     this.numeroOrdenSeleccionado = numeroOrden;
     console.log(this.numeroOrdenSeleccionado);

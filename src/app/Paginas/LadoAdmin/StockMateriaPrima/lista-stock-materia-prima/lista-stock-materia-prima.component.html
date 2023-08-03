@@ -43,20 +43,20 @@
             <tbody class="text-center">
                 <tr *ngFor="let stockMp of listado">
                     <td class="text-start">{{ stockMp.descripcion }}</td>
-                    <td>{{ stockMp.cantidad }}</td>
+                    <!-- <td>{{ stockMp.cantidad }} GRS.</td> -->
+                    <td [ngClass]="getColorClass(stockMp)">{{ stockMp.cantidad }} GRS.</td>
                     <td>$ {{ stockMp.precio }}</td>
-                    <td>{{ stockMp.stockMinimo }}</td>
-                    <td>{{ stockMp.stockInicial }}</td>
+                    <td>{{ stockMp.stockMinimo }} GRS.</td>
+                    <td>{{ stockMp.stockInicial }} GRS.</td>
                     <td>{{ stockMp.fechaUltimoPrecio | date}}</td>
                     <td>{{ stockMp.fechaUltimaActualizacion |date }}</td>
                     <td>
-
                         <button data-bs-toggle="modal" class="fa-solid fa-circle-info iconoLista fondo me-3"
                             data-bs-target="#myModal" data-bs-whatever="@mdo" #abrirModal
                             (click)="cargarHistorial(stockMp.idMateriaPrima)"
-                            matTooltip="Detalle de movimiento"></button>
+                            matTooltip="Detalle de Movimiento"></button>
                         <i type="button" class="fa-solid fa-pencil me-3 iconoLista"
-                            (click)="Modificar(stockMp.idStockMateriaPrima)" matTooltip="Modificar stock"></i>
+                            (click)="Modificar(stockMp.idStockMateriaPrima)" matTooltip="Modificar Stock"></i>
                     </td>
                 </tr>
             </tbody>
@@ -81,7 +81,7 @@
                                 <th scope="col">DESCRIPCIÓN</th>
                                 <th scope="col">CANTIDAD</th>
                                 <th scope="col">PRECIO</th>
-                                <th scope="col">F. ÚLTIMA ACTUALIZACIÓN</th>
+                                <th scope="col">FECHA ÚLT. ACTUALIZACIÓN</th>
                                 <th scope="col">TIPO DE MOVIMIENTO</th>
                             </tr>
                         </thead>

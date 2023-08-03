@@ -54,7 +54,48 @@ export class AgregarPrecioComponent implements OnInit {
     this.scrollToSection(fragment);
   }
 
+  // registrar(f: NgForm) {
+  //   console.log(this.pprecio)
+  //   if (f.valid) {
+  //     this.servicio.PostPrecio(this.pprecio).subscribe({
+  //       next: (resultado: any) => {
+  //         Swal.fire({
+  //           icon: 'success',
+  //           text: resultado.message,
+  //           confirmButtonColor: '#162B4E'
+  //         }), this.pprecio = {} as PrecioProd, this.volver(), f.resetForm(); this.spinner.hide();
+  //       }, error: (e: any) => { alert(e.error); console.log(e); }
+  //     })
+  //   }
+  // }
+
   registrar(f: NgForm) {
+    // Obtener las fechas de vigencia desde y hasta ingresadas en el formulario
+    const fechaVigenciaDesde = new Date(this.pprecio.fechaVigenciaDesde);
+    const fechaVigenciaHasta = new Date(this.pprecio.fehcaVigenciaHasta);
+  
+    // Comprobar si la fecha de vigencia hasta es menor a la fecha de vigencia desde
+    if (fechaVigenciaHasta < fechaVigenciaDesde) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'La fecha de vigencia hasta no puede ser menor a la fecha de vigencia desde.',
+        confirmButtonColor: '#162B4E'
+      });
+      return; // Detener el proceso de envío del formulario
+    }
+  
+    // Comprobar si la fecha de vigencia desde es posterior a la fecha de vigencia hasta
+    if (fechaVigenciaDesde > fechaVigenciaHasta) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'La fecha de vigencia desde no puede ser posterior a la fecha de vigencia hasta.',
+        confirmButtonColor: '#162B4E'
+      });
+      return; // Detener el proceso de envío del formulario
+    }
+  
     console.log(this.pprecio)
     if (f.valid) {
       this.servicio.PostPrecio(this.pprecio).subscribe({

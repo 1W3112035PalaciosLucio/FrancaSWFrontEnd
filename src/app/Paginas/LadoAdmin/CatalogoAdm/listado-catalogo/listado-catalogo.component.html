@@ -31,8 +31,8 @@
         <tr>
           <th mat-sort-header="codigo" scope="col">CÓDIGO</th>
           <th mat-sort-header="nombre" scope="col">NOMBRE</th>
-          <th mat-sort-header="colorProducto" scope="col">DESCRIPCION</th>
-          <th mat-sort-header="disenioProducto" scope="col">IMAGEN</th>
+          <th mat-sort-header="colorProducto" scope="col">DESCRIPCIÓN</th>
+          <th mat-sort-header="disenioProducto" scope="col">IMÁGEN</th>
           <th scope="col">FUNCIONES</th>
         </tr>
       </thead>
@@ -44,9 +44,9 @@
           <td><img class="imagen" src="{{catalogo.imagen}}" alt=""></td>
           <td>
             <i type="button" class="fa-solid fa-pencil me-3 iconoLista" (click)="Modificar(catalogo.idCatalogo)"
-              matTooltip="Modificar catálogo"></i>
+              matTooltip="Modificar Catálogo"></i>
             <i type="button" class="fa-solid fa-trash me-3 iconoListaD" (click)="EliminarCatalogo(catalogo.idCatalogo)"
-              matTooltip="Eliminar catálogo"></i>
+              matTooltip="Eliminar Catálogo"></i>
           </td>
         </tr>
       </tbody>
